@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,11 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for Visual Agents
+				'electric-cyan': '#00D2FF',
+				'neural-indigo': '#5C33FF',
+				'kinetic-magenta': '#FF1E8C',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +89,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-waveform': {
+					'0%, 100%': { transform: 'scaleY(1)' },
+					'50%': { transform: 'scaleY(0.5)' }
+				},
+				'color-cycle': {
+					'0%, 100%': { backgroundColor: '#00D2FF' },
+					'50%': { backgroundColor: '#5C33FF' }
+				},
+				'flash-magenta': {
+					'0%, 100%': { backgroundColor: 'transparent' },
+					'50%': { backgroundColor: '#FF1E8C' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-waveform': 'pulse-waveform 1.5s ease-in-out infinite',
+				'color-cycle': 'color-cycle 0.6s ease-in-out infinite',
+				'flash-magenta': 'flash-magenta 0.2s ease-out'
 			}
 		}
 	},
