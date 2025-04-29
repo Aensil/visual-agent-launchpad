@@ -101,6 +101,44 @@ export default {
 				'flash-magenta': {
 					'0%, 100%': { backgroundColor: 'transparent' },
 					'50%': { backgroundColor: '#FF1E8C' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1', transform: 'translateY(0)' },
+					'100%': { opacity: '0', transform: 'translateY(10px)' }
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'scale-out': {
+					from: { transform: 'scale(1)', opacity: '1' },
+					to: { transform: 'scale(0.95)', opacity: '0' }
+				},
+				'slide-in-up': {
+					'0%': { transform: 'translateY(30px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'nudge': {
+					'0%': { transform: 'translateX(0)' },
+					'25%': { transform: 'translateX(-2px)' },
+					'75%': { transform: 'translateX(2px)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'waveform-pulse': {
+					'0%, 100%': { transform: 'scaleY(1)' },
+					'50%': { transform: 'scaleY(1.2)' }
+				},
+				'attention': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
+				},
+				'progress-spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -108,7 +146,16 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-waveform': 'pulse-waveform 1.5s ease-in-out infinite',
 				'color-cycle': 'color-cycle 0.6s ease-in-out infinite',
-				'flash-magenta': 'flash-magenta 0.2s ease-out'
+				'flash-magenta': 'flash-magenta 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'fade-out': 'fade-out 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+				'scale-out': 'scale-out 0.2s ease-out',
+				'slide-in-up': 'slide-in-up 0.6s ease-out',
+				'nudge': 'nudge 0.6s ease-in-out',
+				'waveform-pulse': 'waveform-pulse 4s ease-in-out infinite',
+				'attention': 'attention 2s infinite',
+				'progress-spin': 'progress-spin 1s linear infinite'
 			}
 		}
 	},

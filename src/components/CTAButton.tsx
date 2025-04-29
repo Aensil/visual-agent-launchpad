@@ -7,9 +7,10 @@ interface CTAButtonProps {
   variant: 'primary' | 'secondary';
   onClick?: () => void;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const CTAButton = ({ children, variant, onClick, className }: CTAButtonProps) => {
+const CTAButton = ({ children, variant, onClick, className, style }: CTAButtonProps) => {
   return (
     <button 
       className={cn(
@@ -17,6 +18,7 @@ const CTAButton = ({ children, variant, onClick, className }: CTAButtonProps) =>
         className
       )}
       onClick={onClick}
+      style={style}
     >
       {children}
     </button>
