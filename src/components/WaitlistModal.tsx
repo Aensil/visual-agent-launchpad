@@ -13,17 +13,17 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-[9999] p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div 
-        className="w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+        className="w-full max-w-3xl max-h-[90vh] overflow-y-auto relative z-[10000]"
         onClick={stopPropagation}
       >
         <div className="bg-[#030311] border border-white/10 rounded-2xl shadow-xl">
           <div className="p-4 flex justify-between items-center border-b border-white/10">
             <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
-              Joint into the waitlist
+              Join the waitlist
             </h2>
             <button 
               onClick={onClose}
