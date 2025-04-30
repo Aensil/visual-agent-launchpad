@@ -53,13 +53,14 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
       </p>
       
       <div className="mb-8 w-full max-w-4xl">
-        <iframe 
-          width="100%" 
+        <iframe
+          width="100%"
           height="400"
-          src="https://www.youtube.com/embed/TS1T9m-HKk8" 
+          src="https://www.youtube.com/embed/TS1T9m-HKk8?autoplay=1&muted=1"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           className="bg-gray-200"
+          allowFullScreen
         ></iframe>
       </div>
       
@@ -83,14 +84,7 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
         </CTAButton>
       </div>
       
-      {!prefersReducedMotion && (
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center items-start p-1">
-            <div className="w-1.5 h-1.5 bg-white rounded-full animate-float"></div>
-          </div>
-        </div>
-      )}
+      
       
       {/* Modal para la lista de espera */}
       {showWaitlistModal && (

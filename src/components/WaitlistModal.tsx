@@ -23,7 +23,7 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose }) => {
         <div className="bg-[#030311] border border-white/10 rounded-2xl shadow-xl">
           <div className="p-4 flex justify-between items-center border-b border-white/10">
             <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
-              Únete a la Lista de Espera
+              Joint into the waitlist
             </h2>
             <button 
               onClick={onClose}

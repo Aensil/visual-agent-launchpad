@@ -6,7 +6,10 @@
   text-align: center;
   overflow-x: hidden;
 }
-
+select option {
+  background-color: #2d3748; /* Un fondo oscuro */
+  color: white; /* Texto claro */
+}
 .logo {
   height: 6em;
   padding: 1.5em;
