@@ -15,7 +15,7 @@ const Index = () => {
   const [idleTime, setIdleTime] = useState(0);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   
-  // Check if reduced motion is preferred.
+  // Check if reduced motion is preferred
   const prefersReducedMotion = 
     typeof window !== 'undefined' 
       ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
