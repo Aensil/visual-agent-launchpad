@@ -1,8 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import CTAButton from '@/components/CTAButton';
+import WaitlistModal from '@/components/WaitlistModal';
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+
+  const openWaitlistModal = () => {
+    setShowWaitlistModal(true);
+  };
+
+  const closeWaitlistModal = () => {
+    setShowWaitlistModal(false);
+  };
 
   return (
     <section ref={sectionRef} className="relative py-16 px-4 bg-black border-t border-gray-800 z-10">
@@ -21,12 +31,16 @@ const CTASection = () => {
           </CTAButton>
           <CTAButton 
             variant="secondary" 
-            onClick={() => console.log('Join Waiting List clicked')}
+            onClick={openWaitlistModal}
           >
             Join Waiting List
           </CTAButton>
         </div>
       </div>
+
+      {showWaitlistModal && (
+        <WaitlistModal onClose={closeWaitlistModal} />
+      )}
     </section>
   );
 };
