@@ -74,9 +74,9 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
           <iframe
             width="100%"
             height="400"
-            src="https://www.youtube.com/embed/TS1T9m-HKk8?autoplay=1&muted=1"
+            src="https://www.youtube.com/embed/TS1T9m-HKk8?autoplay=1&mute=1&playsinline=1&enablejsapi=1"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             className="bg-gray-200 relative z-10 rounded-lg"
             allowFullScreen
           ></iframe>
