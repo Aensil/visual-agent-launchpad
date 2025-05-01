@@ -33,15 +33,15 @@ const WaitlistForm: React.FC = () => {
       const { error } = await supabaseclient.from('waitlist').insert([formData]);
       if (error) {
         console.error('Error saving to Supabase:', error.message);
-        alert('Ocurrió un error al guardar tu información. Intenta nuevamente.');
+        alert('An error occurred while saving your information. Please try again.');
         return;
       }
 
-      alert('¡Gracias por unirte a nuestra lista de espera! Te contactaremos pronto.');
+      alert('¡Thanks for joining the waitlist! We will contact you soon.');
       form.reset();
     } catch (err) {
       console.error('Unexpected error:', err);
-      alert('Error inesperado. Intenta más tarde.');
+      alert('Error unknown. Try again later.');
     }
   };
 
