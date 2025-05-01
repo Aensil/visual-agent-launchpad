@@ -70,15 +70,18 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
       </p>
       
       <div className="mb-8 w-full max-w-4xl">
-        <iframe
-          width="100%"
-          height="400"
-          src="https://www.youtube.com/embed/TS1T9m-HKk8?autoplay=1&muted=1"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          className="bg-gray-200"
-          allowFullScreen
-        ></iframe>
+        <div className="relative">
+          <iframe
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/TS1T9m-HKk8?autoplay=1&muted=1"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            className="bg-gray-200 relative z-10 rounded-lg"
+            allowFullScreen
+          ></iframe>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[102%] h-[102%] rounded-lg bg-electric-cyan/20 blur-xl animate-pulse-glow -z-10"></div>
+        </div>
       </div>
       
       <div
