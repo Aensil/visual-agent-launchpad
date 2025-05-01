@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Mic, Code, Clock } from 'lucide-react';
 
@@ -17,7 +16,7 @@ const FeaturesSection = ({ hasScrolled, prefersReducedMotion }: FeaturesSectionP
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-20 px-4 bg-black z-10">
+    <section ref={sectionRef} className="py-20 px-4 bg-black z-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {features.map((feature, index) => (
           <div 
