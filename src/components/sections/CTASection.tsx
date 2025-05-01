@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import CTAButton from '@/components/CTAButton';
 
@@ -16,7 +15,7 @@ const CTASection = () => {
         <div className="flex flex-col sm:flex-row gap-6">
           <CTAButton 
             variant="primary" 
-            onClick={() => console.log('Try Demo clicked')}
+            onClick={() => window.location.href = "https://app.vuen.org"}
           >
             Try Demo
           </CTAButton>

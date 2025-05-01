@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import BrowserMockup3D from '@/components/BrowserMockup3D';
 import WaveformAnimation from '@/components/WaveformAnimation';
@@ -40,7 +39,7 @@ const DemoTeaserSection = ({ hasScrolled }: DemoTeaserSectionProps) => {
         
         <CTAButton 
           variant="primary" 
-          onClick={() => console.log('Try Live Demo clicked')}
+          onClick={() => window.location.href = "https://app.vuen.org"}
           className="transition-all duration-500"
           style={{
             transform: hasScrolled ? 'translateY(0)' : 'translateY(20px)',
