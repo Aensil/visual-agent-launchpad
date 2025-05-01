@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/visual-agent-launchpad/", // Match GitHub repository name
+  base: "/", // Root path for custom domain
   server: {
     host: "::",
     port: 8082,
