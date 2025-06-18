@@ -68,7 +68,7 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
       >
         Speak. Watch. Act. <span className="text-electric-cyan">No code.</span> <span className="text-neural-indigo">No clicks.</span>
       </p>
-      {/* 
+      
       <div className="mb-8 w-full max-w-4xl">
         <div className="relative">
           <iframe
@@ -82,7 +82,7 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
           ></iframe>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[102%] h-[102%] rounded-lg bg-electric-cyan/20 blur-xl animate-pulse-glow -z-10"></div>
         </div>
-      </div> */}
+      </div> 
       
       <div
         className={`flex flex-col sm:flex-row gap-6 transition-all duration-300 ${
