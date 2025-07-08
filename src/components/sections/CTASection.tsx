@@ -25,7 +25,7 @@ const CTASection = () => {
         <div className="flex flex-col sm:flex-row gap-6">
           <CTAButton 
             variant="primary" 
-            onClick={() => window.location.href = "https://app.vuen.org"}
+            onClick={() => window.location.href = "https://real-estate.vuen.org/"}
           >
             Try Demo
           </CTAButton>

@@ -13,7 +13,7 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   
   const handleTryDemoClick = () => {
-    window.location.href = "https://app.vuen.org";
+    window.location.href = "https://real-estate.vuen.org/";
   };
   
   const openWaitlistModal = () => {
@@ -59,7 +59,7 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
       </h1>
       
       <p
-        className="text-xl md:text-2xl mb-12 transition-all duration-600 delay-400"
+        className="text-xl md:text-2xl mb-6 transition-all duration-600 delay-400"
         style={{
           opacity: isLoaded ? 1 : 0,
           transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
@@ -68,6 +68,8 @@ const HeroSection = ({ isLoaded, idleTime, prefersReducedMotion }: HeroSectionPr
       >
         Speak. Watch. Act. <span className="text-electric-cyan">No code.</span> <span className="text-neural-indigo">No clicks.</span>
       </p>
+      
+
       
       <div className="mb-8 w-full max-w-4xl">
         <div className="relative">

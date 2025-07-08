@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Mic, Code, Clock } from 'lucide-react';
+import { Mic, Code, Clock, Brain } from 'lucide-react';
 
 interface FeaturesSectionProps {
   hasScrolled: boolean;
@@ -12,7 +12,7 @@ const FeaturesSection = ({ hasScrolled, prefersReducedMotion }: FeaturesSectionP
   const features = [
     { Icon: Mic, text: "Voice-First UI", delay: 0 },
     { Icon: Code, text: "No-Code Builder", delay: 100 },
-    { Icon: Clock, text: "<200 ms Updates", delay: 200 }
+    { Icon: Brain, text: "LLM-Powered", delay: 200 }
   ];
 
   return (
@@ -61,10 +61,10 @@ const VoiceInterfaceSection = ({ hasScrolled }: { hasScrolled: boolean }) => {
             </span>
           </h2>
           <p className="text-lg mb-6 text-gray-300">
-            Our AI understands natural language and context, enabling you to build complex interfaces with simple voice commands.
+            Our AI understands natural language and context, enabling you to build complex interfaces with simple voice commands. Perfect for real estate professionals and beyond.
           </p>
           <div className="flex flex-wrap gap-3">
-            {["Intuitive", "Fast", "Powerful", "Accessible"].map((tag, i) => (
+            {["Intuitive", "Fast", "Real Estate", "LLM-Powered"].map((tag, i) => (
               <span 
                 key={i} 
                 className="px-3 py-1 rounded-full text-sm border border-white/20 bg-neural-indigo/10 backdrop-blur-sm"

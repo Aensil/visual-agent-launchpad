@@ -39,7 +39,7 @@ const DemoTeaserSection = ({ hasScrolled }: DemoTeaserSectionProps) => {
         
         <CTAButton 
           variant="primary" 
-          onClick={() => window.location.href = "https://app.vuen.org"}
+          onClick={() => window.location.href = "https://real-estate.vuen.org/"}
           className="transition-all duration-500"
           style={{
             transform: hasScrolled ? 'translateY(0)' : 'translateY(20px)',
