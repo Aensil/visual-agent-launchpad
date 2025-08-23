@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "LOS AGENTES VISUALES ESTÁN AQUÍ",
+    "subtitle": "Habla. Observa. Actúa. Sin código. Sin clics.",
+    "tryDemo": "Probar Demo",
+    "joinWaitlist": "Unirse a Lista de Espera"
+  },
+  "features": {
+    "voiceFirst": "Interfaz por Voz",
+    "noCode": "Constructor Sin Código",
+    "llmPowered": "Impulsado por LLM",
+    "revolutionaryTitle": "Interfaz de Voz Revolucionaria",
+    "revolutionaryDesc": "Nuestra IA entiende el lenguaje natural y el contexto, permitiéndote construir interfaces complejas con simples comandos de voz. Perfecto para profesionales inmobiliarios y más allá.",
+    "tags": ["Intuitivo", "Rápido", "Bienes Raíces", "Impulsado por LLM"],
+    "voiceExample": "Crear una página de perfil con un avatar 3D"
+  },
+  "demo": {
+    "seeInAction": "Vélo en acción",
+    "tryLiveDemo": "Probar Demo en Vivo"
+  },
+  "technology": {
+    "title": "Tecnología de Vanguardia",
+    "description": "Nuestros agentes visuales impulsados por LLM transforman cómo interactúas con interfaces digitales. Actualmente revolucionando flujos de trabajo inmobiliarios mientras construimos la base para IA visual universal.",
+    "neuralProcessing": {
+      "title": "Procesamiento Neural",
+      "description": "Nuestra IA procesa comandos de voz con comprensión precisa de la intención y el contexto."
+    },
+    "realTimeRendering": {
+      "title": "Renderizado en Tiempo Real",
+      "description": "Ve tus cambios instantáneamente con nuestro motor de renderizado ultrarrápido."
+    },
+    "adaptiveInterfaces": {
+      "title": "Interfaces Adaptativas",
+      "description": "Componentes de UI que aprenden de tus preferencias y se adaptan automáticamente."
+    }
+  },
+  "cta": {
+    "title": "¿Listo para construir tu propio Agente Visual?",
+    "tryDemo": "Probar Demo",
+    "joinWaitlist": "Unirse a Lista de Espera"
+  },
+  "footer": {
+    "tagline": "Construyendo el futuro de las interfaces de IA visual",
+    "social": {
+      "email": "Correo",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "threads": "Threads",
+      "tiktok": "TikTok"
+    }
+  },
+  "meta": {
+    "title": "VUEN AI - Los Agentes Visuales Están Aquí",
+    "description": "Habla. Observa. Actúa. Sin código. Sin clics. Interfaz de voz revolucionaria impulsada por IA para crear interfaces digitales."
+  }
+}

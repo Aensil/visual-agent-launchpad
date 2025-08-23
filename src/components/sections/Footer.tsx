@@ -1,13 +1,16 @@
 
 import React from 'react';
 import { Mail, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   const socialLinks = [
-    { icon: Mail, href: "mailto:Enoc@vuen.org", label: "Email" },
-    { icon: Instagram, href: "https://www.instagram.com/vuen.ai/", label: "Instagram" },
-    { icon: Twitter, href: "https://x.com/vuen_ai", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/vuen-ai", label: "LinkedIn" }
+    { icon: Mail, href: "mailto:enoc.silva@vuen.org", label: t('footer.social.email') },
+    { icon: Instagram, href: "https://www.instagram.com/vuen.ai/", label: t('footer.social.instagram') },
+    { icon: Twitter, href: "https://x.com/vuen_ai", label: t('footer.social.twitter') },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/vuen-ai", label: t('footer.social.linkedin') }
   ];
 
   return (
@@ -46,7 +49,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-electric-cyan transition-colors duration-300 text-sm"
           >
-            Threads
+            {t('footer.social.threads')}
           </a>
           <span className="text-gray-600">•</span>
           <a
@@ -55,12 +58,12 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-electric-cyan transition-colors duration-300 text-sm"
           >
-            TikTok
+            {t('footer.social.tiktok')}
           </a>
         </div>
         
         <p className="text-sm text-gray-400 mb-2">© {new Date().getFullYear()} VUEN AI. All rights reserved.</p>
-        <p className="text-xs text-gray-500">Building the future of visual AI interfaces</p>
+        <p className="text-xs text-gray-500">{t('footer.tagline')}</p>
       </div>
     </footer>
   );

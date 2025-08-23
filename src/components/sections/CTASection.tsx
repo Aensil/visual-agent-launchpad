@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 import CTAButton from '@/components/CTAButton';
 import WaitlistModal from '@/components/WaitlistModal';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const { t } = useLanguage();
 
   const openWaitlistModal = () => {
     setShowWaitlistModal(true);
@@ -19,7 +21,7 @@ const CTASection = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
         <p className="text-xl mb-8 md:mb-0">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-electric-cyan">
-            Ready to build your own Visual Agent?
+            {t('cta.title')}
           </span>
         </p>
         <div className="flex flex-col sm:flex-row gap-6">
@@ -27,13 +29,13 @@ const CTASection = () => {
             variant="primary" 
             onClick={() => window.location.href = "https://real-estate.vuen.org/"}
           >
-            Try Demo
+            {t('cta.tryDemo')}
           </CTAButton>
           <CTAButton 
             variant="secondary" 
             onClick={openWaitlistModal}
           >
-            Join Waiting List
+            {t('cta.joinWaitlist')}
           </CTAButton>
         </div>
       </div>

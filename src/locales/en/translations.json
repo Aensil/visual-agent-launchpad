@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "VISUAL AGENTS ARE HERE",
+    "subtitle": "Speak. Watch. Act. No code. No clicks.",
+    "tryDemo": "Try Demo",
+    "joinWaitlist": "Join Waiting List"
+  },
+  "features": {
+    "voiceFirst": "Voice-First UI",
+    "noCode": "No-Code Builder",
+    "llmPowered": "LLM-Powered",
+    "revolutionaryTitle": "Revolutionary Voice Interface",
+    "revolutionaryDesc": "Our AI understands natural language and context, enabling you to build complex interfaces with simple voice commands. Perfect for real estate professionals and beyond.",
+    "tags": ["Intuitive", "Fast", "Real Estate", "LLM-Powered"],
+    "voiceExample": "Create a profile page with a 3D avatar"
+  },
+  "demo": {
+    "seeInAction": "See it in action",
+    "tryLiveDemo": "Try Live Demo"
+  },
+  "technology": {
+    "title": "Cutting-Edge Technology",
+    "description": "Our LLM-powered visual agents transform how you interact with digital interfaces. Currently revolutionizing real estate workflows while building the foundation for universal visual AI.",
+    "neuralProcessing": {
+      "title": "Neural Processing",
+      "description": "Our AI processes voice commands with precise understanding of intent and context."
+    },
+    "realTimeRendering": {
+      "title": "Real-time Rendering",
+      "description": "See your changes instantly with our ultrafast rendering engine."
+    },
+    "adaptiveInterfaces": {
+      "title": "Adaptive Interfaces",
+      "description": "UI components that learn from your preferences and adapt automatically."
+    }
+  },
+  "cta": {
+    "title": "Ready to build your own Visual Agent?",
+    "tryDemo": "Try Demo",
+    "joinWaitlist": "Join Waiting List"
+  },
+  "footer": {
+    "tagline": "Building the future of visual AI interfaces",
+    "social": {
+      "email": "Email",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "threads": "Threads",
+      "tiktok": "TikTok"
+    }
+  },
+  "meta": {
+    "title": "VUEN AI - Visual Agents Are Here",
+    "description": "Speak. Watch. Act. No code. No clicks. Revolutionary voice interface powered by AI for creating digital interfaces."
+  }
+}

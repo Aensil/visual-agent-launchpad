@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import BrowserMockup3D from '@/components/BrowserMockup3D';
 import WaveformAnimation from '@/components/WaveformAnimation';
 import CTAButton from '@/components/CTAButton';
+import { useLanguage } from '@/hooks/useLanguage';
 
 interface DemoTeaserSectionProps {
   hasScrolled: boolean;
@@ -9,6 +10,7 @@ interface DemoTeaserSectionProps {
 
 const DemoTeaserSection = ({ hasScrolled }: DemoTeaserSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   return (
     <section ref={sectionRef} className="relative py-24 px-4 bg-black z-10">
@@ -33,7 +35,7 @@ const DemoTeaserSection = ({ hasScrolled }: DemoTeaserSectionProps) => {
           transitionDelay: '200ms',
         }}>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
-            See it in action
+            {t('demo.seeInAction')}
           </span>
         </p>
         
@@ -47,7 +49,7 @@ const DemoTeaserSection = ({ hasScrolled }: DemoTeaserSectionProps) => {
             transitionDelay: '300ms',
           }}
         >
-          Try Live Demo
+          {t('demo.tryLiveDemo')}
         </CTAButton>
       </div>
     </section>
