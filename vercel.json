@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "old-domain.com"
+        }
+      ],
+      "destination": "https://vuen.ai/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host", 
+          "value": "www.vuen.ai"
+        }
+      ],
+      "destination": "https://vuen.ai/$1",
+      "permanent": true
+    }
+  ]
+}
