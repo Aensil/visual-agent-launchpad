@@ -26,6 +26,28 @@
       "source": "/(.*)",
       "has": [
         {
+          "type": "host",
+          "value": "real-estate.vuen.org"
+        }
+      ],
+      "destination": "https://real-estate.vuen.ai/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "restaurant.vuen.org"
+        }
+      ],
+      "destination": "https://real-estate.vuen.ai/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
           "type": "host", 
           "value": "www.vuen.ai"
         }
