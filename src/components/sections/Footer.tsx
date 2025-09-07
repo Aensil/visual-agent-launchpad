@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useLanguage();
   
   const socialLinks = [
-    { icon: Mail, href: "mailto:enoc.silva@vuen.org", label: t('footer.social.email') },
+    { icon: Mail, href: "mailto:enoc.silva@vuen.ai", label: t('footer.social.email') },
     { icon: Instagram, href: "https://www.instagram.com/vuen.ai/", label: t('footer.social.instagram') },
     { icon: Twitter, href: "https://x.com/vuen_ai", label: t('footer.social.twitter') },
     { icon: Linkedin, href: "https://www.linkedin.com/company/vuen-ai", label: t('footer.social.linkedin') }

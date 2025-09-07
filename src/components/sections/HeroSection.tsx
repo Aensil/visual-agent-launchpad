@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }), [t]);
   
   const handleTryDemoClick = useCallback(() => {
-    window.location.href = "https://real-estate.vuen.org/";
+    window.location.href = "https://real-estate.vuen.ai/";
   }, []);
   
   const openWaitlistModal = useCallback(() => {

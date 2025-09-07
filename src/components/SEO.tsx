@@ -16,8 +16,8 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   keywords,
-  image = "https://vuen.org/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
-  url = "https://vuen.org",
+  image = "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
+  url = "https://vuen.ai",
   type = "website",
   language = "en"
 }) => {
@@ -47,13 +47,13 @@ const SEO: React.FC<SEOProps> = ({
     "isPartOf": {
       "@type": "WebSite",
       "name": "VUEN AI",
-      "url": "https://vuen.org"
+      "url": "https://vuen.ai"
     },
     "about": {
       "@type": "Organization",
       "name": "VUEN AI",
-      "url": "https://vuen.org",
-      "logo": "https://vuen.org/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png"
+      "url": "https://vuen.ai",
+      "logo": "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png"
     }
   };
 
@@ -100,17 +100,17 @@ const SEO: React.FC<SEOProps> = ({
       </script>
       
       {/* Language Alternates for i18n */}
-      <link rel="alternate" hrefLang="en" href="https://vuen.org/?lang=en" />
-      <link rel="alternate" hrefLang="es" href="https://vuen.org/?lang=es" />
-      <link rel="alternate" hrefLang="x-default" href="https://vuen.org" />
+      <link rel="alternate" hrefLang="en" href="https://vuen.ai/?lang=en" />
+      <link rel="alternate" hrefLang="es" href="https://vuen.ai/?lang=es" />
+      <link rel="alternate" hrefLang="x-default" href="https://vuen.ai" />
       
       {/* Preconnect to external domains */}
       <link rel="preconnect" href="https://www.youtube.com" />
-      <link rel="preconnect" href="https://real-estate.vuen.org" />
+      <link rel="preconnect" href="https://real-estate.vuen.ai" />
       
       {/* DNS Prefetch */}
       <link rel="dns-prefetch" href="//www.youtube.com" />
-      <link rel="dns-prefetch" href="//real-estate.vuen.org" />
+      <link rel="dns-prefetch" href="//real-estate.vuen.ai" />
     </Helmet>
   );
 };
