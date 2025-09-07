@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { supabaseclient } from '../lib/supabaseclient'; // Asegúrate que esto apunte bien
 import { v4 as uuidv4 } from 'uuid';
+
+// Lazy load Supabase client
+const getSupabaseClient = () => import('../lib/supabaseclient').then(mod => mod.supabaseclient);
 
 const WaitlistForm: React.FC = () => {
   const [previousSolution, setPreviousSolution] = useState<string | null>(null);
@@ -30,6 +32,7 @@ const WaitlistForm: React.FC = () => {
     };
 
     try {
+      const supabaseclient = await getSupabaseClient();
       const { error } = await supabaseclient.from('waitlist').insert([formData]);
       if (error) {
         console.error('Error saving to Supabase:', error.message);

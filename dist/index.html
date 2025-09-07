@@ -1,40 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VUEN AI - Visual Agents</title>
-    <meta name="description" content="Visual Agents - Speak. Watch. Act. No code. No clicks." />
+    
+    <!-- CRITICAL SEO TAGS -->
+    <title>VUEN AI - Visual Agents Are Here | Revolutionary Voice Interface</title>
+    <meta name="description" content="Speak. Watch. Act. No code. No clicks. Revolutionary AI-powered voice interface for creating digital interfaces. Perfect for real estate professionals and beyond." />
+    <meta name="keywords" content="AI, voice interface, visual agents, no-code, real estate, VUEN AI, artificial intelligence, voice commands, interface builder" />
     <meta name="author" content="VUEN AI" />
-
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="en" />
+    
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://vuen.ai" />
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png">
+    <link rel="icon" type="image/svg+xml" href="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png">
 
     <!-- Apple touch (iOS) -->
     <link rel="apple-touch-icon" href="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
 
-    <!-- Social preview -->
-    <meta property="og:title" content="VUEN AI - Visual Agents" />
-    <meta property="og:description" content="Visual Agents - Speak. Watch. Act. No code. No clicks." />
+    <!-- Open Graph - SOCIAL MEDIA SEO -->
+    <meta property="og:title" content="VUEN AI - Visual Agents Are Here | Revolutionary Voice Interface" />
+    <meta property="og:description" content="Revolutionary AI-powered voice interface for creating digital interfaces. No coding required. Perfect for real estate professionals." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png" />
+    <meta property="og:image" content="https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png" />
+    <meta property="og:url" content="https://vuen.ai" />
+    <meta property="og:site_name" content="VUEN AI" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@vuen_ai" />
-    <meta name="twitter:image" content="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png" />
+    <meta name="twitter:creator" content="@vuen_ai" />
+    <meta name="twitter:title" content="VUEN AI - Visual Agents Are Here" />
+    <meta name="twitter:description" content="Revolutionary voice interface powered by AI. No coding required." />
+    <meta name="twitter:image" content="https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png" />
 
-    <!-- Structured data for search -->
+    <!-- PRELOAD CRITICAL RESOURCES -->
+    <link rel="preload" href="data:application/octet-stream;base64,aW1wb3J0IHsgY3JlYXRlUm9vdCB9IGZyb20gJ3JlYWN0LWRvbS9jbGllbnQnDQppbXBvcnQgQXBwIGZyb20gJy4vQXBwLnRzeCcNCmltcG9ydCAnLi9pbmRleC5jc3MnDQoNCmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInJvb3QiKSEpLnJlbmRlcig8QXBwIC8+KTsNCg==" as="script" />
+    <link rel="preload" href="/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png" as="image" />
+    
+    <!-- RESOURCE HINTS FOR PERFORMANCE -->
+    <link rel="modulepreload" href="/assets/HeroSection-DMftJHTV.tsx" />
+    <link rel="modulepreload" href="/assets/SEO-DhihRi-0.tsx" />
+    <link rel="prefetch" href="/assets/FeaturesSection-BR2LV5td.tsx" />
+    <link rel="prefetch" href="data:application/octet-stream;base64,aW1wb3J0IFJlYWN0LCB7IHVzZVJlZiB9IGZyb20gJ3JlYWN0JzsNCmltcG9ydCBCcm93c2VyTW9ja3VwM0QgZnJvbSAnQC9jb21wb25lbnRzL0Jyb3dzZXJNb2NrdXAzRCc7DQppbXBvcnQgV2F2ZWZvcm1BbmltYXRpb24gZnJvbSAnQC9jb21wb25lbnRzL1dhdmVmb3JtQW5pbWF0aW9uJzsNCmltcG9ydCBDVEFCdXR0b24gZnJvbSAnQC9jb21wb25lbnRzL0NUQUJ1dHRvbic7DQppbXBvcnQgeyB1c2VMYW5ndWFnZSB9IGZyb20gJ0AvaG9va3MvdXNlTGFuZ3VhZ2UnOw0KDQppbnRlcmZhY2UgRGVtb1RlYXNlclNlY3Rpb25Qcm9wcyB7DQogIGhhc1Njcm9sbGVkOiBib29sZWFuOw0KfQ0KDQpjb25zdCBEZW1vVGVhc2VyU2VjdGlvbiA9ICh7IGhhc1Njcm9sbGVkIH06IERlbW9UZWFzZXJTZWN0aW9uUHJvcHMpID0+IHsNCiAgY29uc3Qgc2VjdGlvblJlZiA9IHVzZVJlZjxIVE1MRWxlbWVudD4obnVsbCk7DQogIGNvbnN0IHsgdCB9ID0gdXNlTGFuZ3VhZ2UoKTsNCg0KICByZXR1cm4gKA0KICAgIDxzZWN0aW9uIHJlZj17c2VjdGlvblJlZn0gY2xhc3NOYW1lPSJyZWxhdGl2ZSBweS0yNCBweC00IGJnLWJsYWNrIHotMTAiPg0KICAgICAgPGRpdiBjbGFzc05hbWU9Im1heC13LTd4bCBteC1hdXRvIGZsZXggZmxleC1jb2wgaXRlbXMtY2VudGVyIj4NCiAgICAgICAgPGRpdiBjbGFzc05hbWU9InJlbGF0aXZlIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTUwMCBlYXNlLW91dCIgc3R5bGU9e3sNCiAgICAgICAgICB0cmFuc2Zvcm06IGhhc1Njcm9sbGVkID8gJ3RyYW5zbGF0ZVkoMCknIDogJ3RyYW5zbGF0ZVkoMzBweCknLA0KICAgICAgICAgIG9wYWNpdHk6IGhhc1Njcm9sbGVkID8gMSA6IDAsDQogICAgICAgIH19Pg0KICAgICAgICAgIDxCcm93c2VyTW9ja3VwM0Q+DQogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0idy1mdWxsIGgtZnVsbCByb3VuZGVkIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGJnLWJsYWNrIHJlbGF0aXZlIG92ZXJmbG93LWhpZGRlbiI+DQogICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJhYnNvbHV0ZSBpbnNldC0wIG1lc2gtZ3JhZGllbnQgb3BhY2l0eS0zMCI+PC9kaXY+DQogICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSB6LTEwIHctMy80IGgtNDggZmxleCBmbGV4LWNvbCBpdGVtcy1jZW50ZXIiPg0KICAgICAgICAgICAgICAgIDxXYXZlZm9ybUFuaW1hdGlvbiAvPg0KICAgICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgICAgIDwvZGl2Pg0KICAgICAgICAgIDwvQnJvd3Nlck1vY2t1cDNEPg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgDQogICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC0yeGwgbWItOCBtdC0xMiB0cmFuc2l0aW9uLWFsbCBkdXJhdGlvbi01MDAiIHN0eWxlPXt7DQogICAgICAgICAgdHJhbnNmb3JtOiBoYXNTY3JvbGxlZCA/ICd0cmFuc2xhdGVZKDApJyA6ICd0cmFuc2xhdGVZKDIwcHgpJywNCiAgICAgICAgICBvcGFjaXR5OiBoYXNTY3JvbGxlZCA/IDEgOiAwLA0KICAgICAgICAgIHRyYW5zaXRpb25EZWxheTogJzIwMG1zJywNCiAgICAgICAgfX0+DQogICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJiZy1jbGlwLXRleHQgdGV4dC10cmFuc3BhcmVudCBiZy1ncmFkaWVudC10by1yIGZyb20tZWxlY3RyaWMtY3lhbiB0by1uZXVyYWwtaW5kaWdvIj4NCiAgICAgICAgICAgIHt0KCdkZW1vLnNlZUluQWN0aW9uJyl9DQogICAgICAgICAgPC9zcGFuPg0KICAgICAgICA8L3A+DQogICAgICAgIA0KICAgICAgICA8Q1RBQnV0dG9uIA0KICAgICAgICAgIHZhcmlhbnQ9InByaW1hcnkiIA0KICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHdpbmRvdy5sb2NhdGlvbi5ocmVmID0gImh0dHBzOi8vcmVhbC1lc3RhdGUudnVlbi5haS8ifQ0KICAgICAgICAgIGNsYXNzTmFtZT0idHJhbnNpdGlvbi1hbGwgZHVyYXRpb24tNTAwIg0KICAgICAgICAgIHN0eWxlPXt7DQogICAgICAgICAgICB0cmFuc2Zvcm06IGhhc1Njcm9sbGVkID8gJ3RyYW5zbGF0ZVkoMCknIDogJ3RyYW5zbGF0ZVkoMjBweCknLA0KICAgICAgICAgICAgb3BhY2l0eTogaGFzU2Nyb2xsZWQgPyAxIDogMCwNCiAgICAgICAgICAgIHRyYW5zaXRpb25EZWxheTogJzMwMG1zJywNCiAgICAgICAgICB9fQ0KICAgICAgICA+DQogICAgICAgICAge3QoJ2RlbW8udHJ5TGl2ZURlbW8nKX0NCiAgICAgICAgPC9DVEFCdXR0b24+DQogICAgICA8L2Rpdj4NCiAgICA8L3NlY3Rpb24+DQogICk7DQp9Ow0KDQpleHBvcnQgZGVmYXVsdCBEZW1vVGVhc2VyU2VjdGlvbjsNCg==" />
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.youtube.com" />
+    <link rel="dns-prefetch" href="//real-estate.vuen.ai" />
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VUEN AI Visual Agents",
+        "description": "AI-powered voice interface for creating digital interfaces without coding",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://vuen.ai",
+        "logo": "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
+        "screenshot": "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "VUEN AI",
+          "url": "https://vuen.ai",
+          "logo": "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
+          "sameAs": [
+            "https://www.instagram.com/vuen.ai/",
+            "https://x.com/vuen_ai",
+            "https://www.linkedin.com/company/vuen-ai"
+          ]
+        },
+        "featureList": [
+          "Voice-First UI",
+          "No-Code Builder", 
+          "LLM-Powered",
+          "Real-time Rendering",
+          "Adaptive Interfaces"
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Real Estate Professionals"
+        }
+      }
+    </script>
+    
+    <!-- Additional structured data for organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "name": "VUEN AI",
         "url": "https://vuen.ai",
-        "logo": "/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png"
+        "logo": "https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png",
+        "description": "Building the future of visual AI interfaces",
+        "foundingDate": "2024",
+        "sameAs": [
+          "https://www.instagram.com/vuen.ai/",
+          "https://x.com/vuen_ai", 
+          "https://www.linkedin.com/company/vuen-ai",
+          "https://www.threads.com/@vuen.ai",
+          "https://www.tiktok.com/@vuen.ai"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "enoc.silva@vuen.ai",
+          "contactType": "customer service"
+        }
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-D3dZf2LY.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BVPFBNXi.css">
+    <script type="module" crossorigin src="/assets/index-MawSDAV-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-Ds9yX22M.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-BLkc6OCz.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-utils-DdJ5UvfL.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-query-CsAC7sdQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-router-93EaJz_B.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-i18n-O_jSK7OQ.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DhQZTuFz.css">
   </head>
 
   <body>
