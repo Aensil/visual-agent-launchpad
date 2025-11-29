@@ -1,0 +1,162 @@
+================================================================================
+                           VUEN AI - CONTENT REFERENCE
+================================================================================
+
+COMPANY INFO
+------------
+Company Name: VUEN AI
+Domain: vuen.ai
+Email: enoc.silva@vuen.ai
+
+================================================================================
+
+SOCIAL MEDIA LINKS
+------------------
+Instagram: https://www.instagram.com/vuen.ai/
+Twitter/X: https://x.com/vuen_ai
+LinkedIn: https://www.linkedin.com/company/vuen-ai
+Threads: https://www.threads.com/@vuen.ai
+TikTok: https://www.tiktok.com/@vuen.ai
+
+================================================================================
+
+EXTERNAL LINKS
+--------------
+Demo URL: https://real-estate.vuen.ai/
+YouTube Video: https://www.youtube.com/embed/TS1T9m-HKk8
+YouTube Video ID: TS1T9m-HKk8
+
+================================================================================
+
+BRAND ASSETS
+------------
+Logo Path: /lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png
+Logo URL: https://vuen.ai/lovable-uploads/e01af8db-8735-42de-adf8-38bb57beb961.png
+
+Brand Colors:
+- Electric Cyan: #00D2FF (Primary)
+- Neural Indigo: #5C33FF (Secondary)
+- Kinetic Magenta: #FF1E8C (Accent)
+
+================================================================================
+
+COPY - ENGLISH
+--------------
+
+Hero Section:
+- Title: "VISUAL AGENTS ARE HERE"
+- Subtitle: "Speak. Watch. Act. No code. No clicks."
+- CTA Primary: "Try Demo"
+- CTA Secondary: "Join Waiting List"
+
+Features:
+- "Voice-First UI"
+- "No-Code Builder"
+- "LLM-Powered"
+- "Revolutionary Voice Interface"
+- "Our AI understands natural language and context, enabling you to build complex interfaces with simple voice commands. Perfect for real estate professionals and beyond."
+- Tags: Intuitive, Fast, Real Estate, LLM-Powered
+- Voice Example: "Create a profile page with a 3D avatar"
+
+Demo Section:
+- "See it in action"
+- "Try Live Demo"
+
+Technology Section:
+- Title: "Cutting-Edge Technology"
+- Description: "Our LLM-powered visual agents transform how you interact with digital interfaces. Currently revolutionizing real estate workflows while building the foundation for universal visual AI."
+
+- Neural Processing:
+  Title: "Neural Processing"
+  Description: "Our AI processes voice commands with precise understanding of intent and context."
+
+- Real-time Rendering:
+  Title: "Real-time Rendering"
+  Description: "See your changes instantly with our ultrafast rendering engine."
+
+- Adaptive Interfaces:
+  Title: "Adaptive Interfaces"
+  Description: "UI components that learn from your preferences and adapt automatically."
+
+CTA Section:
+- "Ready to build your own Visual Agent?"
+
+Footer:
+- Tagline: "Building the future of visual AI interfaces"
+
+SEO/Meta:
+- Title: "VUEN AI - Visual Agents Are Here"
+- Description: "Speak. Watch. Act. No code. No clicks. Revolutionary voice interface powered by AI for creating digital interfaces."
+- Keywords: AI, voice interface, visual agents, no-code, real estate, VUEN AI, artificial intelligence, voice commands, interface builder
+- Twitter Handle: @vuen_ai
+
+================================================================================
+
+COPY - SPANISH (ESPAÑOL)
+------------------------
+
+Hero Section:
+- Title: "LOS AGENTES VISUALES ESTÁN AQUÍ"
+- Subtitle: "Habla. Observa. Actúa. Sin código. Sin clics."
+- CTA Primary: "Probar Demo"
+- CTA Secondary: "Unirse a Lista de Espera"
+
+Features:
+- "Interfaz por Voz"
+- "Constructor Sin Código"
+- "Impulsado por LLM"
+- "Interfaz de Voz Revolucionaria"
+- "Nuestra IA entiende el lenguaje natural y el contexto, permitiéndote construir interfaces complejas con simples comandos de voz. Perfecto para profesionales inmobiliarios y más allá."
+- Tags: Intuitivo, Rápido, Bienes Raíces, Impulsado por LLM
+- Voice Example: "Crear una página de perfil con un avatar 3D"
+
+Demo Section:
+- "Vélo en acción"
+- "Probar Demo en Vivo"
+
+Technology Section:
+- Title: "Tecnología de Vanguardia"
+- Description: "Nuestros agentes visuales impulsados por LLM transforman cómo interactúas con interfaces digitales. Actualmente revolucionando flujos de trabajo inmobiliarios mientras construimos la base para IA visual universal."
+
+- Neural Processing:
+  Title: "Procesamiento Neural"
+  Description: "Nuestra IA procesa comandos de voz con comprensión precisa de la intención y el contexto."
+
+- Real-time Rendering:
+  Title: "Renderizado en Tiempo Real"
+  Description: "Ve tus cambios instantáneamente con nuestro motor de renderizado ultrarrápido."
+
+- Adaptive Interfaces:
+  Title: "Interfaces Adaptativas"
+  Description: "Componentes de UI que aprenden de tus preferencias y se adaptan automáticamente."
+
+CTA Section:
+- "¿Listo para construir tu propio Agente Visual?"
+
+Footer:
+- Tagline: "Construyendo el futuro de las interfaces de IA visual"
+
+SEO/Meta:
+- Title: "VUEN AI - Los Agentes Visuales Están Aquí"
+- Description: "Habla. Observa. Actúa. Sin código. Sin clics. Interfaz de voz revolucionaria impulsada por IA para crear interfaces digitales."
+
+================================================================================
+
+WAITLIST FORM FIELDS (for Supabase 'waitlist' table)
+-----------------------------------------------------
+- uuid (auto-generated)
+- name
+- email
+- occupation (Student, Professional, Entrepreneur, Other)
+- challenge (main challenge textarea)
+- previous_solution (Yes/No)
+- solution_feedback (textarea if yes)
+- ideal_features (textarea)
+- investment (<$50, $50-$100, $100-$200, >$200)
+- beta_tester
+- contact_preference (Email, Text message, Phone call)
+- phone (if SMS/Phone selected)
+- source (Social media, Recommendation, Online search, Other)
+- willing_to_share
+
+================================================================================
