@@ -30,7 +30,7 @@ export const useTranslation = () => {
   // Memoized translation function for objects (like arrays)
   const translateObject = useCallback((
     key: TranslationKey
-  ): any => {
+  ): unknown => {
     if (!ready) return [];
     
     try {
