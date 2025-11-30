@@ -1,6 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import CTAButton from '@/components/CTAButton';
-import WaitlistModal from '@/components/WaitlistModal';
+import React, { useState } from 'react';
+import { domains } from '@/config/site';
 
 interface PricingSectionProps {
   hasScrolled?: boolean;
@@ -8,109 +7,204 @@ interface PricingSectionProps {
 }
 
 const PricingSection: React.FC<PricingSectionProps> = () => {
-  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(true);
 
-  const openWaitlistModal = useCallback(() => {
-    setShowWaitlistModal(true);
-  }, []);
-
-  const closeWaitlistModal = useCallback(() => {
-    setShowWaitlistModal(false);
-  }, []);
-
-  const handleSanityCheck = useCallback(() => {
-    window.open('https://calendly.com', '_blank');
-  }, []);
+  const plans = [
+    {
+      name: 'Free',
+      description: 'For individuals exploring AI-powered analytics',
+      price: { monthly: 0, annual: 0 },
+      features: [
+        '100 queries/month',
+        '1 data source',
+        'Basic visualizations',
+        'Community support',
+      ],
+      cta: 'Get Started',
+      href: `${domains.app}/signup`,
+      highlight: false,
+    },
+    {
+      name: 'Pro',
+      description: 'For teams that need real-time business intelligence',
+      price: { monthly: 49, annual: 39 },
+      features: [
+        'Unlimited queries',
+        '10 data sources',
+        'Advanced visualizations',
+        'Voice interface',
+        'Custom dashboards',
+        'Priority support',
+        'API access',
+      ],
+      cta: 'Start Free Trial',
+      href: `${domains.app}/signup?plan=pro`,
+      highlight: true,
+      badge: 'Most Popular',
+    },
+    {
+      name: 'Enterprise',
+      description: 'For organizations with advanced security & scale needs',
+      price: { monthly: null, annual: null },
+      priceLabel: 'Custom',
+      features: [
+        'Everything in Pro',
+        'Unlimited data sources',
+        'SSO & SAML',
+        'Custom integrations',
+        'Dedicated success manager',
+        'SLA guarantee',
+        'On-premise option',
+        'Advanced security controls',
+      ],
+      cta: 'Contact Sales',
+      href: `mailto:hello@vuen.ai?subject=Enterprise%20Inquiry`,
+      highlight: false,
+    },
+  ];
 
   return (
-    <section id="pricing-section" className="py-24 px-4 void-gradient relative z-10" aria-label="Pricing Section">
-      <div className="max-w-5xl mx-auto">
-        {/* Section Title */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-text-primary">We only work with teams who are </span>
-            <span className="heading-gradient-warm">
-              serious about using this.
-            </span>
+    <section id="pricing" className="relative py-32 px-6">
+      {/* Background gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse 80% 50% at 50% 100%, rgba(75, 63, 227, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%)
+          `,
+        }}
+      />
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+            Simple, transparent pricing
           </h2>
-          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-            We're not selling another seat of dashboard software. We're partnering with a small number of teams who want a Visual Agent that actually runs their conversations.
+          <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10">
+            Start free. Upgrade when you're ready. No hidden fees.
           </p>
-        </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-          {/* Card 1 - Launch (Featured) */}
-          <div className="glass-panel-elevated p-8 relative overflow-hidden group hover:glass-glow-cyan transition-all duration-300 border-2 border-primary-cyan/30 ring-1 ring-primary-cyan/10">
-            {/* Featured badge */}
-            <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-primary-cyan/20 text-primary-cyan rounded-full border border-primary-cyan/30">
-              Start here
-            </div>
-
-            {/* Glow accent - stronger for featured */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-primary-cyan/15 rounded-full blur-3xl -z-10 group-hover:bg-primary-cyan/25 transition-colors" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-deep-indigo/10 rounded-full blur-3xl -z-10" />
-
-            <h3 className="text-2xl font-bold text-text-primary mb-2">
-              Launch your Visual Agent
-            </h3>
-            <div className="text-3xl md:text-4xl font-bold text-primary-cyan mb-4">
-              From $3.5K <span className="text-lg text-text-muted font-normal">one-time</span>
-            </div>
-            <p className="text-text-secondary leading-relaxed">
-              "We map your top 2–3 workflows, wire your files and exports into Vuen, and launch a working Visual Data Agent in 4–6 weeks."
-            </p>
-          </div>
-
-          {/* Card 2 - Keep Alive */}
-          <div className="glass-panel p-8 relative overflow-hidden group hover:glass-glow-cyan transition-all duration-300">
-            {/* Glow accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-deep-indigo/10 rounded-full blur-3xl -z-10 group-hover:bg-deep-indigo/20 transition-colors" />
-
-            <h3 className="text-2xl font-bold text-text-primary mb-2">
-              Keep your Agent alive
-            </h3>
-            <div className="text-3xl md:text-4xl font-bold text-deep-indigo mb-4">
-              From $200<span className="text-lg text-text-muted font-normal">/month</span>
-            </div>
-            <p className="text-text-secondary leading-relaxed">
-              "Your team keeps using Vuen every day. We keep tuning it, adding workflows, and keeping it fast."
-            </p>
+          {/* Billing toggle */}
+          <div className="inline-flex items-center gap-4 p-1.5 rounded-full bg-white/[0.03] border border-white/10">
+            <button
+              onClick={() => setIsAnnual(false)}
+              className={`
+                px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                ${!isAnnual
+                  ? 'bg-white text-void'
+                  : 'text-white/60 hover:text-white'
+                }
+              `}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setIsAnnual(true)}
+              className={`
+                px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                ${isAnnual
+                  ? 'bg-white text-void'
+                  : 'text-white/60 hover:text-white'
+                }
+              `}
+            >
+              Annual
+              <span className="ml-2 text-xs text-status-success">Save 20%</span>
+            </button>
           </div>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-          <CTAButton
-            variant="primary"
-            onClick={openWaitlistModal}
-            className="text-lg px-8 py-4"
-            aria-label="Book a live demo"
-          >
-            Book a live demo
-          </CTAButton>
-          <CTAButton
-            variant="secondary"
-            onClick={handleSanityCheck}
-            className="text-base px-6 py-3"
-            aria-label="Quick 20-min call first"
-          >
-            Quick 20-min call first
-          </CTAButton>
+        {/* Pricing cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`
+                relative rounded-2xl p-8 transition-all duration-500
+                ${plan.highlight
+                  ? 'bg-gradient-to-b from-white/[0.08] to-white/[0.02] border-2 border-primary-cyan/30 scale-[1.02] shadow-[0_0_60px_rgba(0,212,255,0.15)]'
+                  : 'bg-white/[0.02] border border-white/10 hover:border-white/20'
+                }
+              `}
+            >
+              {/* Badge */}
+              {plan.badge && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 text-xs font-semibold text-void bg-primary-cyan rounded-full">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Plan header */}
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-sm text-white/40">{plan.description}</p>
+              </div>
+
+              {/* Price */}
+              <div className="mb-8">
+                {plan.priceLabel ? (
+                  <div className="text-4xl font-bold text-white">{plan.priceLabel}</div>
+                ) : (
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-bold text-white">
+                      ${isAnnual ? plan.price.annual : plan.price.monthly}
+                    </span>
+                    {plan.price.monthly !== 0 && (
+                      <span className="text-white/40">/month</span>
+                    )}
+                  </div>
+                )}
+                {plan.price.monthly !== 0 && plan.price.annual !== null && (
+                  <p className="text-sm text-white/30 mt-2">
+                    {isAnnual ? 'Billed annually' : 'Billed monthly'}
+                  </p>
+                )}
+              </div>
+
+              {/* CTA */}
+              <a
+                href={plan.href}
+                className={`
+                  block w-full py-3 px-6 rounded-full text-center font-semibold
+                  transition-all duration-300
+                  ${plan.highlight
+                    ? 'bg-gradient-to-r from-primary-cyan to-deep-indigo text-white hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:scale-[1.02]'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                  }
+                `}
+              >
+                {plan.cta}
+              </a>
+
+              {/* Features */}
+              <ul className="mt-8 space-y-4">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <svg
+                      className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.highlight ? 'text-primary-cyan' : 'text-white/40'}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm text-white/60">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Microcopy */}
-        <div className="text-center mt-6">
-          <p className="text-sm text-text-muted italic">
-            We say no if we don't think we can make you look noticeably sharper in your meetings.
-          </p>
-        </div>
+        {/* Bottom note */}
+        <p className="text-center text-sm text-white/30 mt-12">
+          All plans include a 14-day free trial. No credit card required.
+        </p>
       </div>
-
-      {/* Waitlist Modal */}
-      {showWaitlistModal && (
-        <WaitlistModal onClose={closeWaitlistModal} />
-      )}
     </section>
   );
 };
