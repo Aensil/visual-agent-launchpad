@@ -7,33 +7,52 @@
 
 @layer base {
   :root {
-    /* Core color tokens */
-    --void: #05070F;
-    --void-surface: #0A0E1A;
-    --void-elevated: #0F1425;
+    /* Core color tokens - from design spec */
+    --bg-page: #05070f;
+    --bg-surface: #0a0f1c;
+    --bg-elevated: #0f1726;
+
+    /* Legacy aliases */
+    --void: #05070f;
+    --void-surface: #0a0f1c;
+    --void-elevated: #0f1726;
     --void-glass: rgba(15, 20, 37, 0.6);
 
-    --primary-cyan: #00D4FF;
+    /* Primary accent: Cyan */
+    --primary-cyan: #00e0ff;
     --primary-cyan-dim: #00A3C4;
     --primary-cyan-bright: #33DFFF;
-    --primary-cyan-glow: rgba(0, 212, 255, 0.4);
+    --primary-cyan-glow: rgba(0, 224, 255, 0.4);
 
-    --deep-indigo: #4B3FE3;
+    /* Secondary accent: Blue */
+    --secondary-blue: #5b7cfa;
+    --deep-indigo: #5b7cfa;
     --deep-indigo-dim: #3A2FB5;
-    --deep-indigo-bright: #6B5FFF;
-    --deep-indigo-glow: rgba(75, 63, 227, 0.4);
+    --deep-indigo-bright: #8b5cf6;
+    --deep-indigo-glow: rgba(91, 124, 250, 0.4);
 
-    --accent-magenta: #FF1E8C;
+    /* Tertiary accent: Magenta */
+    --accent-magenta: #ff5fd1;
     --accent-magenta-dim: #CC1870;
     --accent-magenta-bright: #FF4DA6;
-    --accent-magenta-glow: rgba(255, 30, 140, 0.4);
+    --accent-magenta-glow: rgba(255, 95, 209, 0.4);
 
-    --text-primary: #F0F4FF;
-    --text-secondary: #A0AECF;
-    --text-muted: #6B7A9E;
+    /* Additional accents */
+    --accent-violet: #8b5cf6;
 
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-hover: rgba(0, 212, 255, 0.3);
+    /* Status colors */
+    --status-success: #34c759;
+    --status-warning: #ff9500;
+    --status-error: #ff3b30;
+
+    /* Text colors */
+    --text-primary: #f0f4ff;
+    --text-secondary: #b8c4e0;
+    --text-muted: #8892a8;
+
+    /* Glass effects */
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-border-hover: rgba(0, 224, 255, 0.3);
   }
 
   * {
@@ -84,23 +103,27 @@
 
   .glass-panel {
     @apply relative;
-    background: var(--void-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 16px;
     box-shadow:
-      0 4px 30px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 0 20px rgba(0, 224, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .glass-panel:hover {
-    border-color: var(--glass-border-hover);
+    border-color: rgba(0, 224, 255, 0.3);
+    transform: translateY(-2px);
     box-shadow:
-      0 8px 40px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 0 20px var(--primary-cyan-glow);
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 8px 16px rgba(0, 0, 0, 0.15),
+      0 0 30px rgba(0, 224, 255, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .glass-panel-elevated {
@@ -197,21 +220,18 @@
   /* Buttons should feel like hardware buttons on a premium device */
 
   .btn-primary {
-    @apply relative px-6 py-3 font-semibold rounded-xl overflow-hidden;
-    background: linear-gradient(135deg, var(--primary-cyan), var(--deep-indigo));
-    color: var(--text-primary);
+    @apply relative px-6 py-3 font-semibold rounded-[10px] overflow-hidden;
+    background: linear-gradient(135deg, #00ff9f, #ff2d92);
+    color: #ffffff;
     border: none;
-    box-shadow:
-      0 4px 20px rgba(0, 212, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    min-height: 44px;
   }
 
   .btn-primary:hover {
+    background: linear-gradient(135deg, #ff2d92, #ff6b35);
     transform: translateY(-2px);
-    box-shadow:
-      0 8px 30px rgba(0, 212, 255, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .btn-primary:active {
@@ -219,32 +239,34 @@
   }
 
   .btn-secondary {
-    @apply relative px-6 py-3 font-semibold rounded-xl;
-    background: var(--void-glass);
-    color: var(--text-primary);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply relative px-6 py-3 font-semibold rounded-[10px];
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #f0f4ff;
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    min-height: 44px;
   }
 
   .btn-secondary:hover {
-    border-color: var(--primary-cyan);
-    background: rgba(0, 212, 255, 0.1);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    background: rgba(255, 255, 255, 0.20);
+    border-color: #00e0ff;
+    color: #00e0ff;
   }
 
   .btn-danger {
-    @apply relative px-6 py-3 font-semibold rounded-xl;
-    background: rgba(239, 68, 68, 0.2);
-    color: #EF4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply relative px-6 py-3 font-semibold rounded-[10px];
+    background: rgba(255, 59, 48, 0.15);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    min-height: 44px;
   }
 
   .btn-danger:hover {
-    background: rgba(239, 68, 68, 0.3);
-    border-color: rgba(239, 68, 68, 0.5);
+    background: #ff3b30;
+    color: #ffffff;
   }
 
   /* === TYPOGRAPHY === */

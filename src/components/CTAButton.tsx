@@ -29,28 +29,28 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const variants = {
     primary: `
       px-6 py-3
-      bg-primary-cyan text-void
-      shadow-[0_4px_20px_rgba(0,212,255,0.3),inset_0_1px_0_rgba(255,255,255,0.2)]
-      hover:bg-primary-cyan-bright hover:shadow-[0_8px_30px_rgba(0,212,255,0.5),inset_0_1px_0_rgba(255,255,255,0.25)]
+      bg-gradient-to-br from-[#00ff9f] to-[#ff2d92]
+      text-white
+      shadow-[0_0_20px_rgba(0,224,255,0.15)]
+      hover:from-[#ff2d92] hover:to-[#ff6b35]
       hover:-translate-y-0.5
-      active:translate-y-0 active:bg-primary-cyan-dim
+      active:translate-y-0
     `,
     secondary: `
       px-6 py-3
-      bg-void-glass backdrop-blur-glass
-      text-text-primary
-      border border-primary-cyan/30
-      hover:border-primary-cyan hover:bg-primary-cyan/10
-      hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]
+      bg-white/15 backdrop-blur-[20px]
+      text-[#f0f4ff]
+      border border-white/[0.16]
+      hover:bg-white/20 hover:border-[#00e0ff] hover:text-[#00e0ff]
       hover:-translate-y-0.5
       active:translate-y-0
     `,
     danger: `
       px-6 py-3
-      bg-status-error/20
-      text-status-error
-      border border-status-error/30
-      hover:bg-status-error/30 hover:border-status-error/50
+      bg-[rgba(255,59,48,0.15)]
+      text-[#ff3b30]
+      border border-[rgba(255,59,48,0.15)]
+      hover:bg-[#ff3b30] hover:text-white
     `,
   };
 
