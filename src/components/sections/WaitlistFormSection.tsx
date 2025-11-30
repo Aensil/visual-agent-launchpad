@@ -56,16 +56,16 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
 
   if (isSubmitted) {
     return (
-      <section id="waitlist-section" className="py-24 px-4 bg-black relative z-10" aria-label="Waitlist Section">
+      <section id="waitlist-section" className="py-24 px-4 bg-void relative z-10" aria-label="Waitlist Section">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-electric-cyan/10 to-neural-indigo/10 border border-electric-cyan/30 rounded-2xl p-12 backdrop-blur-sm">
-            <div className="w-16 h-16 rounded-full bg-electric-cyan/20 flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8 text-electric-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="glass-panel-elevated p-12 glass-glow-success">
+            <div className="w-16 h-16 rounded-full bg-status-success/20 border border-status-success/30 flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-status-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">You're in the queue.</h3>
-            <p className="text-white/70">
+            <h3 className="text-2xl font-bold text-text-primary mb-4">You're in the queue.</h3>
+            <p className="text-text-secondary">
               If your use case is a strong fit, we'll reach out with next steps. If not, we won't waste your time.
             </p>
           </div>
@@ -75,14 +75,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
   }
 
   return (
-    <section id="waitlist-section" className="py-24 px-4 bg-black relative z-10" aria-label="Waitlist Section">
+    <section id="waitlist-section" className="py-24 px-4 bg-void relative z-10" aria-label="Waitlist Section">
       <div className="max-w-2xl mx-auto">
         {/* Top Text */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Tell us where your current tools fail you.
           </h2>
-          <p className="text-lg text-white/60">
+          <p className="text-lg text-text-secondary">
             We only say yes if we can clearly beat them.
           </p>
         </div>
@@ -91,7 +91,7 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
               Your name
             </label>
             <input
@@ -101,14 +101,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all"
+              className="input-glass"
               placeholder="Jane Smith"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
               Work email
             </label>
             <input
@@ -118,14 +118,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all"
+              className="input-glass"
               placeholder="jane@company.com"
             />
           </div>
 
           {/* Painful Moment */}
           <div>
-            <label htmlFor="painfulMoment" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="painfulMoment" className="block text-sm font-medium text-text-secondary mb-2">
               What's the most painful reporting or data moment in your week?
             </label>
             <textarea
@@ -135,14 +135,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               onChange={handleChange}
               required
               rows={3}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all resize-none"
+              className="input-glass resize-none"
               placeholder="Tell us about the moment that makes you want to throw your laptop..."
             />
           </div>
 
           {/* Current Tools */}
           <div>
-            <label htmlFor="currentTools" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="currentTools" className="block text-sm font-medium text-text-secondary mb-2">
               What tools are you using today (Power BI, Excel, Tableau, etc.)?
             </label>
             <input
@@ -152,14 +152,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               value={formData.currentTools}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all"
+              className="input-glass"
               placeholder="Power BI, Excel, Google Sheets, Looker..."
             />
           </div>
 
           {/* Live Meeting Wish */}
           <div>
-            <label htmlFor="liveMeetingWish" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="liveMeetingWish" className="block text-sm font-medium text-text-secondary mb-2">
               What do you wish you could do live in a meeting that you can't do now?
             </label>
             <textarea
@@ -169,14 +169,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               onChange={handleChange}
               required
               rows={3}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all resize-none"
+              className="input-glass resize-none"
               placeholder="Answer a follow-up question without saying 'let me check'..."
             />
           </div>
 
           {/* Holy Shit Moment */}
           <div>
-            <label htmlFor="holyShitMoment" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="holyShitMoment" className="block text-sm font-medium text-text-secondary mb-2">
               If Vuen worked perfectly, what would be the first "holy shit" moment for you and your team?
             </label>
             <textarea
@@ -186,14 +186,14 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
               onChange={handleChange}
               required
               rows={3}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-electric-cyan/50 focus:ring-1 focus:ring-electric-cyan/50 transition-all resize-none"
+              className="input-glass resize-none"
               placeholder="When I ask 'why are we down in Q3' and the answer just appears..."
             />
           </div>
 
           {/* Error Message */}
           {error && (
-            <div className="text-kinetic-magenta text-sm text-center">
+            <div className="text-status-error text-sm text-center glass-panel p-3">
               {error}
             </div>
           )}
@@ -202,7 +202,7 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 bg-gradient-to-r from-electric-cyan to-neural-indigo text-white font-bold text-lg rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn-primary py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Submitting...' : 'Join the waitlist'}
           </button>

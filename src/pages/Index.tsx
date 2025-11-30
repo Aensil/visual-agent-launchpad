@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import HeroSection from '@/components/sections/HeroSection';
 import SEO from '@/components/SEO';
@@ -22,10 +21,10 @@ const Footer = lazy(() => import('@/components/sections/Footer'));
 const CustomCursor = lazy(() => import('@/components/CustomCursor'));
 const LanguageSwitcher = lazy(() => import('@/components/LanguageSwitcher'));
 
-// Loading fallback component
+// Loading fallback component with glass styling
 const SectionLoader = () => (
-  <div className="py-24 px-4 bg-black min-h-[400px] flex items-center justify-center">
-    <div className="animate-pulse bg-gray-800 w-32 h-8 rounded" />
+  <div className="py-24 px-4 bg-void min-h-[400px] flex items-center justify-center">
+    <div className="skeleton w-32 h-8 rounded-lg" />
   </div>
 );
 
@@ -86,7 +85,7 @@ const Index: React.FC = () => {
       {/* SEO Component - Manages all meta tags and structured data */}
       <SEO language={currentLanguage} />
 
-      <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+      <div className="min-h-screen bg-void text-text-primary overflow-x-hidden relative">
         {/* Language Switcher */}
         <Suspense fallback={<div className="fixed top-4 right-4 w-8 h-8" />}>
           <LanguageSwitcher />
@@ -100,17 +99,17 @@ const Index: React.FC = () => {
           />
         </Suspense>
 
-        {/* Interactive background */}
+        {/* Interactive particle background */}
         <Suspense fallback={null}>
           <ParticleBackground />
         </Suspense>
 
-        {/* Additional background effects */}
-        <div className="fixed inset-0 futuristic-grid z-0 opacity-30" aria-hidden="true"></div>
+        {/* Subtle grid background - respects the orb as main light source */}
+        <div className="fixed inset-0 futuristic-grid z-0 opacity-20" aria-hidden="true" />
 
         {/* Main Content */}
         <main role="main" aria-label="VUEN AI Visual Agents Landing Page">
-          {/* Hero Section - Main landing area */}
+          {/* Hero Section - Main landing area with orb */}
           <HeroSection
             isLoaded={isLoaded}
             idleTime={idleTime}
@@ -215,7 +214,7 @@ const Index: React.FC = () => {
         </main>
 
         {/* Footer - Company information and links */}
-        <Suspense fallback={<div className="py-12 bg-black min-h-[200px] flex items-center justify-center"><div className="animate-pulse bg-gray-800 w-32 h-8 rounded" /></div>}>
+        <Suspense fallback={<div className="py-12 bg-void min-h-[200px] flex items-center justify-center"><div className="skeleton w-32 h-8 rounded-lg" /></div>}>
           <Footer />
         </Suspense>
       </div>

@@ -15,7 +15,7 @@ const VisualizationSection: React.FC<VisualizationSectionProps> = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: 'electric-cyan'
+      colorClass: 'primary-cyan'
     },
     {
       title: 'To see what changed',
@@ -25,7 +25,7 @@ const VisualizationSection: React.FC<VisualizationSectionProps> = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
-      color: 'neural-indigo'
+      colorClass: 'deep-indigo'
     },
     {
       title: 'To see how it\'s distributed',
@@ -36,7 +36,7 @@ const VisualizationSection: React.FC<VisualizationSectionProps> = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
         </svg>
       ),
-      color: 'kinetic-magenta'
+      colorClass: 'accent-magenta'
     },
     {
       title: 'To see where things are flowing or stuck',
@@ -46,55 +46,79 @@ const VisualizationSection: React.FC<VisualizationSectionProps> = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
         </svg>
       ),
-      color: 'electric-cyan'
+      colorClass: 'primary-cyan'
     }
   ];
 
+  const getColorStyles = (colorClass: string) => {
+    const colors: Record<string, { bg: string; text: string; hoverBg: string }> = {
+      'primary-cyan': {
+        bg: 'bg-primary-cyan/20',
+        text: 'text-primary-cyan',
+        hoverBg: 'group-hover:bg-primary-cyan/30'
+      },
+      'deep-indigo': {
+        bg: 'bg-deep-indigo/20',
+        text: 'text-deep-indigo',
+        hoverBg: 'group-hover:bg-deep-indigo/30'
+      },
+      'accent-magenta': {
+        bg: 'bg-accent-magenta/20',
+        text: 'text-accent-magenta',
+        hoverBg: 'group-hover:bg-accent-magenta/30'
+      }
+    };
+    return colors[colorClass] || colors['primary-cyan'];
+  };
+
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-black via-neural-indigo/5 to-black relative z-10" aria-label="Visualization Section">
+    <section className="py-24 px-4 void-gradient relative z-10" aria-label="Visualization Section">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Everything you normally beg a dashboard for – </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
+            <span className="text-text-primary">Everything you normally beg a dashboard for – </span>
+            <span className="heading-gradient">
               on demand.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
             You keep your existing data. Vuen turns it into the visuals you need mid-conversation.
           </p>
         </div>
 
         {/* Visual Groups */}
         <div className="grid md:grid-cols-2 gap-6 mt-12">
-          {visualGroups.map((group, index) => (
-            <div
-              key={index}
-              className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-white/20 transition-all duration-300 group"
-            >
-              <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-lg bg-${group.color}/20 flex items-center justify-center flex-shrink-0 text-${group.color} group-hover:bg-${group.color}/30 transition-colors`}>
-                  {group.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {group.title}
-                  </h3>
-                  <p className="text-white/60">
-                    {group.description}
-                  </p>
+          {visualGroups.map((group, index) => {
+            const styles = getColorStyles(group.colorClass);
+            return (
+              <div
+                key={index}
+                className="glass-panel p-6 hover:glass-glow-cyan transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-lg ${styles.bg} flex items-center justify-center flex-shrink-0 ${styles.text} ${styles.hoverBg} transition-colors`}>
+                    {group.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-primary-cyan transition-colors">
+                      {group.title}
+                    </h3>
+                    <p className="text-text-secondary">
+                      {group.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Tagline */}
         <div className="mt-12 text-center">
-          <p className="text-xl md:text-2xl font-semibold text-white/80">
+          <p className="text-xl md:text-2xl font-semibold text-text-secondary">
             You don't pick chart types. You ask questions.{' '}
-            <span className="text-electric-cyan">Vuen picks the visual that makes the answer obvious.</span>
+            <span className="text-primary-cyan text-glow-cyan">Vuen picks the visual that makes the answer obvious.</span>
           </p>
         </div>
       </div>
