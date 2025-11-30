@@ -16,7 +16,6 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { label: 'Product', href: '#product' },
-    { label: 'Docs', href: '/docs' },
   ];
 
   return (

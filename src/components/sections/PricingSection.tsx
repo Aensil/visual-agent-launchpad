@@ -27,7 +27,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
     {
       name: 'Pro',
       description: 'For teams that need real-time business intelligence',
-      price: { monthly: 49, annual: 39 },
+      price: { monthly: 200, annual: 160 },
       features: [
         'Unlimited queries',
         '10 data sources',
