@@ -1,5 +1,6 @@
 import React from 'react';
 import { domains, socialLinks, contact } from '@/config/site';
+import Logo from '@/assets/Logo_Vuen_AI_white.png';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -42,9 +43,12 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
           {/* Brand column */}
           <div className="col-span-2">
-            <a href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta" />
-              <span className="text-xl font-bold text-white">VUEN</span>
+            <a href="/" className="inline-block mb-6">
+              <img
+                src={Logo}
+                alt="Vuen AI"
+                className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+              />
             </a>
             <p className="text-sm text-white/40 mb-6 max-w-xs">
               AI-powered business intelligence. Ask questions, get answers.

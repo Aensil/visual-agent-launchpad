@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { domains } from '@/config/site';
+import Logo from '@/assets/Logo_Vuen_AI_white.png';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,32 +34,13 @@ const Header: React.FC = () => {
         {/* Logo */}
         <a
           href="/"
-          className="flex items-center gap-3 group"
+          className="flex items-center group"
         >
-          <div className="relative w-9 h-9">
-            {/* Animated gradient orb logo */}
-            <div
-              className="
-                absolute inset-0 rounded-full
-                bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta
-                opacity-90 group-hover:opacity-100
-                transition-all duration-500
-                group-hover:scale-110
-              "
-              style={{ backgroundSize: '200% 200%' }}
-            />
-            <div
-              className="
-                absolute inset-0 rounded-full
-                bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta
-                blur-lg opacity-40 group-hover:opacity-60
-                transition-opacity duration-500
-              "
-            />
-          </div>
-          <span className="text-xl font-bold text-white tracking-tight">
-            VUEN
-          </span>
+          <img
+            src={Logo}
+            alt="Vuen AI"
+            className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+          />
         </a>
 
         {/* Desktop Navigation */}
