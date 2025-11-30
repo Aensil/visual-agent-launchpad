@@ -1,7 +1,10 @@
 import React from 'react';
 import { domains } from '@/config/site';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const CTASection: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative py-24 px-6">
       {/* Subtle background */}
@@ -15,11 +18,11 @@ const CTASection: React.FC = () => {
       <div className="relative max-w-3xl mx-auto text-center">
         {/* Headline */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-          Start making better decisions today
+          {t('cta.title')}
         </h2>
 
         <p className="text-lg text-white/50 mb-10 max-w-xl mx-auto">
-          Get instant insights from your data. No setup required.
+          {t('cta.subtitle')}
         </p>
 
         {/* CTA Buttons */}
@@ -36,7 +39,7 @@ const CTASection: React.FC = () => {
             "
           >
             <span className="flex items-center gap-2">
-              Start Free Trial
+              {t('common.startFreeTrial')}
               <svg
                 className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"
@@ -57,7 +60,7 @@ const CTASection: React.FC = () => {
               transition-all duration-300
             "
           >
-            Request Demo
+            {t('common.requestDemo')}
           </a>
         </div>
 
@@ -67,19 +70,19 @@ const CTASection: React.FC = () => {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>No credit card required</span>
+            <span>{t('cta.badges.noCard')}</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>14-day free trial</span>
+            <span>{t('cta.badges.trial')}</span>
           </div>
           <div className="flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>Cancel anytime</span>
+            <span>{t('cta.badges.cancel')}</span>
           </div>
         </div>
       </div>

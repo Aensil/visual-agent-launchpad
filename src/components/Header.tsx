@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { domains } from '@/config/site';
+import { useTranslation } from '@/hooks/useTranslation';
 import Logo from '@/assets/Logo_Vuen_AI_white.png';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +17,7 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Product', href: '#product' },
+    { label: t('nav.product'), href: '#product' },
   ];
 
   return (
@@ -46,7 +48,7 @@ const Header: React.FC = () => {
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map(({ label, href }) => (
             <a
-              key={label}
+              key={href}
               href={href}
               className="
                 relative px-4 py-2 text-sm font-medium text-white/70
@@ -75,7 +77,7 @@ const Header: React.FC = () => {
               hover:text-white transition-colors duration-300
             "
           >
-            Log in
+            {t('common.logIn')}
           </a>
           <a
             href={domains.app}
@@ -92,7 +94,7 @@ const Header: React.FC = () => {
               group
             "
           >
-            <span className="relative z-10">Start Free</span>
+            <span className="relative z-10">{t('common.startFree')}</span>
             <div
               className="
                 absolute inset-0 bg-gradient-to-r from-accent-magenta via-deep-indigo to-primary-cyan
@@ -144,7 +146,7 @@ const Header: React.FC = () => {
         <div className="px-6 py-6 flex flex-col gap-4">
           {navLinks.map(({ label, href }) => (
             <a
-              key={label}
+              key={href}
               href={href}
               className="text-lg font-medium text-white/80 hover:text-white transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -157,7 +159,7 @@ const Header: React.FC = () => {
               href={domains.app}
               className="text-center py-3 text-white/80 font-medium"
             >
-              Log in
+              {t('common.logIn')}
             </a>
             <a
               href={domains.app}
@@ -167,7 +169,7 @@ const Header: React.FC = () => {
                 bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               "
             >
-              Start Free
+              {t('common.startFree')}
             </a>
           </div>
         </div>

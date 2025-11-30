@@ -1,0 +1,184 @@
+{
+  "common": {
+    "startFree": "免费开始",
+    "watchDemo": "观看演示",
+    "logIn": "登录",
+    "learnMore": "了解更多",
+    "contactSales": "联系销售",
+    "requestDemo": "申请演示",
+    "startFreeTrial": "开始免费试用",
+    "getStarted": "立即开始",
+    "openApp": "打开应用"
+  },
+  "nav": {
+    "product": "产品",
+    "pricing": "定价",
+    "home": "首页",
+    "useCases": "应用场景",
+    "signIn": "登录"
+  },
+  "hero": {
+    "badge": "公测版现已上线",
+    "headline1": "提出问题。",
+    "headline2": "获得答案。",
+    "subheadline": "连接您的数据源。用中文提问。获得团队都能理解的即时可视化图表。",
+    "scroll": "滚动"
+  },
+  "features": {
+    "title": "理解数据所需的一切",
+    "subtitle": "从快速提问到深度分析，秒速获得答案。",
+    "voiceFirst": {
+      "title": "语音优先界面",
+      "description": "自然提问，即刻获得答案。无需点击菜单。"
+    },
+    "realTime": {
+      "title": "实时处理",
+      "description": "亚秒级响应时间。在您说完之前就完成数据可视化。"
+    },
+    "smartViz": {
+      "title": "智能可视化",
+      "description": "AI自动选择正确的图表类型。柱状图、折线图、饼图、散点图——自动生成。"
+    },
+    "connectData": {
+      "title": "连接任何数据",
+      "description": "SQL、Excel、Google表格、API。所有数据源集中一处。"
+    },
+    "insights": {
+      "title": "可操作的洞察",
+      "description": "不仅是图表。AI解释数据含义并指导下一步行动。"
+    },
+    "security": {
+      "title": "企业级安全",
+      "description": "SOC 2合规。您的数据永不离开您的基础设施。"
+    }
+  },
+  "socialProof": {
+    "queriesProcessed": "每月处理查询数",
+    "fasterDecisions": "更快的决策速度",
+    "uptimeSLA": "正常运行时间SLA"
+  },
+  "testimonials": {
+    "sectionLabel": "团队评价",
+    "title": "深受数据驱动团队信赖",
+    "items": [
+      {
+        "quote": "我们从花3小时制作周报变成即刻获得答案。投资回报立竿见影。",
+        "author": "陈莎拉",
+        "role": "运营副总裁",
+        "company": "B轮SaaS企业",
+        "metric": "节省85%时间"
+      },
+      {
+        "quote": "终于，我们整个团队都能获取洞察，无需等待数据团队。这改变了我们的决策方式。",
+        "author": "马库斯·威廉姆斯",
+        "role": "增长负责人",
+        "company": "电商平台",
+        "metric": "决策速度提升3倍"
+      },
+      {
+        "quote": "自然语言界面意味着即使是非技术背景的利益相关者也能独立探索数据。",
+        "author": "埃琳娜·罗德里格斯",
+        "role": "分析总监",
+        "company": "金融科技初创公司",
+        "metric": "临时请求减少40%"
+      }
+    ],
+    "trustBadges": {
+      "soc2": "SOC 2 Type II",
+      "gdpr": "符合GDPR",
+      "uptime": "99.9%正常运行时间SLA",
+      "sso": "企业级SSO"
+    }
+  },
+  "pricing": {
+    "title": "简单透明的定价",
+    "subtitle": "免费开始。准备好后再升级。无隐藏费用。",
+    "monthly": "月付",
+    "annual": "年付",
+    "save20": "节省20%",
+    "perMonth": "/月",
+    "billedAnnually": "按年计费",
+    "billedMonthly": "按月计费",
+    "bottomNote": "所有套餐包含14天免费试用。无需信用卡。",
+    "plans": {
+      "free": {
+        "name": "免费版",
+        "description": "适合探索AI分析的个人用户",
+        "cta": "立即开始",
+        "features": [
+          "每月100次查询",
+          "1个数据源",
+          "基础可视化",
+          "社区支持"
+        ]
+      },
+      "pro": {
+        "name": "专业版",
+        "description": "适合需要实时商业智能的团队",
+        "cta": "开始免费试用",
+        "badge": "最受欢迎",
+        "features": [
+          "无限查询",
+          "10个数据源",
+          "高级可视化",
+          "语音界面",
+          "自定义仪表盘",
+          "优先支持",
+          "API访问"
+        ]
+      },
+      "enterprise": {
+        "name": "企业版",
+        "description": "适合有高级安全和规模需求的组织",
+        "priceLabel": "定制",
+        "cta": "联系销售",
+        "features": [
+          "专业版全部功能",
+          "无限数据源",
+          "SSO和SAML",
+          "定制集成",
+          "专属客户成功经理",
+          "SLA保障",
+          "本地部署选项",
+          "高级安全控制"
+        ]
+      }
+    }
+  },
+  "cta": {
+    "title": "今天就开始做出更好的决策",
+    "subtitle": "即刻从数据中获得洞察。无需设置。",
+    "badges": {
+      "noCard": "无需信用卡",
+      "trial": "14天免费试用",
+      "cancel": "随时取消"
+    }
+  },
+  "footer": {
+    "tagline": "AI驱动的商业智能。提问，获得答案。",
+    "product": "产品",
+    "company": "公司",
+    "legal": "法律",
+    "features": "功能",
+    "contact": "联系我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "copyright": "保留所有权利。"
+  },
+  "waitlist": {
+    "title": "加入等待名单",
+    "description": "向下滚动到等待名单表格申请提前访问。我们会审核您的用例，如果合适会与您联系。",
+    "cta": "前往等待名单表格"
+  },
+  "language": {
+    "en": "英语",
+    "zh": "中文",
+    "hi": "印地语",
+    "es": "西班牙语",
+    "ar": "阿拉伯语",
+    "fr": "法语"
+  },
+  "languageSwitcher": {
+    "switchTo": "切换到 {language}"
+  }
+}

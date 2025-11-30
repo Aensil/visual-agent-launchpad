@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const LanguageSwitcher: React.FC = () => {
   const { currentLanguage, setLanguage, availableLanguages } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <div className="fixed top-4 right-4 z-40">
@@ -18,7 +20,7 @@ const LanguageSwitcher: React.FC = () => {
                 : 'text-text-muted hover:text-text-primary'
               }
             `}
-            aria-label={`Switch to ${lang.name}`}
+            aria-label={t('languageSwitcher.switchTo', { language: lang.name })}
             aria-pressed={currentLanguage === lang.code}
           >
             {lang.code.toUpperCase()}

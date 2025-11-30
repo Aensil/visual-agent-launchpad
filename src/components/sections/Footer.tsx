@@ -1,21 +1,23 @@
 import React from 'react';
 import { domains, contact } from '@/config/site';
+import { useTranslation } from '@/hooks/useTranslation';
 import Logo from '@/assets/Logo_Vuen_AI_white.png';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   const footerLinks = {
     product: [
-      { label: 'Features', href: '#product' },
-      { label: 'Pricing', href: '#pricing' },
+      { label: t('footer.features'), href: '#product' },
+      { label: t('nav.pricing'), href: '#pricing' },
     ],
     company: [
-      { label: 'Contact', href: `mailto:${contact.generalEmail}` },
+      { label: t('footer.contact'), href: `mailto:${contact.generalEmail}` },
     ],
     legal: [
-      { label: 'Privacy', href: '/legal/privacy' },
-      { label: 'Terms', href: '/legal/terms' },
+      { label: t('footer.privacy'), href: '/legal/privacy' },
+      { label: t('footer.terms'), href: '/legal/terms' },
     ],
   };
 
@@ -87,7 +89,7 @@ const Footer: React.FC = () => {
               />
             </a>
             <p className="text-sm text-white/40 mb-5">
-              AI-powered business intelligence. Ask questions, get answers.
+              {t('footer.tagline')}
             </p>
             <div className="flex gap-4">
               {socialIconsData.map((social) => (
@@ -109,7 +111,7 @@ const Footer: React.FC = () => {
           {/* Links */}
           <div className="flex flex-wrap gap-16">
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
+              <h4 className="text-sm font-semibold text-white mb-4">{t('footer.product')}</h4>
               <ul className="space-y-3">
                 {footerLinks.product.map((link) => (
                   <li key={link.href}>
@@ -125,7 +127,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
+              <h4 className="text-sm font-semibold text-white mb-4">{t('footer.company')}</h4>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
@@ -141,7 +143,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
+              <h4 className="text-sm font-semibold text-white mb-4">{t('footer.legal')}</h4>
               <ul className="space-y-3">
                 {footerLinks.legal.map((link) => (
                   <li key={link.href}>
@@ -161,7 +163,7 @@ const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-white/[0.06]">
           <p className="text-sm text-white/30">
-            © {currentYear} Vuen AI. All rights reserved.
+            © {currentYear} Vuen AI. {t('footer.copyright')}
           </p>
           <a
             href={domains.app}
@@ -172,7 +174,7 @@ const Footer: React.FC = () => {
               hover:bg-white/10 hover:text-white transition-all
             "
           >
-            Open App
+            {t('common.openApp')}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>

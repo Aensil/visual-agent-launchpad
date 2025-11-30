@@ -1,0 +1,184 @@
+{
+  "common": {
+    "startFree": "Start Free",
+    "watchDemo": "Watch Demo",
+    "logIn": "Log in",
+    "learnMore": "Learn More",
+    "contactSales": "Contact Sales",
+    "requestDemo": "Request Demo",
+    "startFreeTrial": "Start Free Trial",
+    "getStarted": "Get Started",
+    "openApp": "Open App"
+  },
+  "nav": {
+    "product": "Product",
+    "pricing": "Pricing",
+    "home": "Home",
+    "useCases": "Use Cases",
+    "signIn": "Sign in"
+  },
+  "hero": {
+    "badge": "Now in Public Beta",
+    "headline1": "Ask questions.",
+    "headline2": "Get answers.",
+    "subheadline": "Connect your data sources. Ask in plain English. Get instant visualizations your whole team can understand.",
+    "scroll": "Scroll"
+  },
+  "features": {
+    "title": "Everything you need to understand your data",
+    "subtitle": "From quick questions to deep analysis, get answers in seconds.",
+    "voiceFirst": {
+      "title": "Voice-First Interface",
+      "description": "Ask questions naturally. Get answers instantly. No clicking through menus."
+    },
+    "realTime": {
+      "title": "Real-Time Processing",
+      "description": "Sub-second response times. Your data visualized before you finish speaking."
+    },
+    "smartViz": {
+      "title": "Smart Visualizations",
+      "description": "AI picks the right chart type. Bar, line, pie, scatter—automatically."
+    },
+    "connectData": {
+      "title": "Connect Any Data",
+      "description": "SQL, Excel, Google Sheets, APIs. All your sources in one place."
+    },
+    "insights": {
+      "title": "Actionable Insights",
+      "description": "Not just charts. AI explains what the data means and what to do next."
+    },
+    "security": {
+      "title": "Enterprise Security",
+      "description": "SOC 2 compliant. Your data never leaves your infrastructure."
+    }
+  },
+  "socialProof": {
+    "queriesProcessed": "Queries processed monthly",
+    "fasterDecisions": "Faster decision-making",
+    "uptimeSLA": "Uptime SLA"
+  },
+  "testimonials": {
+    "sectionLabel": "What teams are saying",
+    "title": "Trusted by data-driven teams",
+    "items": [
+      {
+        "quote": "We went from spending 3 hours building weekly reports to getting instant answers. The ROI was immediate.",
+        "author": "Sarah Chen",
+        "role": "VP of Operations",
+        "company": "Series B SaaS",
+        "metric": "85% time saved"
+      },
+      {
+        "quote": "Finally, our entire team can access insights without waiting for the data team. It's changed how we make decisions.",
+        "author": "Marcus Williams",
+        "role": "Head of Growth",
+        "company": "E-commerce Platform",
+        "metric": "3x faster decisions"
+      },
+      {
+        "quote": "The natural language interface means even our non-technical stakeholders can explore data independently.",
+        "author": "Elena Rodriguez",
+        "role": "Director of Analytics",
+        "company": "FinTech Startup",
+        "metric": "40% fewer ad-hoc requests"
+      }
+    ],
+    "trustBadges": {
+      "soc2": "SOC 2 Type II",
+      "gdpr": "GDPR Compliant",
+      "uptime": "99.9% Uptime SLA",
+      "sso": "Enterprise SSO"
+    }
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "subtitle": "Start free. Upgrade when you're ready. No hidden fees.",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "save20": "Save 20%",
+    "perMonth": "/month",
+    "billedAnnually": "Billed annually",
+    "billedMonthly": "Billed monthly",
+    "bottomNote": "All plans include a 14-day free trial. No credit card required.",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For individuals exploring AI-powered analytics",
+        "cta": "Get Started",
+        "features": [
+          "100 queries/month",
+          "1 data source",
+          "Basic visualizations",
+          "Community support"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "For teams that need real-time business intelligence",
+        "cta": "Start Free Trial",
+        "badge": "Most Popular",
+        "features": [
+          "Unlimited queries",
+          "10 data sources",
+          "Advanced visualizations",
+          "Voice interface",
+          "Custom dashboards",
+          "Priority support",
+          "API access"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For organizations with advanced security & scale needs",
+        "priceLabel": "Custom",
+        "cta": "Contact Sales",
+        "features": [
+          "Everything in Pro",
+          "Unlimited data sources",
+          "SSO & SAML",
+          "Custom integrations",
+          "Dedicated success manager",
+          "SLA guarantee",
+          "On-premise option",
+          "Advanced security controls"
+        ]
+      }
+    }
+  },
+  "cta": {
+    "title": "Start making better decisions today",
+    "subtitle": "Get instant insights from your data. No setup required.",
+    "badges": {
+      "noCard": "No credit card required",
+      "trial": "14-day free trial",
+      "cancel": "Cancel anytime"
+    }
+  },
+  "footer": {
+    "tagline": "AI-powered business intelligence. Ask questions, get answers.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "features": "Features",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "All rights reserved."
+  },
+  "waitlist": {
+    "title": "Join the Waitlist",
+    "description": "Scroll down to the waitlist form to apply for early access. We'll review your use case and reach out if it's a good fit.",
+    "cta": "Go to Waitlist Form"
+  },
+  "language": {
+    "en": "English",
+    "zh": "Chinese",
+    "hi": "Hindi",
+    "es": "Spanish",
+    "ar": "Arabic",
+    "fr": "French"
+  },
+  "languageSwitcher": {
+    "switchTo": "Switch to {language}"
+  }
+}

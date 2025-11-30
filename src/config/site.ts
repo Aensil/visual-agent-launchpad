@@ -217,13 +217,46 @@ export const structuredData = {
   },
 } as const;
 
-// Language/Locale Configuration (English only until Spanish content exists)
+// Language/Locale Configuration
 export const localeConfig = {
   default: 'en',
-  supported: ['en'] as const,
+  supported: ['en', 'es'] as const,
   hreflang: {
     en: 'en',
+    es: 'es',
   },
+} as const;
+
+// Language Detection Configuration
+export const languageConfig = {
+  default: 'en' as const,
+  supported: ['en', 'zh', 'hi', 'es', 'ar', 'fr'] as const,
+  storageKey: 'vuen-language',
+  ipApi: {
+    endpoint: 'http://ipapi.co/json/',
+    timeout: 3000,
+    enabled: true,
+  },
+  // Country to language mapping (ISO 3166-1 alpha-2 -> language code)
+  countryLanguageMap: {
+    // Mandarin Chinese speaking
+    CN: 'zh', TW: 'zh', HK: 'zh', MO: 'zh', SG: 'zh',
+    // Hindi speaking
+    IN: 'hi',
+    // Spanish speaking
+    ES: 'es', MX: 'es', AR: 'es', CO: 'es', PE: 'es', VE: 'es', CL: 'es',
+    EC: 'es', GT: 'es', CU: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es',
+    SV: 'es', NI: 'es', CR: 'es', PA: 'es', UY: 'es', PR: 'es', GQ: 'es',
+    // Arabic speaking
+    SA: 'ar', EG: 'ar', AE: 'ar', IQ: 'ar', MA: 'ar', DZ: 'ar', SD: 'ar',
+    SY: 'ar', YE: 'ar', TN: 'ar', JO: 'ar', LY: 'ar', LB: 'ar', OM: 'ar',
+    KW: 'ar', QA: 'ar', BH: 'ar', MR: 'ar', PS: 'ar',
+    // French speaking
+    FR: 'fr', CA: 'fr', BE: 'fr', CH: 'fr', SN: 'fr', CI: 'fr', ML: 'fr',
+    CM: 'fr', MG: 'fr', NE: 'fr', BF: 'fr', TG: 'fr', BJ: 'fr', GN: 'fr',
+    CG: 'fr', GA: 'fr', CD: 'fr', HT: 'fr', RW: 'fr', TD: 'fr', CF: 'fr',
+    MC: 'fr', LU: 'fr',
+  } as const,
 } as const;
 
 // Sitemap pages (for reference)

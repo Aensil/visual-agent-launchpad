@@ -1,0 +1,184 @@
+{
+  "common": {
+    "startFree": "Comenzar Gratis",
+    "watchDemo": "Ver Demo",
+    "logIn": "Iniciar sesión",
+    "learnMore": "Saber más",
+    "contactSales": "Contactar Ventas",
+    "requestDemo": "Solicitar Demo",
+    "startFreeTrial": "Prueba Gratuita",
+    "getStarted": "Comenzar",
+    "openApp": "Abrir App"
+  },
+  "nav": {
+    "product": "Producto",
+    "pricing": "Precios",
+    "home": "Inicio",
+    "useCases": "Casos de Uso",
+    "signIn": "Iniciar sesión"
+  },
+  "hero": {
+    "badge": "Ahora en Beta Pública",
+    "headline1": "Haz preguntas.",
+    "headline2": "Obtén respuestas.",
+    "subheadline": "Conecta tus fuentes de datos. Pregunta en español. Obtén visualizaciones instantáneas que todo tu equipo puede entender.",
+    "scroll": "Desplazar"
+  },
+  "features": {
+    "title": "Todo lo que necesitas para entender tus datos",
+    "subtitle": "Desde preguntas rápidas hasta análisis profundos, obtén respuestas en segundos.",
+    "voiceFirst": {
+      "title": "Interfaz por Voz",
+      "description": "Haz preguntas de forma natural. Obtén respuestas al instante. Sin navegar por menús."
+    },
+    "realTime": {
+      "title": "Procesamiento en Tiempo Real",
+      "description": "Tiempos de respuesta en milisegundos. Tus datos visualizados antes de que termines de hablar."
+    },
+    "smartViz": {
+      "title": "Visualizaciones Inteligentes",
+      "description": "La IA elige el tipo de gráfico correcto. Barras, líneas, circular, dispersión—automáticamente."
+    },
+    "connectData": {
+      "title": "Conecta Cualquier Dato",
+      "description": "SQL, Excel, Google Sheets, APIs. Todas tus fuentes en un solo lugar."
+    },
+    "insights": {
+      "title": "Insights Accionables",
+      "description": "No solo gráficos. La IA explica qué significan los datos y qué hacer a continuación."
+    },
+    "security": {
+      "title": "Seguridad Empresarial",
+      "description": "Cumplimiento SOC 2. Tus datos nunca salen de tu infraestructura."
+    }
+  },
+  "socialProof": {
+    "queriesProcessed": "Consultas procesadas mensualmente",
+    "fasterDecisions": "Decisiones más rápidas",
+    "uptimeSLA": "SLA de disponibilidad"
+  },
+  "testimonials": {
+    "sectionLabel": "Lo que dicen los equipos",
+    "title": "Confiado por equipos basados en datos",
+    "items": [
+      {
+        "quote": "Pasamos de dedicar 3 horas a crear informes semanales a obtener respuestas instantáneas. El ROI fue inmediato.",
+        "author": "Sarah Chen",
+        "role": "VP de Operaciones",
+        "company": "SaaS Serie B",
+        "metric": "85% tiempo ahorrado"
+      },
+      {
+        "quote": "Finalmente, todo nuestro equipo puede acceder a insights sin esperar al equipo de datos. Ha cambiado cómo tomamos decisiones.",
+        "author": "Marcus Williams",
+        "role": "Director de Crecimiento",
+        "company": "Plataforma E-commerce",
+        "metric": "3x decisiones más rápidas"
+      },
+      {
+        "quote": "La interfaz de lenguaje natural significa que incluso nuestros stakeholders no técnicos pueden explorar datos de forma independiente.",
+        "author": "Elena Rodriguez",
+        "role": "Directora de Analítica",
+        "company": "Startup FinTech",
+        "metric": "40% menos solicitudes ad-hoc"
+      }
+    ],
+    "trustBadges": {
+      "soc2": "SOC 2 Tipo II",
+      "gdpr": "Cumple GDPR",
+      "uptime": "99.9% SLA Disponibilidad",
+      "sso": "SSO Empresarial"
+    }
+  },
+  "pricing": {
+    "title": "Precios simples y transparentes",
+    "subtitle": "Comienza gratis. Mejora cuando estés listo. Sin cargos ocultos.",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "save20": "Ahorra 20%",
+    "perMonth": "/mes",
+    "billedAnnually": "Facturado anualmente",
+    "billedMonthly": "Facturado mensualmente",
+    "bottomNote": "Todos los planes incluyen 14 días de prueba gratis. No se requiere tarjeta de crédito.",
+    "plans": {
+      "free": {
+        "name": "Gratis",
+        "description": "Para individuos explorando analítica con IA",
+        "cta": "Comenzar",
+        "features": [
+          "100 consultas/mes",
+          "1 fuente de datos",
+          "Visualizaciones básicas",
+          "Soporte comunitario"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Para equipos que necesitan inteligencia de negocios en tiempo real",
+        "cta": "Prueba Gratuita",
+        "badge": "Más Popular",
+        "features": [
+          "Consultas ilimitadas",
+          "10 fuentes de datos",
+          "Visualizaciones avanzadas",
+          "Interfaz por voz",
+          "Dashboards personalizados",
+          "Soporte prioritario",
+          "Acceso API"
+        ]
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "description": "Para organizaciones con necesidades avanzadas de seguridad y escala",
+        "priceLabel": "Personalizado",
+        "cta": "Contactar Ventas",
+        "features": [
+          "Todo en Pro",
+          "Fuentes de datos ilimitadas",
+          "SSO & SAML",
+          "Integraciones personalizadas",
+          "Gerente de éxito dedicado",
+          "Garantía SLA",
+          "Opción on-premise",
+          "Controles de seguridad avanzados"
+        ]
+      }
+    }
+  },
+  "cta": {
+    "title": "Comienza a tomar mejores decisiones hoy",
+    "subtitle": "Obtén insights instantáneos de tus datos. Sin configuración requerida.",
+    "badges": {
+      "noCard": "No se requiere tarjeta de crédito",
+      "trial": "14 días de prueba gratis",
+      "cancel": "Cancela cuando quieras"
+    }
+  },
+  "footer": {
+    "tagline": "Inteligencia de negocios con IA. Haz preguntas, obtén respuestas.",
+    "product": "Producto",
+    "company": "Empresa",
+    "legal": "Legal",
+    "features": "Características",
+    "contact": "Contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "copyright": "Todos los derechos reservados."
+  },
+  "waitlist": {
+    "title": "Únete a la Lista de Espera",
+    "description": "Desplázate hacia abajo al formulario de lista de espera para solicitar acceso anticipado. Revisaremos tu caso de uso y te contactaremos si es adecuado.",
+    "cta": "Ir al Formulario"
+  },
+  "language": {
+    "en": "Inglés",
+    "zh": "Chino",
+    "hi": "Hindi",
+    "es": "Español",
+    "ar": "Árabe",
+    "fr": "Francés"
+  },
+  "languageSwitcher": {
+    "switchTo": "Cambiar a {language}"
+  }
+}

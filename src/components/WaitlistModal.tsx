@@ -1,10 +1,12 @@
 import React, { useEffect, useCallback } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface WaitlistModalProps {
   onClose: () => void;
 }
 
 const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose }) => {
+  const { t } = useTranslation();
   // Close on escape key
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -62,11 +64,11 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose }) => {
           </div>
 
           <h3 id="modal-title" className="text-2xl font-bold text-text-primary mb-4">
-            Join the Waitlist
+            {t('waitlist.title')}
           </h3>
 
           <p className="text-text-secondary mb-6">
-            Scroll down to the waitlist form to apply for early access. We'll review your use case and reach out if it's a good fit.
+            {t('waitlist.description')}
           </p>
 
           <button
@@ -79,7 +81,7 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose }) => {
             }}
             className="btn-primary px-8 py-3 text-lg"
           >
-            Go to Waitlist Form
+            {t('waitlist.cta')}
           </button>
         </div>
       </div>

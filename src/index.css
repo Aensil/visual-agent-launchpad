@@ -576,3 +576,97 @@
     background-position: -200% 0;
   }
 }
+
+/* === RTL (Right-to-Left) SUPPORT FOR ARABIC === */
+
+[dir="rtl"] {
+  /* Flip text alignment */
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Flip flex directions for RTL */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+/* Keep centered elements centered */
+[dir="rtl"] .text-center,
+[dir="rtl"] .items-center,
+[dir="rtl"] .justify-center {
+  text-align: center;
+}
+
+/* Flip margins and paddings for common patterns */
+[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Flip gap directions in flex containers */
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Flip icons and arrows */
+[dir="rtl"] .rotate-180-rtl {
+  transform: rotate(180deg);
+}
+
+/* Navigation adjustments */
+[dir="rtl"] .nav-link-active::after {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Language switcher positioning */
+[dir="rtl"] .fixed.right-4 {
+  right: auto;
+  left: 1rem;
+}
+
+[dir="rtl"] .fixed.left-4 {
+  left: auto;
+  right: 1rem;
+}
+
+/* Grid adjustments - maintain visual order */
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+/* Ensure form inputs work correctly */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+}
+
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+  text-align: right;
+}
+
+/* Scroll indicator flip */
+[dir="rtl"] .scroll-indicator {
+  transform: scaleX(-1);
+}

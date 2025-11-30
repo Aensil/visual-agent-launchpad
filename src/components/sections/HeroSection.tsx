@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { domains } from '@/config/site';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface HeroSectionProps {
   isLoaded: boolean;
@@ -13,6 +14,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (prefersReducedMotion) return;
@@ -67,7 +69,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-cyan"></span>
           </span>
           <span className="text-sm text-white/60 font-medium">
-            Now in Public Beta
+            {t('hero.badge')}
           </span>
         </div>
 
@@ -82,13 +84,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           `}
         >
           <span className="block text-white">
-            Ask questions.
+            {t('hero.headline1')}
           </span>
           <span
             className="block mt-2 bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta bg-clip-text text-transparent"
             style={{ backgroundSize: '200% 100%' }}
           >
-            Get answers.
+            {t('hero.headline2')}
           </span>
         </h1>
 
@@ -102,9 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
           `}
         >
-          Connect your data sources. Ask in plain English.
-          <br className="hidden sm:block" />
-          Get instant visualizations your whole team can understand.
+          {t('hero.subheadline')}
         </p>
 
         {/* CTAs - prominent Start Free */}
@@ -130,7 +130,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             "
           >
             <span className="relative z-10 flex items-center gap-2">
-              Start Free
+              {t('common.startFree')}
               <svg
                 className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"
@@ -163,7 +163,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            <span className="font-medium">Watch Demo</span>
+            <span className="font-medium">{t('common.watchDemo')}</span>
           </a>
         </div>
 
@@ -333,7 +333,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         `}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] text-white/30 uppercase tracking-widest">Scroll</span>
+          <span className="text-[10px] text-white/30 uppercase tracking-widest">{t('hero.scroll')}</span>
           <div
             className={`
               w-5 h-8 rounded-full border border-white/20

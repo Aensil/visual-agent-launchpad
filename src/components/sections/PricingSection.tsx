@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { domains } from '@/config/site';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface PricingSectionProps {
   hasScrolled?: boolean;
@@ -8,56 +9,35 @@ interface PricingSectionProps {
 
 const PricingSection: React.FC<PricingSectionProps> = () => {
   const [isAnnual, setIsAnnual] = useState(true);
+  const { t, tArray } = useTranslation();
 
   const plans = [
     {
-      name: 'Free',
-      description: 'For individuals exploring AI-powered analytics',
+      name: t('pricing.plans.free.name'),
+      description: t('pricing.plans.free.description'),
       price: { monthly: 0, annual: 0 },
-      features: [
-        '100 queries/month',
-        '1 data source',
-        'Basic visualizations',
-        'Community support',
-      ],
-      cta: 'Get Started',
+      features: tArray<string>('pricing.plans.free.features'),
+      cta: t('pricing.plans.free.cta'),
       href: `${domains.app}/signup`,
       highlight: false,
     },
     {
-      name: 'Pro',
-      description: 'For teams that need real-time business intelligence',
+      name: t('pricing.plans.pro.name'),
+      description: t('pricing.plans.pro.description'),
       price: { monthly: 200, annual: 160 },
-      features: [
-        'Unlimited queries',
-        '10 data sources',
-        'Advanced visualizations',
-        'Voice interface',
-        'Custom dashboards',
-        'Priority support',
-        'API access',
-      ],
-      cta: 'Start Free Trial',
+      features: tArray<string>('pricing.plans.pro.features'),
+      cta: t('pricing.plans.pro.cta'),
       href: `${domains.app}/signup?plan=pro`,
       highlight: true,
-      badge: 'Most Popular',
+      badge: t('pricing.plans.pro.badge'),
     },
     {
-      name: 'Enterprise',
-      description: 'For organizations with advanced security & scale needs',
+      name: t('pricing.plans.enterprise.name'),
+      description: t('pricing.plans.enterprise.description'),
       price: { monthly: null, annual: null },
-      priceLabel: 'Custom',
-      features: [
-        'Everything in Pro',
-        'Unlimited data sources',
-        'SSO & SAML',
-        'Custom integrations',
-        'Dedicated success manager',
-        'SLA guarantee',
-        'On-premise option',
-        'Advanced security controls',
-      ],
-      cta: 'Contact Sales',
+      priceLabel: t('pricing.plans.enterprise.priceLabel'),
+      features: tArray<string>('pricing.plans.enterprise.features'),
+      cta: t('pricing.plans.enterprise.cta'),
       href: `mailto:hello@vuen.ai?subject=Enterprise%20Inquiry`,
       highlight: false,
     },
@@ -80,10 +60,10 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Simple, transparent pricing
+            {t('pricing.title')}
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10">
-            Start free. Upgrade when you're ready. No hidden fees.
+            {t('pricing.subtitle')}
           </p>
 
           {/* Billing toggle */}
@@ -98,7 +78,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
                 }
               `}
             >
-              Monthly
+              {t('pricing.monthly')}
             </button>
             <button
               onClick={() => setIsAnnual(true)}
@@ -110,8 +90,8 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
                 }
               `}
             >
-              Annual
-              <span className="ml-2 text-xs text-status-success">Save 20%</span>
+              {t('pricing.annual')}
+              <span className="ml-2 text-xs text-status-success">{t('pricing.save20')}</span>
             </button>
           </div>
         </div>
@@ -154,13 +134,13 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
                       ${isAnnual ? plan.price.annual : plan.price.monthly}
                     </span>
                     {plan.price.monthly !== 0 && (
-                      <span className="text-white/40">/month</span>
+                      <span className="text-white/40">{t('pricing.perMonth')}</span>
                     )}
                   </div>
                 )}
                 {plan.price.monthly !== 0 && plan.price.annual !== null && (
                   <p className="text-sm text-white/30 mt-2">
-                    {isAnnual ? 'Billed annually' : 'Billed monthly'}
+                    {isAnnual ? t('pricing.billedAnnually') : t('pricing.billedMonthly')}
                   </p>
                 )}
               </div>
@@ -202,7 +182,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
 
         {/* Bottom note */}
         <p className="text-center text-sm text-white/30 mt-12">
-          All plans include a 14-day free trial. No credit card required.
+          {t('pricing.bottomNote')}
         </p>
       </div>
     </section>
