@@ -23,12 +23,11 @@ const Header: React.FC = () => {
   return (
     <header
       className={`
-        fixed top-0 left-0 right-0 z-50
+        fixed left-0 right-0 z-50
         transition-all duration-500 ease-out
-        pt-[env(safe-area-inset-top)]
         ${isScrolled
-          ? 'py-4 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
-          : 'py-6 bg-transparent'
+          ? 'top-0 pt-3 pb-3 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
+          : 'top-2 pt-4 pb-4 bg-transparent'
         }
       `}
     >
