@@ -25,6 +25,7 @@ const Header: React.FC = () => {
       className={`
         fixed top-0 left-0 right-0 z-50
         transition-all duration-500 ease-out
+        pt-[env(safe-area-inset-top)]
         ${isScrolled
           ? 'py-3 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
           : 'py-5 bg-transparent'
@@ -108,7 +109,7 @@ const Header: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden relative w-10 h-10 flex items-center justify-center"
+          className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-lg hover:bg-white/5 active:bg-white/10 transition-colors"
           aria-label="Toggle menu"
         >
           <div className="relative w-6 h-5 flex flex-col justify-between">
@@ -143,28 +144,28 @@ const Header: React.FC = () => {
           ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}
         `}
       >
-        <div className="px-6 py-6 flex flex-col gap-4">
+        <div className="px-6 py-6 flex flex-col gap-2">
           {navLinks.map(({ label, href }) => (
             <a
               key={href}
               href={href}
-              className="text-lg font-medium text-white/80 hover:text-white transition-colors py-2"
+              className="text-lg font-medium text-white/80 hover:text-white active:bg-white/5 transition-colors py-3 min-h-[44px] flex items-center rounded-lg px-2 -mx-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {label}
             </a>
           ))}
-          <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
+          <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-white/10">
             <a
               href={domains.app}
-              className="text-center py-3 text-white/80 font-medium"
+              className="text-center py-3.5 min-h-[48px] flex items-center justify-center text-white/80 font-medium rounded-lg hover:bg-white/5 active:bg-white/10 transition-colors"
             >
               {t('common.logIn')}
             </a>
             <a
               href={domains.app}
               className="
-                text-center py-3 px-6 font-semibold text-white
+                text-center py-3.5 min-h-[48px] flex items-center justify-center px-6 font-semibold text-white
                 rounded-full
                 bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               "

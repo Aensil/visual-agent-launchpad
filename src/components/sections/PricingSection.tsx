@@ -67,11 +67,11 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
           </p>
 
           {/* Billing toggle */}
-          <div className="inline-flex items-center gap-4 p-1.5 rounded-full bg-white/[0.03] border border-white/10">
+          <div className="inline-flex items-center gap-2 sm:gap-4 p-1.5 rounded-full bg-white/[0.03] border border-white/10">
             <button
               onClick={() => setIsAnnual(false)}
               className={`
-                px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                px-4 sm:px-5 py-2.5 sm:py-3 min-h-[44px] rounded-full text-sm font-medium transition-all duration-300
                 ${!isAnnual
                   ? 'bg-white text-void'
                   : 'text-white/60 hover:text-white'
@@ -83,7 +83,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
             <button
               onClick={() => setIsAnnual(true)}
               className={`
-                px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                px-4 sm:px-5 py-2.5 sm:py-3 min-h-[44px] rounded-full text-sm font-medium transition-all duration-300
                 ${isAnnual
                   ? 'bg-white text-void'
                   : 'text-white/60 hover:text-white'
@@ -91,13 +91,13 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
               `}
             >
               {t('pricing.annual')}
-              <span className="ml-2 text-xs text-status-success">{t('pricing.save20')}</span>
+              <span className="ml-1.5 sm:ml-2 text-xs text-status-success">{t('pricing.save20')}</span>
             </button>
           </div>
         </div>
 
         {/* Pricing cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {plans.map((plan) => (
             <div
               key={plan.name}

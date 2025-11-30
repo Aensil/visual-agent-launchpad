@@ -6,6 +6,11 @@
 /* Deep, controlled, surgical. An AI control room for people who make big decisions. */
 
 @layer base {
+  /* Safe area insets for notched devices */
+  html {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
   :root {
     /* Core color tokens - from design spec */
     --bg-page: #05070f;

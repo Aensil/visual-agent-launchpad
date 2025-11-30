@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap gap-16">
+          <div className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16">
             <div>
               <h4 className="text-sm font-semibold text-white mb-4">{t('footer.product')}</h4>
               <ul className="space-y-3">
