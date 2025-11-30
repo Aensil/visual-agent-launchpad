@@ -33,7 +33,7 @@ const CTASection: React.FC = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href={`${domains.app}/signup`}
+            href={domains.app}
             className="
               group relative px-10 py-5 text-lg font-semibold text-white
               rounded-full overflow-hidden

@@ -79,7 +79,7 @@ const Header: React.FC = () => {
             Log in
           </a>
           <a
-            href={`${domains.app}/signup`}
+            href={domains.app}
             className="
               relative px-5 py-2.5 text-sm font-semibold text-white
               rounded-full overflow-hidden
@@ -161,7 +161,7 @@ const Header: React.FC = () => {
               Log in
             </a>
             <a
-              href={`${domains.app}/signup`}
+              href={domains.app}
               className="
                 text-center py-3 px-6 font-semibold text-white
                 rounded-full

@@ -116,7 +116,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           `}
         >
           <a
-            href={`${domains.app}/signup`}
+            href={domains.app}
             className="
               group relative px-8 py-4 text-lg font-semibold text-white
               rounded-full overflow-hidden
