@@ -59,29 +59,15 @@ const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section id="product" className="relative py-32 px-6">
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `
-            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
-            radial-gradient(ellipse 60% 40% at 80% 50%, rgba(75, 63, 227, 0.05) 0%, transparent 50%)
-          `,
-        }}
-      />
-
+    <section id="product" className="relative py-24 px-6">
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Built for speed.<br />
-            <span className="bg-gradient-to-r from-primary-cyan to-deep-indigo bg-clip-text text-transparent">
-              Designed for clarity.
-            </span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            Everything you need to understand your data
           </h2>
           <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            Everything you need to turn raw data into strategic decisions.
+            From quick questions to deep analysis, get answers in seconds.
           </p>
         </div>
 
@@ -91,42 +77,31 @@ const FeaturesSection: React.FC = () => {
             <div
               key={index}
               className="
-                group relative p-8 rounded-2xl
+                group p-6 rounded-xl
                 bg-white/[0.02] border border-white/[0.06]
-                hover:bg-white/[0.04] hover:border-white/10
-                transition-all duration-500
+                hover:bg-white/[0.03] hover:border-white/10
+                transition-all duration-300
               "
             >
               {/* Icon */}
               <div
                 className="
-                  w-12 h-12 mb-6 rounded-xl
+                  w-10 h-10 mb-5 rounded-lg
                   flex items-center justify-center
-                  bg-gradient-to-br from-primary-cyan/20 to-deep-indigo/20
+                  bg-white/[0.05]
                   text-primary-cyan
-                  group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,212,255,0.2)]
-                  transition-all duration-500
                 "
               >
                 {feature.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-semibold text-white mb-3">
+              <h3 className="text-base font-semibold text-white mb-2">
                 {feature.title}
               </h3>
               <p className="text-sm text-white/50 leading-relaxed">
                 {feature.description}
               </p>
-
-              {/* Hover glow */}
-              <div
-                className="
-                  absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
-                  bg-gradient-to-br from-primary-cyan/5 to-transparent
-                  transition-opacity duration-500 pointer-events-none
-                "
-              />
             </div>
           ))}
         </div>

@@ -71,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </span>
         </div>
 
-        {/* Main Headline - Apple style large typography */}
+        {/* Main Headline - Clear value proposition */}
         <h1
           className={`
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl
@@ -82,17 +82,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           `}
         >
           <span className="block text-white">
-            Talk to your data.
+            Ask questions.
           </span>
           <span
             className="block mt-2 bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta bg-clip-text text-transparent"
             style={{ backgroundSize: '200% 100%' }}
           >
-            See it think.
+            Get answers.
           </span>
         </h1>
 
-        {/* Subheadline - concise */}
+        {/* Subheadline - specific value prop */}
         <p
           className={`
             text-lg sm:text-xl md:text-2xl text-white/50 font-light
@@ -102,9 +102,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
           `}
         >
-          AI that visualizes your business data in real-time.
+          Connect your data sources. Ask in plain English.
           <br className="hidden sm:block" />
-          Ask anything. Get instant charts, insights, actions.
+          Get instant visualizations your whole team can understand.
         </p>
 
         {/* CTAs - prominent Start Free */}
@@ -167,26 +167,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </a>
         </div>
 
-        {/* Product Preview - Hero Visual */}
+        {/* Product Preview - Real Dashboard Screenshot */}
         <div
           className={`
-            relative max-w-4xl mx-auto
+            relative max-w-5xl mx-auto
             transition-all duration-1000 delay-500 ease-out
             ${isLoaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}
           `}
           style={{
             transform: prefersReducedMotion
               ? 'perspective(1000px)'
-              : `perspective(1000px) rotateX(${mousePosition.y * -5}deg) rotateY(${mousePosition.x * 5}deg)`,
+              : `perspective(1000px) rotateX(${mousePosition.y * -3}deg) rotateY(${mousePosition.x * 3}deg)`,
             transition: 'transform 0.3s ease-out, opacity 1s ease-out',
           }}
         >
-          {/* Glow effect behind */}
+          {/* Subtle glow effect behind */}
           <div
             className="
               absolute -inset-4 rounded-3xl
-              bg-gradient-to-r from-primary-cyan/30 via-deep-indigo/30 to-accent-magenta/30
-              blur-3xl opacity-50
+              bg-gradient-to-r from-primary-cyan/20 via-deep-indigo/20 to-accent-magenta/20
+              blur-3xl opacity-40
             "
           />
 
@@ -195,139 +195,109 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="
               relative rounded-2xl overflow-hidden
               border border-white/10
-              bg-void-surface/80 backdrop-blur-xl
+              bg-void-surface/90
               shadow-2xl
             "
           >
             {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-void/50 border-b border-white/5">
+            <div className="flex items-center gap-2 px-4 py-3 bg-void/60 border-b border-white/5">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-white/10" />
-                <div className="w-3 h-3 rounded-full bg-white/10" />
-                <div className="w-3 h-3 rounded-full bg-white/10" />
+                <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                <div className="w-3 h-3 rounded-full bg-green-500/60" />
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="px-4 py-1 rounded-md bg-white/5 text-xs text-white/30">
+                <div className="px-4 py-1 rounded-md bg-white/5 text-xs text-white/40 flex items-center gap-2">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
                   app.vuen.ai
                 </div>
               </div>
             </div>
 
-            {/* Dashboard mockup */}
-            <div className="relative p-6 min-h-[400px] sm:min-h-[500px]">
-              {/* Orb - central AI visualization */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative w-32 h-32 sm:w-40 sm:h-40">
-                  {/* Outer glow rings */}
-                  <div
-                    className={`
-                      absolute -inset-8 rounded-full
-                      bg-gradient-to-r from-primary-cyan/20 to-accent-magenta/20
-                      ${!prefersReducedMotion ? 'animate-pulse' : ''}
-                      blur-2xl
-                    `}
-                  />
-                  <div
-                    className={`
-                      absolute -inset-4 rounded-full
-                      bg-gradient-to-r from-primary-cyan/30 to-deep-indigo/30
-                      ${!prefersReducedMotion ? 'animate-pulse' : ''}
-                      blur-xl
-                    `}
-                    style={{ animationDelay: '0.5s' }}
-                  />
+            {/* Dashboard layout */}
+            <div className="relative p-6 min-h-[450px] sm:min-h-[520px] bg-[#0a0c14]">
+              {/* Sidebar */}
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-void/50 border-r border-white/5 flex flex-col items-center py-4 gap-4">
+                <div className="w-8 h-8 rounded-lg bg-primary-cyan/20 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded bg-primary-cyan/60" />
+                </div>
+                <div className="w-8 h-8 rounded-lg bg-white/5" />
+                <div className="w-8 h-8 rounded-lg bg-white/5" />
+                <div className="w-8 h-8 rounded-lg bg-white/5" />
+              </div>
 
-                  {/* Main orb */}
-                  <div
-                    className={`
-                      absolute inset-0 rounded-full
-                      bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta
-                      ${!prefersReducedMotion ? 'animate-gradient-cycle' : ''}
-                    `}
-                    style={{ backgroundSize: '200% 200%' }}
-                  />
+              {/* Main content area */}
+              <div className="ml-20">
+                {/* Top bar with query */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10">
+                    <svg className="w-5 h-5 text-primary-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <span className="text-sm text-white/70">"Compare Q3 revenue by region with last year"</span>
+                  </div>
+                </div>
 
-                  {/* Inner glass */}
-                  <div className="absolute inset-3 rounded-full bg-void/60 backdrop-blur-sm flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-[10px] sm:text-xs font-semibold text-primary-cyan tracking-wider uppercase">
-                        Ready
+                {/* Charts grid */}
+                <div className="grid grid-cols-3 gap-4">
+                  {/* Main chart */}
+                  <div className="col-span-2 p-5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <div className="text-sm font-medium text-white">Revenue by Region</div>
+                        <div className="text-xs text-white/40">Q3 2024 vs Q3 2023</div>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="px-2 py-1 rounded text-xs bg-primary-cyan/20 text-primary-cyan">2024</span>
+                        <span className="px-2 py-1 rounded text-xs bg-white/10 text-white/50">2023</span>
+                      </div>
+                    </div>
+                    {/* Bar chart */}
+                    <div className="flex items-end justify-between h-32 gap-3 mt-4">
+                      {[
+                        { label: 'NA', h1: 85, h2: 70 },
+                        { label: 'EU', h1: 72, h2: 65 },
+                        { label: 'APAC', h1: 90, h2: 55 },
+                        { label: 'LATAM', h1: 45, h2: 40 },
+                      ].map((d, i) => (
+                        <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                          <div className="w-full flex gap-1 items-end justify-center h-28">
+                            <div
+                              className="w-5 bg-primary-cyan/70 rounded-t"
+                              style={{ height: `${d.h1}%` }}
+                            />
+                            <div
+                              className="w-5 bg-white/20 rounded-t"
+                              style={{ height: `${d.h2}%` }}
+                            />
+                          </div>
+                          <span className="text-[10px] text-white/40">{d.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Side metrics */}
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                      <div className="text-xs text-white/40 mb-1">Total Revenue</div>
+                      <div className="text-2xl font-bold text-white">$4.2M</div>
+                      <div className="text-xs text-green-400 mt-1">+23% YoY</div>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                      <div className="text-xs text-white/40 mb-1">Top Region</div>
+                      <div className="text-lg font-semibold text-white">APAC</div>
+                      <div className="text-xs text-primary-cyan mt-1">+63% growth</div>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                      <div className="text-xs text-white/40 mb-2">AI Insight</div>
+                      <div className="text-xs text-white/70 leading-relaxed">
+                        APAC outperformance driven by enterprise deals in Singapore and Japan.
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Floating UI elements - charts */}
-              <div
-                className={`
-                  absolute top-8 left-8 p-4 rounded-xl
-                  bg-white/[0.03] border border-white/10 backdrop-blur-sm
-                  ${!prefersReducedMotion ? 'animate-float-slow' : ''}
-                `}
-              >
-                <div className="w-32 h-20 flex items-end gap-1">
-                  {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-gradient-to-t from-primary-cyan/60 to-primary-cyan/20 rounded-t"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
-                </div>
-                <div className="mt-2 text-[10px] text-white/40">Revenue</div>
-              </div>
-
-              {/* Floating metric card */}
-              <div
-                className={`
-                  absolute top-12 right-8 p-4 rounded-xl
-                  bg-white/[0.03] border border-white/10 backdrop-blur-sm
-                  ${!prefersReducedMotion ? 'animate-float-slow' : ''}
-                `}
-                style={{ animationDelay: '1s' }}
-              >
-                <div className="text-2xl font-bold text-white">+47%</div>
-                <div className="text-[10px] text-status-success">MRR Growth</div>
-              </div>
-
-              {/* Voice query indicator */}
-              <div
-                className={`
-                  absolute bottom-8 left-1/2 -translate-x-1/2
-                  flex items-center gap-3 px-6 py-3 rounded-full
-                  bg-white/[0.05] border border-white/10 backdrop-blur-sm
-                  ${!prefersReducedMotion ? 'animate-float-slow' : ''}
-                `}
-                style={{ animationDelay: '0.5s' }}
-              >
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div
-                      key={i}
-                      className={`w-1 bg-primary-cyan rounded-full ${!prefersReducedMotion ? 'animate-soundwave' : 'h-3'}`}
-                      style={{
-                        animationDelay: `${i * 0.1}s`,
-                        height: prefersReducedMotion ? '12px' : undefined,
-                      }}
-                    />
-                  ))}
-                </div>
-                <span className="text-sm text-white/60">"Show me churn by cohort"</span>
-              </div>
-
-              {/* Bottom insight card */}
-              <div
-                className={`
-                  absolute bottom-24 right-8 max-w-[200px] p-4 rounded-xl
-                  bg-white/[0.03] border border-white/10 backdrop-blur-sm
-                  ${!prefersReducedMotion ? 'animate-float-slow' : ''}
-                `}
-                style={{ animationDelay: '1.5s' }}
-              >
-                <div className="text-[10px] text-accent-magenta font-medium mb-1">Insight</div>
-                <div className="text-xs text-white/60">
-                  Q3 cohorts show 23% lower churn than Q2
                 </div>
               </div>
             </div>
@@ -361,30 +331,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </div>
 
-      {/* Custom animations */}
-      <style>{`
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float-slow {
-          animation: float-slow 6s ease-in-out infinite;
-        }
-        @keyframes soundwave {
-          0%, 100% { height: 8px; }
-          50% { height: 20px; }
-        }
-        .animate-soundwave {
-          animation: soundwave 1s ease-in-out infinite;
-        }
-        @keyframes gradient-cycle {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-cycle {
-          animation: gradient-cycle 4s ease infinite;
-        }
-      `}</style>
     </section>
   );
 };

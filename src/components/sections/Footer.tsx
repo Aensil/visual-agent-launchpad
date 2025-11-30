@@ -8,19 +8,14 @@ const Footer: React.FC = () => {
   const footerLinks = {
     product: [
       { label: 'Features', href: '#product' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Docs', href: '/docs' },
+      { label: 'Pricing', href: '#pricing' },
     ],
     company: [
-      { label: 'About', href: '/about' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Careers', href: '/careers' },
       { label: 'Contact', href: `mailto:${contact.generalEmail}` },
     ],
     legal: [
       { label: 'Privacy', href: '/legal/privacy' },
       { label: 'Terms', href: '/legal/terms' },
-      { label: 'Security', href: '/legal/security' },
     ],
   };
 
@@ -78,22 +73,23 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative py-20 px-6 border-t border-white/[0.04]">
+    <footer className="relative py-16 px-6 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
+        {/* Main footer content */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
           {/* Brand column */}
-          <div className="col-span-2">
-            <a href="/" className="inline-block mb-6">
+          <div className="max-w-sm">
+            <a href="/" className="inline-block mb-4">
               <img
                 src={Logo}
                 alt="Vuen AI"
-                className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
               />
             </a>
-            <p className="text-sm text-white/40 mb-6 max-w-xs">
+            <p className="text-sm text-white/40 mb-5">
               AI-powered business intelligence. Ask questions, get answers.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socialIconsData.map((social) => (
                 <a
                   key={social.name}
@@ -110,60 +106,60 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Product links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/40 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links */}
+          <div className="flex flex-wrap gap-16">
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">Product</h4>
+              <ul className="space-y-3">
+                {footerLinks.product.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/40 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Company links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/40 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
+              <ul className="space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/40 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Legal links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/40 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">Legal</h4>
+              <ul className="space-y-3">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/40 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-white/[0.04]">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-white/[0.06]">
           <p className="text-sm text-white/30">
             © {currentYear} Vuen AI. All rights reserved.
           </p>
@@ -171,9 +167,9 @@ const Footer: React.FC = () => {
             href={domains.app}
             className="
               inline-flex items-center gap-2 px-4 py-2 rounded-full
-              text-sm text-primary-cyan font-medium
-              bg-primary-cyan/10 border border-primary-cyan/20
-              hover:bg-primary-cyan/20 transition-colors
+              text-sm text-white/70 font-medium
+              bg-white/5 border border-white/10
+              hover:bg-white/10 hover:text-white transition-all
             "
           >
             Open App

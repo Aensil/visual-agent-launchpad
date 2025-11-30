@@ -3,6 +3,8 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import PricingSection from '@/components/sections/PricingSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -47,6 +49,12 @@ const Index: React.FC = () => {
 
           {/* Features - What the product does */}
           <FeaturesSection />
+
+          {/* Testimonials - Social proof */}
+          <TestimonialsSection />
+
+          {/* Pricing */}
+          <PricingSection />
 
           {/* Final CTA */}
           <CTASection />
