@@ -230,13 +230,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* Main content area */}
               <div className="ml-20">
-                {/* Top bar with query */}
+                {/* Voice input indicator */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10">
-                    <svg className="w-5 h-5 text-primary-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    <span className="text-sm text-white/70">"Compare Q3 revenue by region with last year"</span>
+                  <div className="flex-1 flex items-center gap-3 px-5 py-4 rounded-xl bg-white/[0.03] border border-primary-cyan/20">
+                    {/* Microphone icon with pulse */}
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary-cyan/30 rounded-full animate-ping" />
+                      <div className="relative w-8 h-8 rounded-full bg-primary-cyan/20 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-primary-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Voice waveform */}
+                    <div className="flex items-center gap-1">
+                      {[3, 5, 8, 12, 8, 5, 3, 6, 10, 6, 4].map((h, i) => (
+                        <div
+                          key={i}
+                          className="w-1 bg-primary-cyan/60 rounded-full animate-pulse"
+                          style={{
+                            height: `${h * 2}px`,
+                            animationDelay: `${i * 0.1}s`
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-white/70 ml-2">"Compare Q3 revenue by region with last year"</span>
                   </div>
                 </div>
 
