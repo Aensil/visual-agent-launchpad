@@ -34,13 +34,13 @@ const UnderTheHoodSection: React.FC<UnderTheHoodSectionProps> = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-black relative z-10" aria-label="Under The Hood Section">
+    <section className="py-24 px-4 bg-void relative z-10" aria-label="Under The Hood Section">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-white">This isn't a slide. </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
+            <span className="text-text-primary">This isn't a slide. </span>
+            <span className="heading-gradient">
               It's a running product.
             </span>
           </h2>
@@ -51,12 +51,12 @@ const UnderTheHoodSection: React.FC<UnderTheHoodSectionProps> = () => {
           {techPoints.map((point, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm"
+              className="glass-panel p-5 flex items-start gap-4 hover:glass-glow-cyan transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-electric-cyan/20 flex items-center justify-center flex-shrink-0 text-electric-cyan">
+              <div className="w-10 h-10 rounded-lg bg-primary-cyan/20 border border-primary-cyan/30 flex items-center justify-center flex-shrink-0 text-primary-cyan group-hover:bg-primary-cyan/30 transition-colors">
                 {point.icon}
               </div>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-text-secondary leading-relaxed group-hover:text-text-primary transition-colors">
                 {point.text}
               </p>
             </div>
@@ -65,9 +65,9 @@ const UnderTheHoodSection: React.FC<UnderTheHoodSectionProps> = () => {
 
         {/* One Line */}
         <div className="text-center">
-          <p className="text-xl md:text-2xl font-semibold text-white">
+          <p className="text-xl md:text-2xl font-semibold text-text-primary">
             You're not betting on a prototype.{' '}
-            <span className="text-electric-cyan">You're plugging into an engine that's already alive.</span>
+            <span className="text-primary-cyan text-glow-cyan">You're plugging into an engine that's already alive.</span>
           </p>
         </div>
       </div>

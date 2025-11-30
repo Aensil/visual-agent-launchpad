@@ -22,20 +22,20 @@ const AspirationSection: React.FC<AspirationSectionProps> = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-black via-neural-indigo/5 to-black relative z-10" aria-label="Aspiration Section">
+    <section className="py-24 px-4 void-gradient relative z-10" aria-label="Aspiration Section">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
+            <span className="heading-gradient">
               You don't want more dashboards.
             </span>
             <br />
-            <span className="text-white">
+            <span className="text-text-primary">
               You want control in the room.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
             You want to walk into any meeting, ask "How's X doing?" and have the answer appear on the screen while you're still talking – so you can drive the conversation, not wait on someone's mouse.
           </p>
         </div>
@@ -45,15 +45,15 @@ const AspirationSection: React.FC<AspirationSectionProps> = () => {
           {aspirations.map((item, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-xl p-8 backdrop-blur-sm hover:border-electric-cyan/50 hover:bg-electric-cyan/5 transition-all duration-300 group"
+              className="glass-panel p-8 hover:glass-glow-cyan transition-all duration-300 group"
             >
-              <div className="w-12 h-12 rounded-full bg-electric-cyan/20 flex items-center justify-center mb-4 group-hover:bg-electric-cyan/30 transition-colors">
-                <span className="text-electric-cyan font-bold text-xl">{index + 1}</span>
+              <div className="w-12 h-12 rounded-full bg-primary-cyan/20 border border-primary-cyan/30 flex items-center justify-center mb-4 group-hover:bg-primary-cyan/30 group-hover:border-primary-cyan/50 transition-colors">
+                <span className="text-primary-cyan font-bold text-xl">{index + 1}</span>
               </div>
-              <h3 className="text-white font-bold text-xl mb-3">
+              <h3 className="text-text-primary font-bold text-xl mb-3 group-hover:text-primary-cyan transition-colors">
                 {item.title}
               </h3>
-              <p className="text-white/60">
+              <p className="text-text-secondary">
                 {item.description}
               </p>
             </div>

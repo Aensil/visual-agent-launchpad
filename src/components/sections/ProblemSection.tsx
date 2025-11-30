@@ -30,31 +30,31 @@ const ProblemSection: React.FC<ProblemSectionProps> = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-black relative z-10" aria-label="Problem Section">
+    <section className="py-24 px-4 section-gradient-magenta relative z-10" aria-label="Problem Section">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-kinetic-magenta to-neural-indigo">
+            <span className="heading-gradient-warm">
               If this sounds like you, your BI is failing you.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
             You're not short on tools. You're short on answers when it matters – in front of your team, your investors, your customers.
           </p>
         </div>
 
         {/* Problem Bullets */}
-        <div className="space-y-6 mb-12">
+        <div className="space-y-4 mb-12">
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-kinetic-magenta/50 transition-all duration-300"
+              className="glass-panel p-6 hover:glass-glow-magenta transition-all duration-300 group"
             >
-              <p className="text-white font-semibold text-lg mb-2">
+              <p className="text-text-primary font-semibold text-lg mb-2 group-hover:text-accent-magenta transition-colors">
                 {problem.text}
               </p>
-              <p className="text-white/50 italic">
+              <p className="text-text-muted italic">
                 {problem.detail}
               </p>
             </div>
@@ -63,9 +63,9 @@ const ProblemSection: React.FC<ProblemSectionProps> = () => {
 
         {/* Punchline */}
         <div className="text-center">
-          <p className="text-xl md:text-2xl font-bold text-white">
+          <p className="text-xl md:text-2xl font-bold text-text-primary">
             You don't have a data problem.{' '}
-            <span className="text-kinetic-magenta">
+            <span className="text-accent-magenta text-glow-magenta">
               You have a "cannot answer on the spot" problem.
             </span>
           </p>

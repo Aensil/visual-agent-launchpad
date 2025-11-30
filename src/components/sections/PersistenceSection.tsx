@@ -37,18 +37,18 @@ const PersistenceSection: React.FC<PersistenceSectionProps> = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-black relative z-10" aria-label="Persistence Section">
+    <section className="py-24 px-4 bg-void relative z-10" aria-label="Persistence Section">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">You don't "build dashboards." </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-neural-indigo">
+            <span className="text-text-primary">You don't "build dashboards." </span>
+            <span className="heading-gradient">
               You save the good moments.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
-            Every time Vuen shows something useful, you hit <span className="text-electric-cyan font-semibold">Keep</span>. That's it. No configuration hell.
+          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
+            Every time Vuen shows something useful, you hit <span className="text-primary-cyan font-semibold">Keep</span>. That's it. No configuration hell.
           </p>
         </div>
 
@@ -57,15 +57,15 @@ const PersistenceSection: React.FC<PersistenceSectionProps> = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:border-electric-cyan/50 transition-all duration-300 group text-center"
+              className="glass-panel p-6 hover:glass-glow-cyan transition-all duration-300 group text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-electric-cyan/20 flex items-center justify-center mx-auto mb-4 text-electric-cyan group-hover:bg-electric-cyan/30 transition-colors">
+              <div className="w-14 h-14 rounded-full bg-primary-cyan/20 border border-primary-cyan/30 flex items-center justify-center mx-auto mb-4 text-primary-cyan group-hover:bg-primary-cyan/30 group-hover:border-primary-cyan/50 transition-colors">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-primary-cyan transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-white/60">
+              <p className="text-text-secondary">
                 {feature.description}
               </p>
             </div>
@@ -74,10 +74,10 @@ const PersistenceSection: React.FC<PersistenceSectionProps> = () => {
 
         {/* Punchline */}
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-white/5 to-white/10 border border-white/10 rounded-2xl p-8 backdrop-blur-sm inline-block max-w-3xl">
-            <p className="text-xl md:text-2xl text-white">
+          <div className="glass-panel-elevated p-8 inline-block max-w-3xl">
+            <p className="text-xl md:text-2xl text-text-primary">
               Your "BI stack" becomes a set of{' '}
-              <span className="text-electric-cyan font-semibold">live scenes you can reopen at any time</span>{' '}
+              <span className="text-primary-cyan font-semibold text-glow-cyan">live scenes you can reopen at any time</span>{' '}
               – not a graveyard of half-finished dashboards.
             </p>
           </div>

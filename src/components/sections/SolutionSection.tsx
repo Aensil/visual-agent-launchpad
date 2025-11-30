@@ -37,13 +37,13 @@ const SolutionSection: React.FC<SolutionSectionProps> = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-black relative z-10" aria-label="Solution Section">
+    <section className="py-24 px-4 section-gradient-cyan relative z-10" aria-label="Solution Section">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-white">Vuen is your </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan via-neural-indigo to-kinetic-magenta">
+            <span className="text-text-primary">Vuen is your </span>
+            <span className="heading-gradient">
               Visual Data Agent.
             </span>
           </h2>
@@ -51,9 +51,9 @@ const SolutionSection: React.FC<SolutionSectionProps> = () => {
 
         {/* One-liner */}
         <div className="text-center mb-16">
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto">
             You talk to a 3D orb, and it does the one thing none of your BI tools can:{' '}
-            <span className="text-electric-cyan font-semibold">it keeps up with you.</span>
+            <span className="text-primary-cyan font-semibold text-glow-cyan">it keeps up with you.</span>
           </p>
         </div>
 
@@ -65,25 +65,25 @@ const SolutionSection: React.FC<SolutionSectionProps> = () => {
               className="relative group"
             >
               {/* Card */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 h-full backdrop-blur-sm hover:border-electric-cyan/50 transition-all duration-300">
+              <div className="glass-panel p-8 h-full hover:glass-glow-cyan transition-all duration-300">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-electric-cyan/20 to-neural-indigo/20 flex items-center justify-center mb-6 text-electric-cyan group-hover:from-electric-cyan/30 group-hover:to-neural-indigo/30 transition-all duration-300">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-cyan/20 to-deep-indigo/20 border border-primary-cyan/20 flex items-center justify-center mb-6 text-primary-cyan group-hover:from-primary-cyan/30 group-hover:to-deep-indigo/30 group-hover:border-primary-cyan/40 transition-all duration-300">
                   {pillar.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-primary-cyan transition-colors">
                   {pillar.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-text-secondary leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
 
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-electric-cyan/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+              {/* Glow effect on hover - respects orb hierarchy */}
+              <div className="absolute inset-0 rounded-glass bg-primary-cyan/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </div>
           ))}
         </div>
