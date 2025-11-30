@@ -27,8 +27,8 @@ const Header: React.FC = () => {
         transition-all duration-500 ease-out
         pt-[env(safe-area-inset-top)]
         ${isScrolled
-          ? 'py-3 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
-          : 'py-5 bg-transparent'
+          ? 'py-4 bg-void/80 backdrop-blur-2xl border-b border-white/[0.06]'
+          : 'py-6 bg-transparent'
         }
       `}
     >

@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
               <img
                 src={Logo}
                 alt="Vuen AI"
-                className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
               />
             </a>
             <p className="text-sm text-white/40 mb-5">
