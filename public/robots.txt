@@ -1,0 +1,24 @@
+# Vuen AI Robots.txt
+# https://vuen.ai/robots.txt
+
+# Allow all crawlers for marketing site
+User-agent: *
+Allow: /
+
+# Disallow sensitive and internal areas
+Disallow: /app/
+Disallow: /admin/
+Disallow: /preview/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Disallow staging and test routes
+Disallow: /staging/
+Disallow: /test/
+
+# Reference sitemap
+Sitemap: https://vuen.ai/sitemap.xml
+
+# Crawl-delay suggestion (optional, not all bots respect this)
+Crawl-delay: 1

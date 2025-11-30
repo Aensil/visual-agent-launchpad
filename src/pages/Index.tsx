@@ -83,7 +83,7 @@ const Index: React.FC = () => {
   return (
     <>
       {/* SEO Component - Manages all meta tags and structured data */}
-      <SEO language={currentLanguage} />
+      <SEO language={currentLanguage} page="home" />
 
       <div className="min-h-screen bg-void text-text-primary overflow-x-hidden relative">
         {/* Language Switcher */}
