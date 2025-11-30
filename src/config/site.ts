@@ -145,6 +145,11 @@ export const seoConfig = {
       description: 'Terms and conditions for using Vuen AI services.',
       path: '/legal/terms',
     },
+    security: {
+      title: 'Security – Vuen AI',
+      description: 'Learn about Vuen AI security practices, data protection, and compliance.',
+      path: '/legal/security',
+    },
   },
 } as const;
 
@@ -153,10 +158,12 @@ export const openGraphConfig = {
   type: 'website',
   siteName: 'Vuen AI',
   url: domains.main + '/',
-  title: 'Talk to Your Data – Vuen AI Visual Data Agent',
-  description: 'Ask questions out loud and watch live charts, maps, and flows appear instantly while an AI voice explains what\'s happening.',
-  image: `${domains.main}/assets/og/vuen-orb-dashboard-1600x900.png`,
-  imageAlt: 'Vuen AI Visual Data Agent - Glowing orb with live dashboard charts',
+  title: 'Vuen AI – Visual Data Agent for Real-Time Business Intelligence',
+  description: 'Talk to a 3D orb and get live charts, flows, and explanations from your own data in seconds.',
+  image: `${domains.main}/assets/og/vuen-og-default.svg`,
+  imageAlt: 'Vuen AI - Visual Data Agent with glowing orb interface',
+  imageWidth: '1200',
+  imageHeight: '630',
 } as const;
 
 // Twitter Card Configuration
@@ -164,9 +171,10 @@ export const twitterConfig = {
   card: 'summary_large_image',
   site: '@vuen_ai',
   creator: '@vuen_ai',
-  title: 'Vuen AI – Talk to Your Data',
-  description: 'Talk to a 3D orb and get live charts, flows, and explanations from your own data in seconds. Vuen AI is a voice-first Visual Data Agent for real-time business intelligence.',
-  image: `${domains.main}/assets/og/vuen-orb-dashboard-1600x900.png`,
+  title: 'Vuen AI – Visual Data Agent for Real-Time Business Intelligence',
+  description: 'Talk to a 3D orb and get live charts, flows, and explanations from your own data in seconds.',
+  image: `${domains.main}/assets/og/vuen-og-default.svg`,
+  imageAlt: 'Vuen AI - Visual Data Agent with glowing orb interface',
 } as const;
 
 // Structured Data Templates
@@ -176,7 +184,7 @@ export const structuredData = {
     '@type': 'Organization',
     name: 'Vuen AI',
     url: domains.main,
-    logo: `${domains.main}/assets/logo/vuen-logo.png`,
+    logo: `${domains.main}/assets/logo/vuen-logo.svg`,
     sameAs: [
       socialLinks.twitter.url,
       socialLinks.linkedin.url,
@@ -186,7 +194,7 @@ export const structuredData = {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      email: contact.email,
+      email: contact.generalEmail,
       contactType: 'customer service',
     },
   },
@@ -195,30 +203,26 @@ export const structuredData = {
     '@type': 'SoftwareApplication',
     name: 'Vuen AI',
     applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Business Intelligence',
     operatingSystem: 'Web',
     description: seoConfig.pages.home.description,
+    url: domains.app,
     offers: {
       '@type': 'Offer',
       price: '3500',
       priceCurrency: 'USD',
+      priceValidUntil: '2025-12-31',
+      availability: 'https://schema.org/InStock',
     },
   },
 } as const;
 
-// Language/Locale Configuration
+// Language/Locale Configuration (English only until Spanish content exists)
 export const localeConfig = {
   default: 'en',
-  supported: ['en', 'es'] as const,
+  supported: ['en'] as const,
   hreflang: {
     en: 'en',
-    es: 'es-CO', // Spanish for Colombia
-  },
-  routes: {
-    es: {
-      home: '/es/',
-      product: '/es/producto',
-      useCases: '/es/casos-de-uso',
-    },
   },
 } as const;
 
@@ -236,6 +240,7 @@ export const sitemapPages = [
   '/about',
   '/legal/privacy',
   '/legal/terms',
+  '/legal/security',
 ] as const;
 
 export type SupportedLocale = typeof localeConfig.supported[number];

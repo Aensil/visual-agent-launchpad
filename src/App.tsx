@@ -9,6 +9,7 @@ import Index from '@/pages/Index';
 // Lazy load other pages
 const Privacy = lazy(() => import('@/pages/legal/Privacy'));
 const Terms = lazy(() => import('@/pages/legal/Terms'));
+const Security = lazy(() => import('@/pages/legal/Security'));
 
 // Placeholder pages - will be implemented later
 const ComingSoon = lazy(() => import('@/pages/ComingSoon'));
@@ -55,10 +56,11 @@ const App: React.FC = () => {
               {/* Legal pages */}
               <Route path="/legal/privacy" element={<Privacy />} />
               <Route path="/legal/terms" element={<Terms />} />
+              <Route path="/legal/security" element={<Security />} />
               {/* Redirect old paths to new paths */}
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-              <Route path="/legal/security" element={<ComingSoon pageName="Security" />} />
+              <Route path="/security" element={<Security />} />
 
               {/* Spanish routes (placeholder) */}
               <Route path="/es" element={<ComingSoon pageName="Inicio" isSpanish />} />

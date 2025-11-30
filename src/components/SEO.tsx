@@ -6,7 +6,6 @@ import {
   openGraphConfig,
   twitterConfig,
   structuredData,
-  localeConfig,
   type PageKey,
 } from '@/config/site';
 
@@ -35,9 +34,6 @@ const SEO: React.FC<SEOProps> = ({
   const pagePath = path || pageConfig.path;
   const canonicalUrl = `${domains.main}${pagePath}`;
 
-  // Get keywords if available on the page config
-  const keywords = 'keywords' in pageConfig ? pageConfig.keywords : seoConfig.pages.home.keywords;
-
   // Determine image URL based on page
   const ogImage = openGraphConfig.image;
 
@@ -47,13 +43,6 @@ const SEO: React.FC<SEOProps> = ({
     structuredData.softwareApplication,
   ];
 
-  // Build alternate language URLs for hreflang
-  const alternateUrls = localeConfig.supported.map(locale => ({
-    locale,
-    hreflang: localeConfig.hreflang[locale],
-    url: locale === 'en' ? canonicalUrl : `${domains.main}/${locale}${pagePath}`,
-  }));
-
   return (
     <Helmet>
       {/* Basic HTML Attributes */}
@@ -61,19 +50,11 @@ const SEO: React.FC<SEOProps> = ({
 
       {/* Primary Meta Tags */}
       <title>{pageTitle}</title>
-      <meta name="title" content={pageTitle} />
       <meta name="description" content={pageDescription} />
-      <meta name="keywords" content={keywords.join(', ')} />
       <meta name="author" content="Vuen AI" />
 
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Hreflang for language alternates */}
-      {alternateUrls.map(({ hreflang, url }) => (
-        <link key={hreflang} rel="alternate" hrefLang={hreflang} href={url} />
-      ))}
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
       {/* Robots */}
       {noindex ? (
@@ -82,7 +63,7 @@ const SEO: React.FC<SEOProps> = ({
         <meta name="robots" content="index, follow" />
       )}
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph / Facebook / LinkedIn / WhatsApp */}
       <meta property="og:type" content={openGraphConfig.type} />
       <meta property="og:site_name" content={openGraphConfig.siteName} />
       <meta property="og:url" content={canonicalUrl} />
@@ -90,9 +71,9 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={page === 'home' ? openGraphConfig.description : pageDescription} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:alt" content={openGraphConfig.imageAlt} />
-      <meta property="og:image:width" content="1600" />
-      <meta property="og:image:height" content="900" />
-      <meta property="og:locale" content={language === 'es' ? 'es_CO' : 'en_US'} />
+      <meta property="og:image:width" content={openGraphConfig.imageWidth} />
+      <meta property="og:image:height" content={openGraphConfig.imageHeight} />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content={twitterConfig.card} />
@@ -101,6 +82,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={page === 'home' ? twitterConfig.title : pageTitle} />
       <meta name="twitter:description" content={page === 'home' ? twitterConfig.description : pageDescription} />
       <meta name="twitter:image" content={twitterConfig.image} />
+      <meta name="twitter:image:alt" content={twitterConfig.imageAlt} />
 
       {/* Theme and App Colors */}
       <meta name="theme-color" content={seoConfig.default.themeColor} />
