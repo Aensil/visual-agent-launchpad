@@ -15,7 +15,6 @@ const PersistenceSection = lazy(() => import('@/components/sections/PersistenceS
 const WhoItsForSection = lazy(() => import('@/components/sections/WhoItsForSection'));
 const UnderTheHoodSection = lazy(() => import('@/components/sections/UnderTheHoodSection'));
 const PricingSection = lazy(() => import('@/components/sections/PricingSection'));
-const WaitlistFormSection = lazy(() => import('@/components/sections/WaitlistFormSection'));
 const FounderSection = lazy(() => import('@/components/sections/FounderSection'));
 const Footer = lazy(() => import('@/components/sections/Footer'));
 const CustomCursor = lazy(() => import('@/components/CustomCursor'));
@@ -191,14 +190,6 @@ const Index: React.FC = () => {
           {/* Pricing Section - "Early access / Invite only" */}
           <Suspense fallback={<SectionLoader />}>
             <PricingSection
-              hasScrolled={hasScrolled}
-              prefersReducedMotion={prefersReducedMotion}
-            />
-          </Suspense>
-
-          {/* Waitlist Form Section */}
-          <Suspense fallback={<SectionLoader />}>
-            <WaitlistFormSection
               hasScrolled={hasScrolled}
               prefersReducedMotion={prefersReducedMotion}
             />
