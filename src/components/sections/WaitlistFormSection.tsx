@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { supabase } from '@/lib/supabaseclient';
 
 interface WaitlistFormSectionProps {
   hasScrolled?: boolean;
@@ -32,24 +31,11 @@ const WaitlistFormSection: React.FC<WaitlistFormSectionProps> = () => {
     setError(null);
 
     try {
-      const { error: supabaseError } = await supabase
-        .from('waitlist')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            challenge: formData.painfulMoment,
-            feedback: `Current tools: ${formData.currentTools}\nLive meeting wish: ${formData.liveMeetingWish}\nHoly shit moment: ${formData.holyShitMoment}`
-          }
-        ]);
-
-      if (supabaseError) throw supabaseError;
-
-      setIsSubmitted(true);
+      // Redirect to app.vuen.ai for login/signup
+      window.location.href = 'https://app.vuen.ai';
     } catch (err) {
       setError('Something went wrong. Please try again.');
       console.error('Form submission error:', err);
-    } finally {
       setIsSubmitting(false);
     }
   };
