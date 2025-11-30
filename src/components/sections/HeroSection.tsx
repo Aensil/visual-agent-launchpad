@@ -34,17 +34,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center z-10 pt-20 pb-16"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center z-10 py-24"
       role="banner"
       aria-label="Hero Section"
     >
       {/* Eyebrow Text */}
       <div
-        className="mb-6 transition-all duration-500 ease-out"
-        style={{
-          transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
-          opacity: isLoaded ? 1 : 0,
-        }}
+        className={`mb-6 transition-all duration-500 ease-out ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100 !translate-y-0' : ''}`}
       >
         <span className="microcopy">
           You're making big decisions with tools that stall.
@@ -53,14 +51,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Main Headline */}
       <h1
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight transition-all duration-800 relative max-w-5xl"
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: isLoaded ? 'scale(1)' : 'scale(0.95)',
-          transitionDelay: '100ms',
-        }}
+        className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight relative max-w-5xl transition-all duration-500 delay-100 ${
+          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100 !scale-100' : ''}`}
       >
-        <span className="heading-gradient bg-[length:400%_100%] animate-gradient-cycle">
+        <span className="heading-gradient">
           Stop wasting meetings waiting for dashboards.
         </span>
         {!prefersReducedMotion && (
@@ -70,12 +65,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Subheadline */}
       <p
-        className="text-lg md:text-xl lg:text-2xl text-text-secondary mb-12 max-w-4xl leading-relaxed transition-all duration-600"
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
-          transitionDelay: '200ms',
-        }}
+        className={`text-lg md:text-xl text-text-secondary mb-12 max-w-4xl leading-relaxed transition-all duration-500 delay-200 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100 !translate-y-0' : ''}`}
       >
         You walk into a call with hard questions on revenue, churn, ops, and nobody can answer fast enough.
         Someone opens Power BI, someone else digs in Excel, everyone waits.
@@ -85,42 +77,28 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* === THE ORB === */}
       {/* The orb is the sun - the brightest element, everything else reflects its glow */}
       <div
-        className="relative mb-12 transition-all duration-700"
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: isLoaded ? 'translateY(0)' : 'translateY(30px)',
-          transitionDelay: '300ms',
-        }}
+        className={`relative mb-12 transition-all duration-700 delay-300 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100 !translate-y-0' : ''}`}
       >
         <div className="orb-container relative w-56 h-56 md:w-72 md:h-72 mx-auto">
-          {/* Outer glow layer - largest, most diffuse */}
+          {/* Single glow layer - synchronized with orb */}
           <div
             className={`
-              absolute -inset-8 rounded-full blur-3xl
-              bg-gradient-to-br from-primary-cyan/30 via-deep-indigo/20 to-accent-magenta/20
-              ${!prefersReducedMotion ? 'animate-pulse-glow' : ''}
+              absolute -inset-6 rounded-full blur-2xl
+              bg-gradient-to-br from-primary-cyan/30 via-deep-indigo/20 to-accent-magenta/15
+              ${!prefersReducedMotion ? 'animate-orb-breathe' : 'opacity-50'}
             `}
             aria-hidden="true"
           />
 
-          {/* Secondary glow ring */}
-          <div
-            className={`
-              absolute -inset-4 rounded-full blur-xl
-              bg-gradient-to-br from-primary-cyan/40 via-deep-indigo/30 to-transparent
-              ${!prefersReducedMotion ? 'animate-glow-breathe' : ''}
-            `}
-            aria-hidden="true"
-          />
-
-          {/* Main orb gradient - animated */}
+          {/* Main orb gradient - single breathing animation only */}
           <div
             className={`
               absolute inset-4 rounded-full
               bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta
-              bg-[length:400%_400%]
               shadow-orb-idle
-              ${!prefersReducedMotion ? 'animate-gradient-cycle animate-orb-breathe' : ''}
+              ${!prefersReducedMotion ? 'animate-orb-breathe' : ''}
             `}
           />
 
@@ -153,14 +131,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* CTAs */}
       <div
-        className={`flex flex-col sm:flex-row gap-4 mb-6 transition-all duration-300 ${
+        className={`flex flex-col sm:flex-row gap-4 mb-6 transition-all duration-500 delay-[400ms] ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100 !translate-y-0' : ''} ${
           idleTime > 8 && !prefersReducedMotion ? 'animate-nudge' : ''
         }`}
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
-          transitionDelay: '400ms',
-        }}
       >
         <CTAButton
           variant="primary"
@@ -173,31 +148,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <CTAButton
           variant="secondary"
           onClick={handleWatchOverview}
-          className="text-lg px-8 py-4"
+          className="text-base px-6 py-3"
           aria-label="Watch 90-second overview"
         >
-          Watch 90-second overview
+          Watch 90s overview first
         </CTAButton>
       </div>
 
       {/* Microcopy */}
       <p
-        className="text-sm text-text-muted transition-all duration-500"
-        style={{
-          opacity: isLoaded ? 1 : 0,
-          transitionDelay: '500ms',
-        }}
+        className={`text-sm text-text-muted transition-all duration-500 delay-500 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        } ${prefersReducedMotion ? '!transition-none !opacity-100' : ''}`}
       >
         Built for leaders who are done babysitting dashboards.
       </p>
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        style={{
-          opacity: isLoaded ? 0.6 : 0,
-          transitionDelay: '800ms',
-        }}
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 delay-[800ms] ${
+          isLoaded ? 'opacity-60' : 'opacity-0'
+        } ${prefersReducedMotion ? '!transition-none !opacity-60' : ''}`}
       >
         <div className="w-6 h-10 border-2 border-text-muted/30 rounded-full flex justify-center pt-2">
           <div className={`w-1 h-2 bg-primary-cyan/60 rounded-full ${!prefersReducedMotion ? 'animate-bounce' : ''}`} />

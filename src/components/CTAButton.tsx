@@ -29,13 +29,11 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const variants = {
     primary: `
       px-6 py-3
-      bg-gradient-to-r from-primary-cyan via-deep-indigo to-primary-cyan
-      bg-[length:200%_100%] bg-left
-      text-text-primary
-      shadow-[0_4px_20px_rgba(0,212,255,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]
-      hover:bg-right hover:shadow-[0_8px_30px_rgba(0,212,255,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]
+      bg-primary-cyan text-void
+      shadow-[0_4px_20px_rgba(0,212,255,0.3),inset_0_1px_0_rgba(255,255,255,0.2)]
+      hover:bg-primary-cyan-bright hover:shadow-[0_8px_30px_rgba(0,212,255,0.5),inset_0_1px_0_rgba(255,255,255,0.25)]
       hover:-translate-y-0.5
-      active:translate-y-0
+      active:translate-y-0 active:bg-primary-cyan-dim
     `,
     secondary: `
       px-6 py-3
@@ -44,6 +42,8 @@ const CTAButton: React.FC<CTAButtonProps> = ({
       border border-primary-cyan/30
       hover:border-primary-cyan hover:bg-primary-cyan/10
       hover:shadow-[0_0_20px_rgba(0,212,255,0.2)]
+      hover:-translate-y-0.5
+      active:translate-y-0
     `,
     danger: `
       px-6 py-3
@@ -62,11 +62,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
       aria-label={ariaLabel}
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
-      {/* Subtle inner glow for primary buttons */}
-      {variant === 'primary' && (
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/10 pointer-events-none" />
-      )}
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 font-semibold">{children}</span>
     </button>
   );
 };

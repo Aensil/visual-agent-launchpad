@@ -78,7 +78,7 @@ const WhoItsForSection: React.FC<WhoItsForSectionProps> = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-text-primary">If this is you, Vuen makes you </span>
             <span className="heading-gradient-warm">
               dangerous

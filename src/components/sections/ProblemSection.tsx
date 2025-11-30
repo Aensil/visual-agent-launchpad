@@ -34,7 +34,7 @@ const ProblemSection: React.FC<ProblemSectionProps> = () => {
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="heading-gradient-warm">
               If this sounds like you, your BI is failing you.
             </span>

@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 px-4 bg-void border-t border-glass-border relative z-10">
+    <footer className="py-24 px-4 bg-void border-t border-glass-border relative z-10">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">

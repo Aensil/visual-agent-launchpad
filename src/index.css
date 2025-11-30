@@ -340,7 +340,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(75, 63, 227, 0.03) 50%,
+      rgba(75, 63, 227, 0.08) 50%,
       var(--void) 100%
     );
   }
@@ -349,7 +349,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(0, 212, 255, 0.03) 50%,
+      rgba(0, 212, 255, 0.08) 50%,
       var(--void) 100%
     );
   }
@@ -358,7 +358,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(255, 30, 140, 0.03) 50%,
+      rgba(255, 30, 140, 0.08) 50%,
       var(--void) 100%
     );
   }

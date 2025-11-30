@@ -76,7 +76,7 @@ const VisualizationSection: React.FC<VisualizationSectionProps> = () => {
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-text-primary">Everything you normally beg a dashboard for – </span>
             <span className="heading-gradient">
               on demand.

@@ -38,52 +38,60 @@ const SolutionSection: React.FC<SolutionSectionProps> = () => {
 
   return (
     <section className="py-24 px-4 section-gradient-cyan relative z-10" aria-label="Solution Section">
-      <div className="max-w-5xl mx-auto">
-        {/* Section Title */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-text-primary">Vuen is your </span>
-            <span className="heading-gradient">
-              Visual Data Agent.
-            </span>
-          </h2>
+      <div className="max-w-6xl mx-auto">
+        {/* Two-column layout for visual variety */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Left: Text content */}
+          <div className="lg:text-left text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-text-primary">Vuen is your </span>
+              <span className="heading-gradient">
+                Visual Data Agent.
+              </span>
+            </h2>
+            <p className="text-xl text-text-secondary leading-relaxed">
+              You talk to a 3D orb, and it does the one thing none of your BI tools can:{' '}
+              <span className="text-primary-cyan font-semibold text-glow-cyan">it keeps up with you.</span>
+            </p>
+          </div>
+
+          {/* Right: Mini orb visual */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="w-48 h-48 md:w-56 md:h-56 relative">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-cyan/20 via-deep-indigo/15 to-accent-magenta/10 blur-2xl animate-orb-breathe" />
+              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary-cyan via-deep-indigo to-accent-magenta shadow-orb-idle" />
+              <div className="absolute inset-12 rounded-full bg-void/70 backdrop-blur-sm border border-primary-cyan/20 flex items-center justify-center">
+                <span className="text-xs font-bold tracking-widest text-primary-cyan uppercase">AI Agent</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* One-liner */}
-        <div className="text-center mb-16">
-          <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto">
-            You talk to a 3D orb, and it does the one thing none of your BI tools can:{' '}
-            <span className="text-primary-cyan font-semibold text-glow-cyan">it keeps up with you.</span>
-          </p>
-        </div>
-
-        {/* Pillars */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Pillars - horizontal cards */}
+        <div className="space-y-4">
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="relative group"
+              className="glass-panel p-6 hover:glass-glow-cyan transition-all duration-300 group"
             >
-              {/* Card */}
-              <div className="glass-panel p-8 h-full hover:glass-glow-cyan transition-all duration-300">
+              <div className="flex items-start gap-6">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-cyan/20 to-deep-indigo/20 border border-primary-cyan/20 flex items-center justify-center mb-6 text-primary-cyan group-hover:from-primary-cyan/30 group-hover:to-deep-indigo/30 group-hover:border-primary-cyan/40 transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-cyan/20 to-deep-indigo/20 border border-primary-cyan/20 flex items-center justify-center flex-shrink-0 text-primary-cyan group-hover:from-primary-cyan/30 group-hover:to-deep-indigo/30 group-hover:border-primary-cyan/40 transition-all duration-300">
                   {pillar.icon}
                 </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-primary-cyan transition-colors">
-                  {pillar.title}
-                </h3>
+                <div>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-primary-cyan transition-colors">
+                    {pillar.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-text-secondary leading-relaxed">
-                  {pillar.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-text-secondary leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
               </div>
-
-              {/* Glow effect on hover - respects orb hierarchy */}
-              <div className="absolute inset-0 rounded-glass bg-primary-cyan/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </div>
           ))}
         </div>

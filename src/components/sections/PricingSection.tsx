@@ -27,7 +27,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-text-primary">We only work with teams who are </span>
             <span className="heading-gradient-warm">
               serious about using this.
@@ -40,10 +40,16 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
 
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-2 gap-8 mt-12">
-          {/* Card 1 - Launch */}
-          <div className="glass-panel p-8 relative overflow-hidden group hover:glass-glow-cyan transition-all duration-300">
-            {/* Glow accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-cyan/10 rounded-full blur-3xl -z-10 group-hover:bg-primary-cyan/20 transition-colors" />
+          {/* Card 1 - Launch (Featured) */}
+          <div className="glass-panel-elevated p-8 relative overflow-hidden group hover:glass-glow-cyan transition-all duration-300 border-2 border-primary-cyan/30 ring-1 ring-primary-cyan/10">
+            {/* Featured badge */}
+            <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-primary-cyan/20 text-primary-cyan rounded-full border border-primary-cyan/30">
+              Start here
+            </div>
+
+            {/* Glow accent - stronger for featured */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-primary-cyan/15 rounded-full blur-3xl -z-10 group-hover:bg-primary-cyan/25 transition-colors" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-deep-indigo/10 rounded-full blur-3xl -z-10" />
 
             <h3 className="text-2xl font-bold text-text-primary mb-2">
               Launch your Visual Agent
@@ -79,17 +85,17 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
             variant="primary"
             onClick={openWaitlistModal}
             className="text-lg px-8 py-4"
-            aria-label="Apply for early access"
+            aria-label="Book a live demo"
           >
-            Apply for early access
+            Book a live demo
           </CTAButton>
           <CTAButton
             variant="secondary"
             onClick={handleSanityCheck}
             className="text-base px-6 py-3"
-            aria-label="Book a 20-minute sanity check"
+            aria-label="Quick 20-min call first"
           >
-            Not sure yet? Book a 20-minute sanity check
+            Quick 20-min call first
           </CTAButton>
         </div>
 
