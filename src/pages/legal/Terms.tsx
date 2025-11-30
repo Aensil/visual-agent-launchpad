@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import { useLanguage } from '@/hooks/useLanguage';
-import { contact, domains } from '@/config/site';
+import { contact } from '@/config/site';
 
 const Terms: React.FC = () => {
   const { currentLanguage } = useLanguage();

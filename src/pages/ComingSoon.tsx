@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import { useLanguage } from '@/hooks/useLanguage';
-import { domains, seoConfig } from '@/config/site';
+import { seoConfig } from '@/config/site';
 
 interface ComingSoonProps {
   pageName: string;
