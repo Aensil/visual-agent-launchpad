@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           <img
             src={Logo}
             alt="Vuen AI"
-            className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            className="h-10 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
           />
         </a>
 
