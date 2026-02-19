@@ -21,7 +21,8 @@
     "badge": "Now in Public Beta",
     "headline1": "Ask questions.",
     "headline2": "Get answers.",
-    "subheadline": "Connect your data sources. Ask in plain English. Get instant visualizations your whole team can understand.",
+    "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
+    "cta": "Try Free — No Credit Card",
     "scroll": "Scroll"
   },
   "features": {
@@ -95,20 +96,55 @@
     "subtitle": "Start free. Upgrade when you're ready. No hidden fees.",
     "monthly": "Monthly",
     "annual": "Annual",
-    "save20": "Save 20%",
+    "save20": "Save 15%",
     "perMonth": "/month",
     "billedAnnually": "Billed annually",
     "billedMonthly": "Billed monthly",
     "bottomNote": "All plans include a 14-day free trial. No credit card required.",
+    "comparison": {
+      "title": "Compare plans in detail",
+      "unlimited": "Unlimited",
+      "custom": "Custom",
+      "overageProRate": "$0.35/interaction",
+      "categories": {
+        "usage": "Usage & Limits",
+        "dataSources": "Data Sources",
+        "features": "Features",
+        "support": "Support & Security"
+      },
+      "rows": {
+        "aiInteractions": "AI interactions / month",
+        "storage": "Storage",
+        "dashboards": "Dashboards",
+        "sqlConnections": "SQL connections",
+        "overageRate": "Overage rate",
+        "fileUpload": "File upload (CSV, Excel, PDF)",
+        "sqlDatabases": "SQL databases",
+        "apiConnections": "API connections",
+        "basicViz": "Basic visualizations",
+        "advancedViz": "Advanced visualizations",
+        "voiceInterface": "Voice interface",
+        "aiInsights": "AI-powered insights",
+        "apiAccess": "API access",
+        "communitySupport": "Community support",
+        "prioritySupport": "Priority support",
+        "dedicatedManager": "Dedicated success manager",
+        "ssoSaml": "SSO & SAML",
+        "slaGuarantee": "SLA guarantee",
+        "onPremise": "On-premise deployment",
+        "advancedSecurity": "Advanced security controls"
+      }
+    },
     "plans": {
       "free": {
         "name": "Free",
         "description": "For individuals exploring AI-powered analytics",
         "cta": "Get Started",
         "features": [
-          "100 queries/month",
-          "1 data source",
-          "Basic visualizations",
+          "40 AI interactions/month",
+          "1 GB storage",
+          "CSV, Excel & PDF upload",
+          "2 dashboards",
           "Community support"
         ]
       },
@@ -118,13 +154,13 @@
         "cta": "Start Free Trial",
         "badge": "Most Popular",
         "features": [
-          "Unlimited queries",
-          "10 data sources",
-          "Advanced visualizations",
-          "Voice interface",
-          "Custom dashboards",
-          "Priority support",
-          "API access"
+          "600 AI interactions/month",
+          "50 GB storage",
+          "Files + SQL databases",
+          "Unlimited dashboards",
+          "5 SQL connections",
+          "$0.35/interaction overage",
+          "Priority support"
         ]
       },
       "enterprise": {
@@ -134,13 +170,13 @@
         "cta": "Contact Sales",
         "features": [
           "Everything in Pro",
-          "Unlimited data sources",
-          "SSO & SAML",
+          "Unlimited AI interactions",
+          "Unlimited storage",
           "Custom integrations",
           "Dedicated success manager",
+          "SSO & SAML",
           "SLA guarantee",
-          "On-premise option",
-          "Advanced security controls"
+          "On-premise option"
         ]
       }
     }

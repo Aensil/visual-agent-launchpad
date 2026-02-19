@@ -11,6 +11,63 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
   const [isAnnual, setIsAnnual] = useState(true);
   const { t, tArray } = useTranslation();
 
+  const comparisonData = [
+    {
+      category: t('pricing.comparison.categories.usage'),
+      rows: [
+        { feature: t('pricing.comparison.rows.aiInteractions'), free: '40', pro: '600', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.storage'), free: '1 GB', pro: '50 GB', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.dashboards'), free: '2', pro: t('pricing.comparison.unlimited'), enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.sqlConnections'), free: false, pro: '5', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.overageRate'), free: false, pro: t('pricing.comparison.overageProRate'), enterprise: t('pricing.comparison.custom') },
+      ],
+    },
+    {
+      category: t('pricing.comparison.categories.dataSources'),
+      rows: [
+        { feature: t('pricing.comparison.rows.fileUpload'), free: true, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.sqlDatabases'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.apiConnections'), free: false, pro: false, enterprise: true },
+      ],
+    },
+    {
+      category: t('pricing.comparison.categories.features'),
+      rows: [
+        { feature: t('pricing.comparison.rows.basicViz'), free: true, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.advancedViz'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.voiceInterface'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.aiInsights'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.apiAccess'), free: false, pro: true, enterprise: true },
+      ],
+    },
+    {
+      category: t('pricing.comparison.categories.support'),
+      rows: [
+        { feature: t('pricing.comparison.rows.communitySupport'), free: true, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.prioritySupport'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.dedicatedManager'), free: false, pro: false, enterprise: true },
+        { feature: t('pricing.comparison.rows.ssoSaml'), free: false, pro: false, enterprise: true },
+        { feature: t('pricing.comparison.rows.slaGuarantee'), free: false, pro: false, enterprise: true },
+        { feature: t('pricing.comparison.rows.onPremise'), free: false, pro: false, enterprise: true },
+        { feature: t('pricing.comparison.rows.advancedSecurity'), free: false, pro: false, enterprise: true },
+      ],
+    },
+  ];
+
+  const renderCellValue = (value: boolean | string) => {
+    if (typeof value === 'string') {
+      return <span className="text-sm text-white/70">{value}</span>;
+    }
+    if (value) {
+      return (
+        <svg className="w-5 h-5 text-primary-cyan mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        </svg>
+      );
+    }
+    return <span className="text-white/20 text-sm">—</span>;
+  };
+
   const plans = [
     {
       name: t('pricing.plans.free.name'),
@@ -24,7 +81,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
     {
       name: t('pricing.plans.pro.name'),
       description: t('pricing.plans.pro.description'),
-      price: { monthly: 200, annual: 160 },
+      price: { monthly: 200, annual: 170 },
       features: tArray<string>('pricing.plans.pro.features'),
       cta: t('pricing.plans.pro.cta'),
       href: `${domains.app}/signup?plan=pro`,
@@ -178,6 +235,68 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Feature Comparison Table */}
+        <div className="mt-20">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-12">
+            {t('pricing.comparison.title')}
+          </h3>
+
+          <div className="overflow-x-auto -mx-6 px-6">
+            <table className="w-full min-w-[600px]">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-4 px-4 w-[40%]"></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-white/70">
+                    {t('pricing.plans.free.name')}
+                  </th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-primary-cyan">
+                    {t('pricing.plans.pro.name')}
+                  </th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold text-white/70">
+                    {t('pricing.plans.enterprise.name')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((section) => (
+                  <React.Fragment key={section.category}>
+                    <tr>
+                      <td
+                        colSpan={4}
+                        className="pt-8 pb-3 px-4 text-xs font-semibold uppercase tracking-wider text-white/30"
+                      >
+                        {section.category}
+                      </td>
+                    </tr>
+                    {section.rows.map((row, i) => (
+                      <tr
+                        key={row.feature}
+                        className={`
+                          border-b border-white/[0.04]
+                          ${i % 2 === 0 ? 'bg-white/[0.01]' : ''}
+                        `}
+                      >
+                        <td className="py-3.5 px-4 text-sm text-white/50">
+                          {row.feature}
+                        </td>
+                        <td className="py-3.5 px-4 text-center">
+                          {renderCellValue(row.free)}
+                        </td>
+                        <td className="py-3.5 px-4 text-center bg-primary-cyan/[0.03]">
+                          {renderCellValue(row.pro)}
+                        </td>
+                        <td className="py-3.5 px-4 text-center">
+                          {renderCellValue(row.enterprise)}
+                        </td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Bottom note */}

@@ -21,7 +21,8 @@
     "badge": "Maintenant en bêta publique",
     "headline1": "Posez des questions.",
     "headline2": "Obtenez des réponses.",
-    "subheadline": "Connectez vos sources de données. Demandez en français. Obtenez des visualisations instantanées que toute votre équipe peut comprendre.",
+    "subheadline": "Importez un CSV ou connectez votre base de données. Demandez en français. Obtenez des visualisations instantanées en secondes.",
+    "cta": "Essai Gratuit — Sans Carte",
     "scroll": "Défiler"
   },
   "features": {
@@ -95,20 +96,55 @@
     "subtitle": "Commencez gratuitement. Passez à la version supérieure quand vous êtes prêt. Pas de frais cachés.",
     "monthly": "Mensuel",
     "annual": "Annuel",
-    "save20": "Économisez 20%",
+    "save20": "Économisez 15%",
     "perMonth": "/mois",
     "billedAnnually": "Facturé annuellement",
     "billedMonthly": "Facturé mensuellement",
     "bottomNote": "Tous les plans incluent un essai gratuit de 14 jours. Aucune carte de crédit requise.",
+    "comparison": {
+      "title": "Comparer les plans en détail",
+      "unlimited": "Illimité",
+      "custom": "Sur mesure",
+      "overageProRate": "0,35 $/interaction",
+      "categories": {
+        "usage": "Utilisation et Limites",
+        "dataSources": "Sources de Données",
+        "features": "Fonctionnalités",
+        "support": "Support & Sécurité"
+      },
+      "rows": {
+        "aiInteractions": "Interactions IA / mois",
+        "storage": "Stockage",
+        "dashboards": "Tableaux de bord",
+        "sqlConnections": "Connexions SQL",
+        "overageRate": "Tarif de dépassement",
+        "fileUpload": "Import de fichiers (CSV, Excel, PDF)",
+        "sqlDatabases": "Bases de données SQL",
+        "apiConnections": "Connexions API",
+        "basicViz": "Visualisations basiques",
+        "advancedViz": "Visualisations avancées",
+        "voiceInterface": "Interface vocale",
+        "aiInsights": "Insights alimentés par l'IA",
+        "apiAccess": "Accès API",
+        "communitySupport": "Support communautaire",
+        "prioritySupport": "Support prioritaire",
+        "dedicatedManager": "Customer Success Manager dédié",
+        "ssoSaml": "SSO & SAML",
+        "slaGuarantee": "Garantie SLA",
+        "onPremise": "Déploiement on-premise",
+        "advancedSecurity": "Contrôles de sécurité avancés"
+      }
+    },
     "plans": {
       "free": {
         "name": "Gratuit",
         "description": "Pour les individus explorant l'analytique alimentée par l'IA",
         "cta": "Commencer",
         "features": [
-          "100 requêtes/mois",
-          "1 source de données",
-          "Visualisations basiques",
+          "40 interactions IA/mois",
+          "1 Go de stockage",
+          "Import CSV, Excel et PDF",
+          "2 tableaux de bord",
           "Support communautaire"
         ]
       },
@@ -118,13 +154,13 @@
         "cta": "Essai gratuit",
         "badge": "Le plus populaire",
         "features": [
-          "Requêtes illimitées",
-          "10 sources de données",
-          "Visualisations avancées",
-          "Interface vocale",
-          "Tableaux de bord personnalisés",
-          "Support prioritaire",
-          "Accès API"
+          "600 interactions IA/mois",
+          "50 Go de stockage",
+          "Fichiers + bases SQL",
+          "Tableaux de bord illimités",
+          "5 connexions SQL",
+          "0,35 $/interaction en surplus",
+          "Support prioritaire"
         ]
       },
       "enterprise": {
@@ -134,13 +170,13 @@
         "cta": "Contacter les ventes",
         "features": [
           "Tout dans Pro",
-          "Sources de données illimitées",
-          "SSO & SAML",
+          "Interactions IA illimitées",
+          "Stockage illimité",
           "Intégrations personnalisées",
           "Customer Success Manager dédié",
+          "SSO & SAML",
           "Garantie SLA",
-          "Option on-premise",
-          "Contrôles de sécurité avancés"
+          "Option on-premise"
         ]
       }
     }

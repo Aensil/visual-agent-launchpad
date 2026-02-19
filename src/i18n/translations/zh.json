@@ -21,7 +21,8 @@
     "badge": "公测版现已上线",
     "headline1": "提出问题。",
     "headline2": "获得答案。",
-    "subheadline": "连接您的数据源。用中文提问。获得团队都能理解的即时可视化图表。",
+    "subheadline": "上传CSV或连接数据库。用中文提问。几秒内获得即时可视化图表。",
+    "cta": "免费试用 — 无需信用卡",
     "scroll": "滚动"
   },
   "features": {
@@ -95,20 +96,55 @@
     "subtitle": "免费开始。准备好后再升级。无隐藏费用。",
     "monthly": "月付",
     "annual": "年付",
-    "save20": "节省20%",
+    "save20": "节省15%",
     "perMonth": "/月",
     "billedAnnually": "按年计费",
     "billedMonthly": "按月计费",
     "bottomNote": "所有套餐包含14天免费试用。无需信用卡。",
+    "comparison": {
+      "title": "详细对比各套餐",
+      "unlimited": "无限",
+      "custom": "定制",
+      "overageProRate": "$0.35/次交互",
+      "categories": {
+        "usage": "用量与限制",
+        "dataSources": "数据源",
+        "features": "功能",
+        "support": "支持与安全"
+      },
+      "rows": {
+        "aiInteractions": "AI交互次数 / 月",
+        "storage": "存储空间",
+        "dashboards": "仪表盘",
+        "sqlConnections": "SQL连接数",
+        "overageRate": "超额费率",
+        "fileUpload": "文件上传（CSV、Excel、PDF）",
+        "sqlDatabases": "SQL数据库",
+        "apiConnections": "API连接",
+        "basicViz": "基础可视化",
+        "advancedViz": "高级可视化",
+        "voiceInterface": "语音界面",
+        "aiInsights": "AI驱动洞察",
+        "apiAccess": "API访问",
+        "communitySupport": "社区支持",
+        "prioritySupport": "优先支持",
+        "dedicatedManager": "专属客户成功经理",
+        "ssoSaml": "SSO和SAML",
+        "slaGuarantee": "SLA保障",
+        "onPremise": "本地部署",
+        "advancedSecurity": "高级安全控制"
+      }
+    },
     "plans": {
       "free": {
         "name": "免费版",
         "description": "适合探索AI分析的个人用户",
         "cta": "立即开始",
         "features": [
-          "每月100次查询",
-          "1个数据源",
-          "基础可视化",
+          "每月40次AI交互",
+          "1 GB存储空间",
+          "CSV、Excel和PDF上传",
+          "2个仪表盘",
           "社区支持"
         ]
       },
@@ -118,13 +154,13 @@
         "cta": "开始免费试用",
         "badge": "最受欢迎",
         "features": [
-          "无限查询",
-          "10个数据源",
-          "高级可视化",
-          "语音界面",
-          "自定义仪表盘",
-          "优先支持",
-          "API访问"
+          "每月600次AI交互",
+          "50 GB存储空间",
+          "文件 + SQL数据库",
+          "无限仪表盘",
+          "5个SQL连接",
+          "$0.35/次超额交互",
+          "优先支持"
         ]
       },
       "enterprise": {
@@ -134,13 +170,13 @@
         "cta": "联系销售",
         "features": [
           "专业版全部功能",
-          "无限数据源",
-          "SSO和SAML",
+          "无限AI交互",
+          "无限存储空间",
           "定制集成",
           "专属客户成功经理",
+          "SSO和SAML",
           "SLA保障",
-          "本地部署选项",
-          "高级安全控制"
+          "本地部署选项"
         ]
       }
     }
