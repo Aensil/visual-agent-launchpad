@@ -122,7 +122,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <a
             href={domains.app}
             className="
-              group relative px-8 py-4 text-lg font-semibold text-white
+              group relative px-8 py-4 text-lg font-bold text-white uppercase tracking-wide
               rounded-full overflow-hidden
               bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               bg-[length:200%_100%] bg-left
@@ -134,7 +134,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             "
           >
             <span className="relative z-10 flex items-center gap-2">
-              {t('common.startFree')}
+              {t('hero.cta')}
               <svg
                 className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"

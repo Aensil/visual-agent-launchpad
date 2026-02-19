@@ -21,7 +21,8 @@
     "badge": "Ahora en Beta Pública",
     "headline1": "Haz preguntas.",
     "headline2": "Obtén respuestas.",
-    "subheadline": "Conecta tus fuentes de datos. Pregunta en español. Obtén visualizaciones instantáneas que todo tu equipo puede entender.",
+    "subheadline": "Sube un CSV o conecta tu base de datos. Pregunta en español. Obtén visualizaciones instantáneas en segundos.",
+    "cta": "Prueba Gratis — Sin Tarjeta",
     "scroll": "Desplazar"
   },
   "features": {
@@ -100,6 +101,35 @@
     "billedAnnually": "Facturado anualmente",
     "billedMonthly": "Facturado mensualmente",
     "bottomNote": "Todos los planes incluyen 14 días de prueba gratis. No se requiere tarjeta de crédito.",
+    "comparison": {
+      "title": "Compara los planes en detalle",
+      "unlimited": "Ilimitado",
+      "categories": {
+        "usage": "Uso",
+        "features": "Características",
+        "support": "Soporte y Seguridad"
+      },
+      "rows": {
+        "queriesPerMonth": "Consultas por mes",
+        "dataSources": "Fuentes de datos",
+        "csvUpload": "Carga de CSV",
+        "sqlDatabases": "Bases de datos SQL",
+        "apiConnections": "Conexiones API",
+        "basicViz": "Visualizaciones básicas",
+        "advancedViz": "Visualizaciones avanzadas",
+        "voiceInterface": "Interfaz por voz",
+        "customDashboards": "Dashboards personalizados",
+        "aiInsights": "Insights con IA",
+        "apiAccess": "Acceso API",
+        "communitySupport": "Soporte comunitario",
+        "prioritySupport": "Soporte prioritario",
+        "dedicatedManager": "Gerente de éxito dedicado",
+        "ssoSaml": "SSO y SAML",
+        "slaGuarantee": "Garantía SLA",
+        "onPremise": "Despliegue on-premise",
+        "advancedSecurity": "Controles de seguridad avanzados"
+      }
+    },
     "plans": {
       "free": {
         "name": "Gratis",

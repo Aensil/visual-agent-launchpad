@@ -21,7 +21,8 @@
     "badge": "Now in Public Beta",
     "headline1": "Ask questions.",
     "headline2": "Get answers.",
-    "subheadline": "Connect your data sources. Ask in plain English. Get instant visualizations your whole team can understand.",
+    "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
+    "cta": "Try Free — No Credit Card",
     "scroll": "Scroll"
   },
   "features": {
@@ -100,6 +101,35 @@
     "billedAnnually": "Billed annually",
     "billedMonthly": "Billed monthly",
     "bottomNote": "All plans include a 14-day free trial. No credit card required.",
+    "comparison": {
+      "title": "Compare plans in detail",
+      "unlimited": "Unlimited",
+      "categories": {
+        "usage": "Usage",
+        "features": "Features",
+        "support": "Support & Security"
+      },
+      "rows": {
+        "queriesPerMonth": "Queries per month",
+        "dataSources": "Data sources",
+        "csvUpload": "CSV upload",
+        "sqlDatabases": "SQL databases",
+        "apiConnections": "API connections",
+        "basicViz": "Basic visualizations",
+        "advancedViz": "Advanced visualizations",
+        "voiceInterface": "Voice interface",
+        "customDashboards": "Custom dashboards",
+        "aiInsights": "AI-powered insights",
+        "apiAccess": "API access",
+        "communitySupport": "Community support",
+        "prioritySupport": "Priority support",
+        "dedicatedManager": "Dedicated success manager",
+        "ssoSaml": "SSO & SAML",
+        "slaGuarantee": "SLA guarantee",
+        "onPremise": "On-premise deployment",
+        "advancedSecurity": "Advanced security controls"
+      }
+    },
     "plans": {
       "free": {
         "name": "Free",

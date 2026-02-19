@@ -21,7 +21,8 @@
     "badge": "अब पब्लिक बीटा में",
     "headline1": "सवाल पूछें।",
     "headline2": "जवाब पाएं।",
-    "subheadline": "अपने डेटा स्रोतों को कनेक्ट करें। हिंदी में पूछें। तुरंत विज़ुअलाइज़ेशन पाएं जो आपकी पूरी टीम समझ सके।",
+    "subheadline": "CSV अपलोड करें या डेटाबेस कनेक्ट करें। हिंदी में पूछें। सेकंडों में विज़ुअलाइज़ेशन पाएं।",
+    "cta": "मुफ्त आज़माएं — कार्ड नहीं चाहिए",
     "scroll": "स्क्रॉल करें"
   },
   "features": {
@@ -100,6 +101,35 @@
     "billedAnnually": "वार्षिक बिलिंग",
     "billedMonthly": "मासिक बिलिंग",
     "bottomNote": "सभी योजनाओं में 14-दिन का मुफ्त परीक्षण शामिल है। क्रेडिट कार्ड की आवश्यकता नहीं।",
+    "comparison": {
+      "title": "योजनाओं की विस्तृत तुलना करें",
+      "unlimited": "असीमित",
+      "categories": {
+        "usage": "उपयोग",
+        "features": "फीचर्स",
+        "support": "सपोर्ट और सुरक्षा"
+      },
+      "rows": {
+        "queriesPerMonth": "प्रति माह क्वेरीज़",
+        "dataSources": "डेटा स्रोत",
+        "csvUpload": "CSV अपलोड",
+        "sqlDatabases": "SQL डेटाबेस",
+        "apiConnections": "API कनेक्शन",
+        "basicViz": "बेसिक विज़ुअलाइज़ेशन",
+        "advancedViz": "एडवांस विज़ुअलाइज़ेशन",
+        "voiceInterface": "वॉयस इंटरफेस",
+        "customDashboards": "कस्टम डैशबोर्ड",
+        "aiInsights": "AI-पावर्ड इनसाइट्स",
+        "apiAccess": "API एक्सेस",
+        "communitySupport": "कम्युनिटी सपोर्ट",
+        "prioritySupport": "प्राथमिकता सपोर्ट",
+        "dedicatedManager": "समर्पित सक्सेस मैनेजर",
+        "ssoSaml": "SSO और SAML",
+        "slaGuarantee": "SLA गारंटी",
+        "onPremise": "ऑन-प्रिमाइस डिप्लॉयमेंट",
+        "advancedSecurity": "एडवांस सुरक्षा नियंत्रण"
+      }
+    },
     "plans": {
       "free": {
         "name": "मुफ्त",

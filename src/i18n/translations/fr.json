@@ -21,7 +21,8 @@
     "badge": "Maintenant en bêta publique",
     "headline1": "Posez des questions.",
     "headline2": "Obtenez des réponses.",
-    "subheadline": "Connectez vos sources de données. Demandez en français. Obtenez des visualisations instantanées que toute votre équipe peut comprendre.",
+    "subheadline": "Importez un CSV ou connectez votre base de données. Demandez en français. Obtenez des visualisations instantanées en secondes.",
+    "cta": "Essai Gratuit — Sans Carte",
     "scroll": "Défiler"
   },
   "features": {
@@ -100,6 +101,35 @@
     "billedAnnually": "Facturé annuellement",
     "billedMonthly": "Facturé mensuellement",
     "bottomNote": "Tous les plans incluent un essai gratuit de 14 jours. Aucune carte de crédit requise.",
+    "comparison": {
+      "title": "Comparer les plans en détail",
+      "unlimited": "Illimité",
+      "categories": {
+        "usage": "Utilisation",
+        "features": "Fonctionnalités",
+        "support": "Support & Sécurité"
+      },
+      "rows": {
+        "queriesPerMonth": "Requêtes par mois",
+        "dataSources": "Sources de données",
+        "csvUpload": "Import CSV",
+        "sqlDatabases": "Bases de données SQL",
+        "apiConnections": "Connexions API",
+        "basicViz": "Visualisations basiques",
+        "advancedViz": "Visualisations avancées",
+        "voiceInterface": "Interface vocale",
+        "customDashboards": "Tableaux de bord personnalisés",
+        "aiInsights": "Insights alimentés par l'IA",
+        "apiAccess": "Accès API",
+        "communitySupport": "Support communautaire",
+        "prioritySupport": "Support prioritaire",
+        "dedicatedManager": "Customer Success Manager dédié",
+        "ssoSaml": "SSO & SAML",
+        "slaGuarantee": "Garantie SLA",
+        "onPremise": "Déploiement on-premise",
+        "advancedSecurity": "Contrôles de sécurité avancés"
+      }
+    },
     "plans": {
       "free": {
         "name": "Gratuit",

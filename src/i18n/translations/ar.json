@@ -21,7 +21,8 @@
     "badge": "متاح الآن في النسخة التجريبية العامة",
     "headline1": "اطرح الأسئلة.",
     "headline2": "احصل على الإجابات.",
-    "subheadline": "اربط مصادر بياناتك. اسأل بالعربية. احصل على تصورات فورية يفهمها فريقك بأكمله.",
+    "subheadline": "ارفع ملف CSV أو اربط قاعدة بياناتك. اسأل بالعربية. احصل على تصورات فورية في ثوانٍ.",
+    "cta": "جرّب مجاناً — بدون بطاقة",
     "scroll": "مرر للأسفل"
   },
   "features": {
@@ -100,6 +101,35 @@
     "billedAnnually": "يُفوتر سنوياً",
     "billedMonthly": "يُفوتر شهرياً",
     "bottomNote": "جميع الخطط تشمل تجربة مجانية لمدة 14 يوماً. لا حاجة لبطاقة ائتمان.",
+    "comparison": {
+      "title": "قارن الخطط بالتفصيل",
+      "unlimited": "غير محدود",
+      "categories": {
+        "usage": "الاستخدام",
+        "features": "الميزات",
+        "support": "الدعم والأمان"
+      },
+      "rows": {
+        "queriesPerMonth": "الاستعلامات شهرياً",
+        "dataSources": "مصادر البيانات",
+        "csvUpload": "رفع CSV",
+        "sqlDatabases": "قواعد بيانات SQL",
+        "apiConnections": "اتصالات API",
+        "basicViz": "تصورات أساسية",
+        "advancedViz": "تصورات متقدمة",
+        "voiceInterface": "واجهة صوتية",
+        "customDashboards": "لوحات تحكم مخصصة",
+        "aiInsights": "رؤى مدعومة بالذكاء الاصطناعي",
+        "apiAccess": "وصول API",
+        "communitySupport": "دعم المجتمع",
+        "prioritySupport": "دعم ذو أولوية",
+        "dedicatedManager": "مدير نجاح مخصص",
+        "ssoSaml": "SSO و SAML",
+        "slaGuarantee": "ضمان SLA",
+        "onPremise": "نشر محلي",
+        "advancedSecurity": "ضوابط أمان متقدمة"
+      }
+    },
     "plans": {
       "free": {
         "name": "مجاني",
