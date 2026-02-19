@@ -104,21 +104,26 @@
     "comparison": {
       "title": "Compara los planes en detalle",
       "unlimited": "Ilimitado",
+      "custom": "Personalizado",
+      "overageProRate": "$0.35/interacción",
       "categories": {
-        "usage": "Uso",
+        "usage": "Uso y Límites",
+        "dataSources": "Fuentes de Datos",
         "features": "Características",
         "support": "Soporte y Seguridad"
       },
       "rows": {
-        "queriesPerMonth": "Consultas por mes",
-        "dataSources": "Fuentes de datos",
-        "csvUpload": "Carga de CSV",
+        "aiInteractions": "Interacciones IA / mes",
+        "storage": "Almacenamiento",
+        "dashboards": "Paneles",
+        "sqlConnections": "Conexiones SQL",
+        "overageRate": "Tarifa de exceso",
+        "fileUpload": "Carga de archivos (CSV, Excel, PDF)",
         "sqlDatabases": "Bases de datos SQL",
         "apiConnections": "Conexiones API",
         "basicViz": "Visualizaciones básicas",
         "advancedViz": "Visualizaciones avanzadas",
         "voiceInterface": "Interfaz por voz",
-        "customDashboards": "Dashboards personalizados",
         "aiInsights": "Insights con IA",
         "apiAccess": "Acceso API",
         "communitySupport": "Soporte comunitario",
@@ -136,9 +141,10 @@
         "description": "Para individuos explorando analítica con IA",
         "cta": "Comenzar",
         "features": [
-          "100 consultas/mes",
-          "1 fuente de datos",
-          "Visualizaciones básicas",
+          "40 interacciones IA/mes",
+          "1 GB de almacenamiento",
+          "Carga de CSV, Excel y PDF",
+          "2 paneles",
           "Soporte comunitario"
         ]
       },
@@ -148,13 +154,13 @@
         "cta": "Prueba Gratuita",
         "badge": "Más Popular",
         "features": [
-          "10,000 consultas/mes",
-          "10 fuentes de datos",
-          "Visualizaciones avanzadas",
-          "Interfaz por voz",
-          "Dashboards personalizados",
-          "Soporte prioritario",
-          "Acceso API"
+          "600 interacciones IA/mes",
+          "50 GB de almacenamiento",
+          "Archivos + bases de datos SQL",
+          "Paneles ilimitados",
+          "5 conexiones SQL",
+          "$0.35/interacción excedente",
+          "Soporte prioritario"
         ]
       },
       "enterprise": {
@@ -164,13 +170,13 @@
         "cta": "Contactar Ventas",
         "features": [
           "Todo en Pro",
-          "Fuentes de datos ilimitadas",
-          "SSO & SAML",
+          "Interacciones IA ilimitadas",
+          "Almacenamiento ilimitado",
           "Integraciones personalizadas",
           "Gerente de éxito dedicado",
+          "SSO y SAML",
           "Garantía SLA",
-          "Opción on-premise",
-          "Controles de seguridad avanzados"
+          "Opción on-premise"
         ]
       }
     }

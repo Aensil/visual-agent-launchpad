@@ -104,21 +104,26 @@
     "comparison": {
       "title": "Compare plans in detail",
       "unlimited": "Unlimited",
+      "custom": "Custom",
+      "overageProRate": "$0.35/interaction",
       "categories": {
-        "usage": "Usage",
+        "usage": "Usage & Limits",
+        "dataSources": "Data Sources",
         "features": "Features",
         "support": "Support & Security"
       },
       "rows": {
-        "queriesPerMonth": "Queries per month",
-        "dataSources": "Data sources",
-        "csvUpload": "CSV upload",
+        "aiInteractions": "AI interactions / month",
+        "storage": "Storage",
+        "dashboards": "Dashboards",
+        "sqlConnections": "SQL connections",
+        "overageRate": "Overage rate",
+        "fileUpload": "File upload (CSV, Excel, PDF)",
         "sqlDatabases": "SQL databases",
         "apiConnections": "API connections",
         "basicViz": "Basic visualizations",
         "advancedViz": "Advanced visualizations",
         "voiceInterface": "Voice interface",
-        "customDashboards": "Custom dashboards",
         "aiInsights": "AI-powered insights",
         "apiAccess": "API access",
         "communitySupport": "Community support",
@@ -136,9 +141,10 @@
         "description": "For individuals exploring AI-powered analytics",
         "cta": "Get Started",
         "features": [
-          "100 queries/month",
-          "1 data source",
-          "Basic visualizations",
+          "40 AI interactions/month",
+          "1 GB storage",
+          "CSV, Excel & PDF upload",
+          "2 dashboards",
           "Community support"
         ]
       },
@@ -148,13 +154,13 @@
         "cta": "Start Free Trial",
         "badge": "Most Popular",
         "features": [
-          "10,000 queries/month",
-          "10 data sources",
-          "Advanced visualizations",
-          "Voice interface",
-          "Custom dashboards",
-          "Priority support",
-          "API access"
+          "600 AI interactions/month",
+          "50 GB storage",
+          "Files + SQL databases",
+          "Unlimited dashboards",
+          "5 SQL connections",
+          "$0.35/interaction overage",
+          "Priority support"
         ]
       },
       "enterprise": {
@@ -164,13 +170,13 @@
         "cta": "Contact Sales",
         "features": [
           "Everything in Pro",
-          "Unlimited data sources",
-          "SSO & SAML",
+          "Unlimited AI interactions",
+          "Unlimited storage",
           "Custom integrations",
           "Dedicated success manager",
+          "SSO & SAML",
           "SLA guarantee",
-          "On-premise option",
-          "Advanced security controls"
+          "On-premise option"
         ]
       }
     }

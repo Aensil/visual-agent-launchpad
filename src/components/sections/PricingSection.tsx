@@ -15,11 +15,19 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
     {
       category: t('pricing.comparison.categories.usage'),
       rows: [
-        { feature: t('pricing.comparison.rows.queriesPerMonth'), free: '100', pro: '10,000', enterprise: t('pricing.comparison.unlimited') },
-        { feature: t('pricing.comparison.rows.dataSources'), free: '1', pro: '10', enterprise: t('pricing.comparison.unlimited') },
-        { feature: t('pricing.comparison.rows.csvUpload'), free: true, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.aiInteractions'), free: '40', pro: '600', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.storage'), free: '1 GB', pro: '50 GB', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.dashboards'), free: '2', pro: t('pricing.comparison.unlimited'), enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.sqlConnections'), free: false, pro: '5', enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.overageRate'), free: false, pro: t('pricing.comparison.overageProRate'), enterprise: t('pricing.comparison.custom') },
+      ],
+    },
+    {
+      category: t('pricing.comparison.categories.dataSources'),
+      rows: [
+        { feature: t('pricing.comparison.rows.fileUpload'), free: true, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.sqlDatabases'), free: false, pro: true, enterprise: true },
-        { feature: t('pricing.comparison.rows.apiConnections'), free: false, pro: true, enterprise: true },
+        { feature: t('pricing.comparison.rows.apiConnections'), free: false, pro: false, enterprise: true },
       ],
     },
     {
@@ -28,7 +36,6 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
         { feature: t('pricing.comparison.rows.basicViz'), free: true, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.advancedViz'), free: false, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.voiceInterface'), free: false, pro: true, enterprise: true },
-        { feature: t('pricing.comparison.rows.customDashboards'), free: false, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.aiInsights'), free: false, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.apiAccess'), free: false, pro: true, enterprise: true },
       ],
