@@ -96,7 +96,7 @@
     "subtitle": "Start free. Upgrade when you're ready. No hidden fees.",
     "monthly": "Monthly",
     "annual": "Annual",
-    "save20": "Save 20%",
+    "save20": "Save 15%",
     "perMonth": "/month",
     "billedAnnually": "Billed annually",
     "billedMonthly": "Billed monthly",
@@ -148,7 +148,7 @@
         "cta": "Start Free Trial",
         "badge": "Most Popular",
         "features": [
-          "Unlimited queries",
+          "10,000 queries/month",
           "10 data sources",
           "Advanced visualizations",
           "Voice interface",

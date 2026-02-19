@@ -96,7 +96,7 @@
     "subtitle": "Commencez gratuitement. Passez à la version supérieure quand vous êtes prêt. Pas de frais cachés.",
     "monthly": "Mensuel",
     "annual": "Annuel",
-    "save20": "Économisez 20%",
+    "save20": "Économisez 15%",
     "perMonth": "/mois",
     "billedAnnually": "Facturé annuellement",
     "billedMonthly": "Facturé mensuellement",
@@ -148,7 +148,7 @@
         "cta": "Essai gratuit",
         "badge": "Le plus populaire",
         "features": [
-          "Requêtes illimitées",
+          "10 000 requêtes/mois",
           "10 sources de données",
           "Visualisations avancées",
           "Interface vocale",

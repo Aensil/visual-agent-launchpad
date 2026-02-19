@@ -15,7 +15,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
     {
       category: t('pricing.comparison.categories.usage'),
       rows: [
-        { feature: t('pricing.comparison.rows.queriesPerMonth'), free: '100', pro: t('pricing.comparison.unlimited'), enterprise: t('pricing.comparison.unlimited') },
+        { feature: t('pricing.comparison.rows.queriesPerMonth'), free: '100', pro: '10,000', enterprise: t('pricing.comparison.unlimited') },
         { feature: t('pricing.comparison.rows.dataSources'), free: '1', pro: '10', enterprise: t('pricing.comparison.unlimited') },
         { feature: t('pricing.comparison.rows.csvUpload'), free: true, pro: true, enterprise: true },
         { feature: t('pricing.comparison.rows.sqlDatabases'), free: false, pro: true, enterprise: true },
@@ -74,7 +74,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
     {
       name: t('pricing.plans.pro.name'),
       description: t('pricing.plans.pro.description'),
-      price: { monthly: 200, annual: 160 },
+      price: { monthly: 200, annual: 170 },
       features: tArray<string>('pricing.plans.pro.features'),
       cta: t('pricing.plans.pro.cta'),
       href: `${domains.app}/signup?plan=pro`,
