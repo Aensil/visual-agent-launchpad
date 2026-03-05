@@ -54,9 +54,9 @@
     }
   },
   "socialProof": {
-    "queriesProcessed": "Queries processed monthly",
-    "fasterDecisions": "Faster decision-making",
-    "uptimeSLA": "Uptime SLA"
+    "queriesProcessed": "Average query response",
+    "fasterDecisions": "Languages supported",
+    "uptimeSLA": "Credit card required to start"
   },
   "testimonials": {
     "sectionLabel": "What teams are saying",

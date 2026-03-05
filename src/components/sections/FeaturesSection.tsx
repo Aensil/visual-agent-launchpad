@@ -13,6 +13,7 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.voiceFirst.title'),
       description: t('features.voiceFirst.description'),
+      accent: 'from-primary-cyan to-deep-indigo',
     },
     {
       icon: (
@@ -22,6 +23,7 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.realTime.title'),
       description: t('features.realTime.description'),
+      accent: 'from-deep-indigo to-accent-magenta',
     },
     {
       icon: (
@@ -31,6 +33,7 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.smartViz.title'),
       description: t('features.smartViz.description'),
+      accent: 'from-primary-cyan to-deep-indigo',
     },
     {
       icon: (
@@ -40,6 +43,7 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.connectData.title'),
       description: t('features.connectData.description'),
+      accent: 'from-deep-indigo to-accent-magenta',
     },
     {
       icon: (
@@ -49,6 +53,7 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.insights.title'),
       description: t('features.insights.description'),
+      accent: 'from-primary-cyan to-deep-indigo',
     },
     {
       icon: (
@@ -58,51 +63,58 @@ const FeaturesSection: React.FC = () => {
       ),
       title: t('features.security.title'),
       description: t('features.security.description'),
+      accent: 'from-deep-indigo to-accent-magenta',
     },
   ];
 
   return (
-    <section id="product" className="relative py-24 px-6">
+    <section id="product" className="relative py-28 sm:py-32 px-6">
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+        {/* Header — distinct typographic scale with section label */}
+        <div className="text-center mb-20">
+          <p className="text-sm text-primary-cyan font-medium tracking-wide uppercase mb-4">
+            {t('nav.product')}
+          </p>
+          <h2
+            className="font-bold text-white mb-6 tracking-tight"
+            style={{ fontSize: 'clamp(1.75rem, 3vw + 0.5rem, 3rem)', lineHeight: '1.15' }}
+          >
             {t('features.title')}
           </h2>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/55 max-w-xl mx-auto leading-relaxed">
             {t('features.subtitle')}
           </p>
         </div>
 
-        {/* Features grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Features grid — improved contrast and hierarchy */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
               className="
-                group p-6 rounded-xl
-                bg-white/[0.02] border border-white/[0.06]
-                hover:bg-white/[0.03] hover:border-white/10
+                group p-7 rounded-2xl
+                bg-white/[0.03] border border-white/[0.08]
+                hover:bg-white/[0.05] hover:border-white/15
                 transition-all duration-300
               "
             >
-              {/* Icon */}
+              {/* Icon — gradient background for visual variety */}
               <div
-                className="
-                  w-10 h-10 mb-5 rounded-lg
+                className={`
+                  w-11 h-11 mb-6 rounded-xl
                   flex items-center justify-center
-                  bg-white/[0.05]
-                  text-primary-cyan
-                "
+                  bg-gradient-to-br ${feature.accent}
+                  text-white opacity-80
+                `}
               >
                 {feature.icon}
               </div>
 
-              {/* Content */}
-              <h3 className="text-base font-semibold text-white mb-2">
+              {/* Content — stronger contrast */}
+              <h3 className="text-lg font-semibold text-white mb-3 tracking-tight">
                 {feature.title}
               </h3>
-              <p className="text-sm text-white/50 leading-relaxed">
+              <p className="text-sm text-white/55 leading-relaxed">
                 {feature.description}
               </p>
             </div>
