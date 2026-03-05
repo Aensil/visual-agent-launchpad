@@ -221,26 +221,25 @@
 
   /* === GLASS PANEL LIGHT MODE === */
   .light .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.06),
-      0 4px 16px rgba(0, 0, 0, 0.04),
-      0 0 20px rgba(0, 153, 204, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      0 1px 3px rgba(0, 0, 0, 0.08),
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 0 20px rgba(0, 153, 204, 0.05);
   }
 
   .light .glass-panel:hover {
     border-color: rgba(0, 153, 204, 0.35);
     box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.08),
-      0 8px 24px rgba(0, 0, 0, 0.06),
-      0 0 30px rgba(0, 153, 204, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      0 0 30px rgba(0, 153, 204, 0.1);
   }
 
   .light .glass-panel-elevated {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
 
   .light .glass-glow-cyan {
@@ -785,28 +784,41 @@
   color: var(--text-primary);
 }
 
+/* Preserve white text on gradient/colored buttons */
+.light .bg-gradient-to-r .text-white,
+.light .bg-gradient-to-br .text-white,
+.light .bg-gradient-to-b .text-white,
+.light .bg-primary-cyan .text-white,
+.light .bg-primary-cyan > .text-white,
+.light [class*="bg-gradient"] .text-white,
+.light [class*="bg-gradient"] > span,
+.light .btn-primary .text-white,
+.light .keep-white {
+  color: #ffffff;
+}
+
 .light .text-white\/30 {
-  color: rgba(26, 32, 44, 0.35);
+  color: rgba(26, 32, 44, 0.45);
 }
 
 .light .text-white\/40 {
-  color: rgba(26, 32, 44, 0.5);
-}
-
-.light .text-white\/50 {
   color: rgba(26, 32, 44, 0.55);
 }
 
-.light .text-white\/60 {
+.light .text-white\/50 {
   color: rgba(26, 32, 44, 0.6);
 }
 
+.light .text-white\/60 {
+  color: rgba(26, 32, 44, 0.65);
+}
+
 .light .text-white\/70 {
-  color: rgba(26, 32, 44, 0.7);
+  color: rgba(26, 32, 44, 0.75);
 }
 
 .light .text-white\/80 {
-  color: rgba(26, 32, 44, 0.8);
+  color: rgba(26, 32, 44, 0.85);
 }
 
 /* Background white-opacity overrides */
@@ -855,12 +867,65 @@
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-.light .bg-\[\#0a0c14\] {
-  background-color: #FFFFFF;
-}
+/* Hero dashboard mock stays dark - it's a product screenshot */
 
 .light .bg-void\/50 {
   background-color: rgba(237, 240, 247, 0.6);
+}
+
+/* Dark region — preserves dark styling inside light mode (e.g., product screenshots) */
+.light .dark-region,
+.light .dark-region * {
+  --text-primary: #F0F4FF;
+}
+
+.light .dark-region .text-white {
+  color: #F0F4FF;
+}
+.light .dark-region .text-white\/40 {
+  color: rgba(255, 255, 255, 0.4);
+}
+.light .dark-region .text-white\/50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+.light .dark-region .text-white\/60 {
+  color: rgba(255, 255, 255, 0.6);
+}
+.light .dark-region .text-white\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+.light .dark-region .text-white\/80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+.light .dark-region .bg-white\/5,
+.light .dark-region .bg-white\/\[0\.03\],
+.light .dark-region .bg-white\/\[0\.02\] {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.light .dark-region .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.light .dark-region .bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.light .dark-region .border-white\/5,
+.light .dark-region .border-white\/\[0\.06\] {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.light .dark-region .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.light .dark-region .border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.light .dark-region .bg-void\/50 {
+  background-color: rgba(5, 7, 15, 0.5);
+}
+.light .dark-region .bg-void\/60 {
+  background-color: rgba(5, 7, 15, 0.6);
+}
+.light .dark-region .bg-primary-cyan\/20 {
+  background-color: rgba(0, 212, 255, 0.2);
 }
 
 /* Hamburger menu bars */
@@ -896,6 +961,21 @@
 /* Gradient text stays vivid in light mode */
 .light .from-primary-cyan {
   --tw-gradient-from: #0099CC;
+}
+
+/* Pricing toggle: active pill in light mode */
+.light .bg-white.text-void {
+  background-color: var(--text-primary);
+  color: #ffffff;
+}
+
+/* Keep white text utility - immune to light mode remapping */
+.light .keep-white {
+  color: #ffffff !important;
+}
+
+.light .keep-white * {
+  color: #ffffff !important;
 }
 
 /* === LIGHT MODE LOADING / SKELETON === */

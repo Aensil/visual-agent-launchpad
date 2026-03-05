@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { domains } from '@/config/site';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useTheme } from '@/hooks/useTheme';
 
 interface PricingSectionProps {
   hasScrolled?: boolean;
@@ -10,6 +11,7 @@ interface PricingSectionProps {
 const PricingSection: React.FC<PricingSectionProps> = () => {
   const [isAnnual, setIsAnnual] = useState(true);
   const { t, tArray } = useTranslation();
+  const { theme } = useTheme();
 
   const comparisonData = [
     {
@@ -106,10 +108,15 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `
-            radial-gradient(ellipse 80% 50% at 50% 100%, rgba(75, 63, 227, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%)
-          `,
+          background: theme === 'dark'
+            ? `
+              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(75, 63, 227, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%)
+            `
+            : `
+              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(75, 63, 227, 0.04) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 153, 204, 0.03) 0%, transparent 50%)
+            `,
         }}
       />
 
@@ -209,7 +216,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
                   block w-full py-3 px-6 rounded-full text-center font-semibold
                   transition-all duration-300
                   ${plan.highlight
-                    ? 'bg-gradient-to-r from-primary-cyan to-deep-indigo text-white hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:scale-[1.02]'
+                    ? 'bg-gradient-to-r from-primary-cyan to-deep-indigo text-white keep-white hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:scale-[1.02]'
                     : 'bg-white/10 text-white hover:bg-white/20'
                   }
                 `}

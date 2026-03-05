@@ -1,9 +1,11 @@
 import React from 'react';
 import { domains } from '@/config/site';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useTheme } from '@/hooks/useTheme';
 
 const CTASection: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   return (
     <section className="relative py-24 px-6">
@@ -11,7 +13,9 @@ const CTASection: React.FC = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 212, 255, 0.08) 0%, transparent 50%)',
+          background: theme === 'dark'
+            ? 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 212, 255, 0.08) 0%, transparent 50%)'
+            : 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 153, 204, 0.05) 0%, transparent 50%)',
         }}
       />
 
@@ -30,7 +34,7 @@ const CTASection: React.FC = () => {
           <a
             href={domains.app}
             className="
-              group px-8 py-4 text-base font-semibold text-white
+              group px-8 py-4 text-base font-semibold text-white keep-white
               rounded-full
               bg-primary-cyan
               hover:bg-primary-cyan/90

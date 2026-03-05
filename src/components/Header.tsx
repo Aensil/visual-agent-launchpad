@@ -140,7 +140,7 @@ const Header: React.FC = () => {
           <a
             href={domains.app}
             className="
-              relative px-5 py-2.5 text-sm font-semibold text-white
+              relative px-5 py-2.5 text-sm font-semibold text-white keep-white
               rounded-full overflow-hidden
               bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               bg-[length:200%_100%] bg-left
@@ -225,7 +225,7 @@ const Header: React.FC = () => {
             <a
               href={domains.app}
               className="
-                text-center py-3.5 min-h-[48px] flex items-center justify-center px-6 font-semibold text-white
+                text-center py-3.5 min-h-[48px] flex items-center justify-center px-6 font-semibold text-white keep-white
                 rounded-full
                 bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               "
