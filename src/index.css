@@ -57,49 +57,50 @@
 
   /* === LIGHT MODE OVERRIDES === */
   .light {
-    --bg-page: #F5F7FB;
-    --bg-surface: #FFFFFF;
-    --bg-elevated: #EDF0F7;
+    /* Backgrounds: blue-tinted, not sterile white — echoes the dark void's blue-black */
+    --bg-page: #EFF3FA;
+    --bg-surface: #F8FAFF;
+    --bg-elevated: #E8ECF5;
 
-    --void: #F5F7FB;
-    --void-surface: #FFFFFF;
-    --void-elevated: #EDF0F7;
-    --void-glass: rgba(255, 255, 255, 0.7);
+    --void: #EFF3FA;
+    --void-surface: #F8FAFF;
+    --void-elevated: #E8ECF5;
+    --void-glass: rgba(248, 250, 255, 0.65);
 
-    /* Primary accent: Cyan - slightly deeper for contrast on light */
-    --primary-cyan: #0099CC;
-    --primary-cyan-dim: #007AA3;
-    --primary-cyan-bright: #00B8E6;
-    --primary-cyan-glow: rgba(0, 153, 204, 0.25);
+    /* Primary accent: Cyan — MORE saturated to compensate for light-on-light contrast loss */
+    --primary-cyan: #00B4D8;
+    --primary-cyan-dim: #0090B0;
+    --primary-cyan-bright: #00D4FF;
+    --primary-cyan-glow: rgba(0, 180, 216, 0.2);
 
-    /* Secondary accent: Blue */
-    --secondary-blue: #4B3FE3;
-    --deep-indigo: #4B3FE3;
-    --deep-indigo-dim: #3A2FB5;
-    --deep-indigo-bright: #6B5CF6;
-    --deep-indigo-glow: rgba(75, 63, 227, 0.2);
+    /* Secondary accent: Indigo — kept vibrant */
+    --secondary-blue: #5B4FE8;
+    --deep-indigo: #5B4FE8;
+    --deep-indigo-dim: #4438C2;
+    --deep-indigo-bright: #7B6EFF;
+    --deep-indigo-glow: rgba(91, 79, 232, 0.15);
 
-    /* Tertiary accent: Magenta */
-    --accent-magenta: #E0158A;
-    --accent-magenta-dim: #B81070;
-    --accent-magenta-bright: #FF3DA8;
-    --accent-magenta-glow: rgba(224, 21, 138, 0.2);
+    /* Tertiary accent: Magenta — kept punchy */
+    --accent-magenta: #F01B96;
+    --accent-magenta-dim: #CC1580;
+    --accent-magenta-bright: #FF45B5;
+    --accent-magenta-glow: rgba(240, 27, 150, 0.15);
 
-    --accent-violet: #7C4DFF;
+    --accent-violet: #8B5CF6;
 
-    /* Status colors */
-    --status-success: #059669;
-    --status-warning: #D97706;
-    --status-error: #DC2626;
+    /* Status colors — vibrant enough to feel "real-time" */
+    --status-success: #10B981;
+    --status-warning: #F59E0B;
+    --status-error: #EF4444;
 
-    /* Text colors */
-    --text-primary: #1A202C;
-    --text-secondary: #4A5568;
-    --text-muted: #8892A8;
+    /* Text colors — slate-blue, not pure black (matches the blue-tinted void) */
+    --text-primary: #1E293B;
+    --text-secondary: #475569;
+    --text-muted: #7C8DB5;
 
-    /* Glass effects */
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --glass-border-hover: rgba(0, 153, 204, 0.35);
+    /* Glass effects — cyan-tinted borders, not neutral black */
+    --glass-border: rgba(0, 90, 130, 0.08);
+    --glass-border-hover: rgba(0, 180, 216, 0.35);
   }
 
   * {
@@ -143,18 +144,18 @@
     color: var(--text-primary);
   }
 
-  /* Light mode scrollbar */
+  /* Light mode scrollbar — blue-tinted to match the void */
   .light ::-webkit-scrollbar-track {
     background: var(--bg-page);
   }
 
   .light ::-webkit-scrollbar-thumb {
-    background: #CBD5E0;
+    background: #B8C4D8;
     border-radius: 4px;
   }
 
   .light ::-webkit-scrollbar-thumb:hover {
-    background: #A0AEC0;
+    background: #94A3C0;
   }
 }
 
@@ -220,50 +221,63 @@
   }
 
   /* === GLASS PANEL LIGHT MODE === */
+  /* Translucent, not opaque — preserve the "floating glass" language */
   .light .glass-panel {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(248, 250, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 90, 130, 0.08);
     box-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.08),
-      0 4px 16px rgba(0, 0, 0, 0.06),
-      0 0 20px rgba(0, 153, 204, 0.05);
+      0 1px 2px rgba(0, 40, 80, 0.04),
+      0 4px 16px rgba(0, 40, 80, 0.04),
+      0 0 1px rgba(0, 180, 216, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
   .light .glass-panel:hover {
-    border-color: rgba(0, 153, 204, 0.35);
+    border-color: rgba(0, 180, 216, 0.25);
     box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.1),
-      0 8px 24px rgba(0, 0, 0, 0.08),
-      0 0 30px rgba(0, 153, 204, 0.1);
+      0 2px 8px rgba(0, 40, 80, 0.06),
+      0 8px 24px rgba(0, 40, 80, 0.05),
+      0 0 20px rgba(0, 180, 216, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
   }
 
   .light .glass-panel-elevated {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    background: rgba(248, 250, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 2px 12px rgba(0, 40, 80, 0.06),
+      0 0 1px rgba(0, 180, 216, 0.08);
   }
 
+  /* Glow cards — the brand's visual signature, preserved in light mode */
   .light .glass-glow-cyan {
     box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 0 30px var(--primary-cyan-glow);
-    border-color: rgba(0, 153, 204, 0.3);
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(0, 180, 216, 0.1),
+      0 0 48px rgba(0, 180, 216, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 180, 216, 0.2);
   }
 
   .light .glass-glow-magenta {
     box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 0 30px var(--accent-magenta-glow);
-    border-color: rgba(224, 21, 138, 0.3);
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(240, 27, 150, 0.1),
+      0 0 48px rgba(240, 27, 150, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(240, 27, 150, 0.2);
   }
 
   .light .glass-glow-success {
     box-shadow:
-      0 4px 20px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      0 0 30px rgba(5, 150, 105, 0.2);
-    border-color: rgba(5, 150, 105, 0.3);
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(16, 185, 129, 0.12),
+      0 0 48px rgba(16, 185, 129, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(16, 185, 129, 0.2);
   }
 
   /* === ORB SYSTEM === */
@@ -378,31 +392,42 @@
   }
 
   /* === LIGHT MODE BUTTONS === */
+  /* Buttons carry the glow — they're alive, not flat */
   .light .btn-primary {
-    box-shadow: 0 2px 12px rgba(0, 153, 204, 0.2);
+    box-shadow:
+      0 2px 8px rgba(0, 180, 216, 0.15),
+      0 0 20px rgba(0, 180, 216, 0.08);
+  }
+
+  .light .btn-primary:hover {
+    box-shadow:
+      0 4px 16px rgba(0, 180, 216, 0.25),
+      0 0 32px rgba(0, 180, 216, 0.12);
   }
 
   .light .btn-secondary {
-    background: rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 90, 130, 0.04);
+    border: 1px solid rgba(0, 90, 130, 0.1);
     color: var(--text-primary);
   }
 
   .light .btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 180, 216, 0.06);
     border-color: var(--primary-cyan);
     color: var(--primary-cyan);
+    box-shadow: 0 0 16px rgba(0, 180, 216, 0.06);
   }
 
   .light .btn-danger {
-    background: rgba(220, 38, 38, 0.08);
-    color: #DC2626;
-    border: 1px solid rgba(220, 38, 38, 0.15);
+    background: rgba(239, 68, 68, 0.08);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.12);
   }
 
   .light .btn-danger:hover {
-    background: #DC2626;
+    background: #EF4444;
     color: #ffffff;
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.15);
   }
 
   /* === TYPOGRAPHY === */
@@ -440,12 +465,13 @@
   }
 
   /* === LIGHT MODE TYPOGRAPHY === */
+  /* Glow language preserved — whisper-subtle, not eliminated */
   .light .text-glow-cyan {
-    text-shadow: none;
+    text-shadow: 0 0 24px rgba(0, 180, 216, 0.15);
   }
 
   .light .text-glow-magenta {
-    text-shadow: none;
+    text-shadow: 0 0 24px rgba(240, 27, 150, 0.12);
   }
 
   /* === FORM INPUTS === */
@@ -470,14 +496,14 @@
 
   /* === LIGHT MODE INPUTS === */
   .light .input-glass {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(248, 250, 255, 0.8);
+    border: 1px solid rgba(0, 90, 130, 0.1);
     color: var(--text-primary);
   }
 
   .light .input-glass:focus {
     border-color: var(--primary-cyan);
-    box-shadow: 0 0 0 3px rgba(0, 153, 204, 0.1), 0 0 12px rgba(0, 153, 204, 0.08);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1), 0 0 16px rgba(0, 180, 216, 0.06);
   }
 
   /* === NAVIGATION === */
@@ -495,12 +521,12 @@
   }
 
   .light .nav-glass {
-    background: rgba(245, 247, 251, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(239, 243, 250, 0.75);
+    border-bottom: 1px solid rgba(0, 90, 130, 0.06);
   }
 
   .light .nav-glass-scrolled {
-    background: rgba(245, 247, 251, 0.95);
+    background: rgba(239, 243, 250, 0.92);
   }
 
   .nav-link {
@@ -552,11 +578,12 @@
   }
 
   /* === LIGHT MODE BACKGROUNDS === */
+  /* Ambient color wash — the glow still tints the space, just softer */
   .light .void-gradient {
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(75, 63, 227, 0.04) 50%,
+      rgba(91, 79, 232, 0.04) 50%,
       var(--void) 100%
     );
   }
@@ -565,7 +592,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(0, 153, 204, 0.05) 50%,
+      rgba(0, 180, 216, 0.06) 50%,
       var(--void) 100%
     );
   }
@@ -574,15 +601,15 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(224, 21, 138, 0.05) 50%,
+      rgba(240, 27, 150, 0.05) 50%,
       var(--void) 100%
     );
   }
 
   .light .futuristic-grid {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(0, 90, 130, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 90, 130, 0.03) 1px, transparent 1px);
   }
 
   /* Subtle grid background */
@@ -860,17 +887,17 @@
 .light .bg-void\/60,
 .light .bg-void\/80,
 .light .bg-void\/95 {
-  background-color: rgba(245, 247, 251, 0.9);
+  background-color: rgba(239, 243, 250, 0.9);
 }
 
 .light .bg-void-surface\/90 {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(248, 250, 255, 0.92);
 }
 
 /* Hero dashboard mock stays dark - it's a product screenshot */
 
 .light .bg-void\/50 {
-  background-color: rgba(237, 240, 247, 0.6);
+  background-color: rgba(232, 236, 245, 0.6);
 }
 
 /* Dark region — preserves dark styling inside light mode (e.g., product screenshots) */
@@ -960,7 +987,7 @@
 
 /* Gradient text stays vivid in light mode */
 .light .from-primary-cyan {
-  --tw-gradient-from: #0099CC;
+  --tw-gradient-from: #00B4D8;
 }
 
 /* Pricing toggle: active pill in light mode */
@@ -982,21 +1009,21 @@
 .light .skeleton {
   background: linear-gradient(
     90deg,
-    #E2E8F0 25%,
-    #EDF2F7 50%,
-    #E2E8F0 75%
+    #DCE3F0 25%,
+    #E8ECF5 50%,
+    #DCE3F0 75%
   );
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
 
 .light .orb-inner {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(248, 250, 255, 0.6);
 }
 
 /* Chart light mode */
 .light .chart-grid-line {
-  stroke: rgba(0, 0, 0, 0.06);
+  stroke: rgba(0, 90, 130, 0.06);
 }
 
 .light .chart-label {

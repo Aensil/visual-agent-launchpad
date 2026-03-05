@@ -49,9 +49,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               radial-gradient(ellipse 50% 30% at 30% 30%, rgba(255, 30, 140, 0.08) 0%, transparent 50%)
             `
             : `
-              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 153, 204, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(75, 63, 227, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(224, 21, 138, 0.04) 0%, transparent 50%)
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 180, 216, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(91, 79, 232, 0.07) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(240, 27, 150, 0.05) 0%, transparent 50%)
             `,
           transform: prefersReducedMotion
             ? 'none'

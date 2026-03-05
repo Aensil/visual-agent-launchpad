@@ -15,7 +15,7 @@ const CTASection: React.FC = () => {
         style={{
           background: theme === 'dark'
             ? 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 212, 255, 0.08) 0%, transparent 50%)'
-            : 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 153, 204, 0.05) 0%, transparent 50%)',
+            : 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 180, 216, 0.07) 0%, transparent 50%)',
         }}
       />
 
