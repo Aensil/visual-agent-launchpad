@@ -2,7 +2,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default  branch
+  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
 
@@ -63,4 +63,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
