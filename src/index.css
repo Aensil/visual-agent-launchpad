@@ -819,8 +819,7 @@
 .light .bg-primary-cyan > .text-white,
 .light [class*="bg-gradient"] .text-white,
 .light [class*="bg-gradient"] > span,
-.light .btn-primary .text-white,
-.light .keep-white {
+.light .btn-primary .text-white {
   color: #ffffff;
 }
 

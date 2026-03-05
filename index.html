@@ -48,6 +48,7 @@
       (function() {
         var pref = 'system';
         try { pref = localStorage.getItem('vuen-theme-preference') || 'system'; } catch(e) {}
+        if (pref !== 'dark' && pref !== 'light' && pref !== 'system') pref = 'system';
         var theme = pref;
         if (pref === 'system') {
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
