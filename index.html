@@ -43,6 +43,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <!-- Prevent flash of wrong theme -->
+    <script>
+      (function() {
+        var pref = 'system';
+        try { pref = localStorage.getItem('vuen-theme-preference') || 'system'; } catch(e) {}
+        if (pref !== 'dark' && pref !== 'light' && pref !== 'system') pref = 'system';
+        var theme = pref;
+        if (pref === 'system') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

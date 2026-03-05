@@ -1,11 +1,14 @@
 import React from 'react';
 import { domains, contact } from '@/config/site';
 import { useTranslation } from '@/hooks/useTranslation';
-import Logo from '@/assets/Logo_Vuen_AI_white.png';
+import { useTheme } from '@/hooks/useTheme';
+import LogoWhite from '@/assets/Logo_Vuen_AI_white.png';
+import LogoBlack from '@/assets/Logo_Vuen_AI_Black.png';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   const footerLinks = {
     product: [
@@ -83,7 +86,7 @@ const Footer: React.FC = () => {
           <div className="max-w-sm">
             <a href="/" className="inline-block mb-4">
               <img
-                src={Logo}
+                src={theme === 'dark' ? LogoWhite : LogoBlack}
                 alt="Vuen AI"
                 className="h-24 w-auto opacity-80 hover:opacity-100 transition-opacity"
               />

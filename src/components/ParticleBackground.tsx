@@ -16,9 +16,9 @@ const ParticleBackground: React.FC = () => {
   const particlesRef = useRef<Particle[]>([]);
 
   const colors = useMemo(() => [
-    'rgba(0, 212, 255, 0.4)',   // Primary cyan
-    'rgba(75, 63, 227, 0.3)',   // Deep indigo
-    'rgba(255, 30, 140, 0.2)',  // Accent magenta (sparse)
+    'rgba(0, 229, 200, 0.4)',   // Primary teal
+    'rgba(124, 92, 250, 0.3)',  // Bridge indigo
+    'rgba(217, 70, 239, 0.2)',  // Accent violet (sparse)
   ], []);
 
   useEffect(() => {
@@ -101,7 +101,7 @@ const ParticleBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(0, 229, 200, ${0.1 * (1 - distance / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

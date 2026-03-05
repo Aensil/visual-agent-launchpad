@@ -18,27 +18,27 @@
     --void-elevated: #0f1726;
     --void-glass: rgba(15, 20, 37, 0.6);
 
-    /* Primary accent: Cyan */
-    --primary-cyan: #00e0ff;
-    --primary-cyan-dim: #00A3C4;
-    --primary-cyan-bright: #33DFFF;
-    --primary-cyan-glow: rgba(0, 224, 255, 0.4);
+    /* Primary accent: Teal — the listening orb ring */
+    --primary-cyan: #00E5C8;
+    --primary-cyan-dim: #00B8A0;
+    --primary-cyan-bright: #33ECD6;
+    --primary-cyan-glow: rgba(0, 229, 200, 0.4);
 
-    /* Secondary accent: Blue */
-    --secondary-blue: #5b7cfa;
-    --deep-indigo: #5b7cfa;
-    --deep-indigo-dim: #3A2FB5;
-    --deep-indigo-bright: #8b5cf6;
-    --deep-indigo-glow: rgba(91, 124, 250, 0.4);
+    /* Secondary accent: Bridge indigo — structure / depth */
+    --secondary-blue: #7C5CFA;
+    --deep-indigo: #7C5CFA;
+    --deep-indigo-dim: #5B3FD6;
+    --deep-indigo-bright: #9B7EFF;
+    --deep-indigo-glow: rgba(124, 92, 250, 0.4);
 
-    /* Tertiary accent: Magenta */
-    --accent-magenta: #ff5fd1;
-    --accent-magenta-dim: #CC1870;
-    --accent-magenta-bright: #FF4DA6;
-    --accent-magenta-glow: rgba(255, 95, 209, 0.4);
+    /* Tertiary accent: Violet — the speaking orb ring */
+    --accent-magenta: #D946EF;
+    --accent-magenta-dim: #B535CC;
+    --accent-magenta-bright: #E56FF5;
+    --accent-magenta-glow: rgba(217, 70, 239, 0.4);
 
     /* Additional accents */
-    --accent-violet: #8b5cf6;
+    --accent-violet: #9B5CF6;
 
     /* Status colors */
     --status-success: #34c759;
@@ -52,7 +52,55 @@
 
     /* Glass effects */
     --glass-border: rgba(255, 255, 255, 0.16);
-    --glass-border-hover: rgba(0, 224, 255, 0.3);
+    --glass-border-hover: rgba(0, 229, 200, 0.3);
+  }
+
+  /* === LIGHT MODE OVERRIDES === */
+  .light {
+    /* Backgrounds: blue-tinted, not sterile white — echoes the dark void's blue-black */
+    --bg-page: #EFF3FA;
+    --bg-surface: #F8FAFF;
+    --bg-elevated: #E8ECF5;
+
+    --void: #EFF3FA;
+    --void-surface: #F8FAFF;
+    --void-elevated: #E8ECF5;
+    --void-glass: rgba(248, 250, 255, 0.65);
+
+    /* Primary accent: Teal — deeper for contrast on light backgrounds */
+    --primary-cyan: #00C4AA;
+    --primary-cyan-dim: #009E88;
+    --primary-cyan-bright: #00E5C8;
+    --primary-cyan-glow: rgba(0, 196, 170, 0.2);
+
+    /* Secondary accent: Indigo bridge — vibrant */
+    --secondary-blue: #6B4FE8;
+    --deep-indigo: #6B4FE8;
+    --deep-indigo-dim: #5038C2;
+    --deep-indigo-bright: #8B6EFF;
+    --deep-indigo-glow: rgba(107, 79, 232, 0.15);
+
+    /* Tertiary accent: Violet — deeper for light backgrounds */
+    --accent-magenta: #C026D3;
+    --accent-magenta-dim: #A020B0;
+    --accent-magenta-bright: #D946EF;
+    --accent-magenta-glow: rgba(192, 38, 211, 0.15);
+
+    --accent-violet: #8B5CF6;
+
+    /* Status colors — vibrant enough to feel "real-time" */
+    --status-success: #10B981;
+    --status-warning: #F59E0B;
+    --status-error: #EF4444;
+
+    /* Text colors — slate-blue, not pure black (matches the blue-tinted void) */
+    --text-primary: #1E293B;
+    --text-secondary: #475569;
+    --text-muted: #7C8DB5;
+
+    /* Glass effects — teal-tinted borders, not neutral black */
+    --glass-border: rgba(0, 100, 90, 0.08);
+    --glass-border-hover: rgba(0, 196, 170, 0.35);
   }
 
   * {
@@ -87,13 +135,27 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 229, 200, 0.3);
   }
 
   /* Selection color */
   ::selection {
     background: var(--primary-cyan-glow);
     color: var(--text-primary);
+  }
+
+  /* Light mode scrollbar — blue-tinted to match the void */
+  .light ::-webkit-scrollbar-track {
+    background: var(--bg-page);
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    background: #B8C4D8;
+    border-radius: 4px;
+  }
+
+  .light ::-webkit-scrollbar-thumb:hover {
+    background: #94A3C0;
   }
 }
 
@@ -111,18 +173,18 @@
     box-shadow:
       0 2px 4px rgba(0, 0, 0, 0.3),
       0 4px 8px rgba(0, 0, 0, 0.15),
-      0 0 20px rgba(0, 224, 255, 0.15),
+      0 0 20px rgba(0, 229, 200, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
 
   .glass-panel:hover {
-    border-color: rgba(0, 224, 255, 0.3);
+    border-color: rgba(0, 229, 200, 0.3);
     transform: translateY(-2px);
     box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.3),
       0 8px 16px rgba(0, 0, 0, 0.15),
-      0 0 30px rgba(0, 224, 255, 0.25),
+      0 0 30px rgba(0, 229, 200, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
@@ -139,7 +201,7 @@
       0 4px 30px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 0 30px var(--primary-cyan-glow);
-    border-color: rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 229, 200, 0.3);
   }
 
   .glass-glow-magenta {
@@ -147,7 +209,7 @@
       0 4px 30px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 0 30px var(--accent-magenta-glow);
-    border-color: rgba(255, 30, 140, 0.3);
+    border-color: rgba(217, 70, 239, 0.3);
   }
 
   .glass-glow-success {
@@ -156,6 +218,66 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.05),
       0 0 30px rgba(16, 185, 129, 0.4);
     border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  /* === GLASS PANEL LIGHT MODE === */
+  /* Translucent, not opaque — preserve the "floating glass" language */
+  .light .glass-panel {
+    background: rgba(248, 250, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 90, 130, 0.08);
+    box-shadow:
+      0 1px 2px rgba(0, 40, 80, 0.04),
+      0 4px 16px rgba(0, 40, 80, 0.04),
+      0 0 1px rgba(0, 196, 170, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .light .glass-panel:hover {
+    border-color: rgba(0, 196, 170, 0.25);
+    box-shadow:
+      0 2px 8px rgba(0, 40, 80, 0.06),
+      0 8px 24px rgba(0, 40, 80, 0.05),
+      0 0 20px rgba(0, 196, 170, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .light .glass-panel-elevated {
+    background: rgba(248, 250, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 2px 12px rgba(0, 40, 80, 0.06),
+      0 0 1px rgba(0, 196, 170, 0.08);
+  }
+
+  /* Glow cards — the brand's visual signature, preserved in light mode */
+  .light .glass-glow-cyan {
+    box-shadow:
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(0, 196, 170, 0.1),
+      0 0 48px rgba(0, 196, 170, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 196, 170, 0.2);
+  }
+
+  .light .glass-glow-magenta {
+    box-shadow:
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(192, 38, 211, 0.1),
+      0 0 48px rgba(192, 38, 211, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(192, 38, 211, 0.2);
+  }
+
+  .light .glass-glow-success {
+    box-shadow:
+      0 2px 16px rgba(0, 40, 80, 0.05),
+      0 0 24px rgba(16, 185, 129, 0.12),
+      0 0 48px rgba(16, 185, 129, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border-color: rgba(16, 185, 129, 0.2);
   }
 
   /* === ORB SYSTEM === */
@@ -193,7 +315,7 @@
 
   .orb-listening {
     animation: orb-gradient 4s ease infinite, orb-listening 2s ease-in-out infinite;
-    box-shadow: 0 0 80px var(--primary-cyan-glow), 0 0 160px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 80px var(--primary-cyan-glow), 0 0 160px rgba(0, 229, 200, 0.2);
   }
 
   .orb-thinking {
@@ -221,16 +343,16 @@
 
   .btn-primary {
     @apply relative px-6 py-3 font-semibold rounded-[10px] overflow-hidden;
-    background: linear-gradient(135deg, #00ff9f, #ff2d92);
+    background: linear-gradient(135deg, #00E5C8, #D946EF);
     color: #ffffff;
     border: none;
-    box-shadow: 0 0 20px rgba(0, 224, 255, 0.15);
+    box-shadow: 0 0 20px rgba(0, 229, 200, 0.15);
     transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     min-height: 44px;
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #ff2d92, #ff6b35);
+    background: linear-gradient(135deg, #D946EF, #9B7EFF);
     transform: translateY(-2px);
   }
 
@@ -251,8 +373,8 @@
 
   .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.20);
-    border-color: #00e0ff;
-    color: #00e0ff;
+    border-color: #00E5C8;
+    color: #00E5C8;
   }
 
   .btn-danger {
@@ -267,6 +389,45 @@
   .btn-danger:hover {
     background: #ff3b30;
     color: #ffffff;
+  }
+
+  /* === LIGHT MODE BUTTONS === */
+  /* Buttons carry the glow — they're alive, not flat */
+  .light .btn-primary {
+    box-shadow:
+      0 2px 8px rgba(0, 196, 170, 0.15),
+      0 0 20px rgba(0, 196, 170, 0.08);
+  }
+
+  .light .btn-primary:hover {
+    box-shadow:
+      0 4px 16px rgba(0, 196, 170, 0.25),
+      0 0 32px rgba(0, 196, 170, 0.12);
+  }
+
+  .light .btn-secondary {
+    background: rgba(0, 90, 130, 0.04);
+    border: 1px solid rgba(0, 90, 130, 0.1);
+    color: var(--text-primary);
+  }
+
+  .light .btn-secondary:hover {
+    background: rgba(0, 196, 170, 0.06);
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+    box-shadow: 0 0 16px rgba(0, 196, 170, 0.06);
+  }
+
+  .light .btn-danger {
+    background: rgba(239, 68, 68, 0.08);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.12);
+  }
+
+  .light .btn-danger:hover {
+    background: #EF4444;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.15);
   }
 
   /* === TYPOGRAPHY === */
@@ -303,6 +464,16 @@
     letter-spacing: 0.1em;
   }
 
+  /* === LIGHT MODE TYPOGRAPHY === */
+  /* Glow language preserved — whisper-subtle, not eliminated */
+  .light .text-glow-cyan {
+    text-shadow: 0 0 24px rgba(0, 196, 170, 0.15);
+  }
+
+  .light .text-glow-magenta {
+    text-shadow: 0 0 24px rgba(192, 38, 211, 0.12);
+  }
+
   /* === FORM INPUTS === */
 
   .input-glass {
@@ -320,7 +491,19 @@
   .input-glass:focus {
     outline: none;
     border-color: var(--primary-cyan);
-    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1), 0 0 20px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 229, 200, 0.1), 0 0 20px rgba(0, 229, 200, 0.1);
+  }
+
+  /* === LIGHT MODE INPUTS === */
+  .light .input-glass {
+    background: rgba(248, 250, 255, 0.8);
+    border: 1px solid rgba(0, 90, 130, 0.1);
+    color: var(--text-primary);
+  }
+
+  .light .input-glass:focus {
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 196, 170, 0.1), 0 0 16px rgba(0, 196, 170, 0.06);
   }
 
   /* === NAVIGATION === */
@@ -335,6 +518,15 @@
 
   .nav-glass-scrolled {
     background: rgba(5, 7, 15, 0.95);
+  }
+
+  .light .nav-glass {
+    background: rgba(239, 243, 250, 0.75);
+    border-bottom: 1px solid rgba(0, 90, 130, 0.06);
+  }
+
+  .light .nav-glass-scrolled {
+    background: rgba(239, 243, 250, 0.92);
   }
 
   .nav-link {
@@ -362,7 +554,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(75, 63, 227, 0.08) 50%,
+      rgba(124, 92, 250, 0.08) 50%,
       var(--void) 100%
     );
   }
@@ -371,7 +563,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(0, 212, 255, 0.08) 50%,
+      rgba(0, 229, 200, 0.08) 50%,
       var(--void) 100%
     );
   }
@@ -380,16 +572,51 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(255, 30, 140, 0.08) 50%,
+      rgba(217, 70, 239, 0.08) 50%,
       var(--void) 100%
     );
+  }
+
+  /* === LIGHT MODE BACKGROUNDS === */
+  /* Ambient color wash — the glow still tints the space, just softer */
+  .light .void-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--void) 0%,
+      rgba(107, 79, 232, 0.04) 50%,
+      var(--void) 100%
+    );
+  }
+
+  .light .section-gradient-cyan {
+    background: linear-gradient(
+      180deg,
+      var(--void) 0%,
+      rgba(0, 196, 170, 0.06) 50%,
+      var(--void) 100%
+    );
+  }
+
+  .light .section-gradient-magenta {
+    background: linear-gradient(
+      180deg,
+      var(--void) 0%,
+      rgba(192, 38, 211, 0.05) 50%,
+      var(--void) 100%
+    );
+  }
+
+  .light .futuristic-grid {
+    background-image:
+      linear-gradient(rgba(0, 90, 130, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 90, 130, 0.03) 1px, transparent 1px);
   }
 
   /* Subtle grid background */
   .futuristic-grid {
     background-image:
-      linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(0, 229, 200, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 200, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
@@ -575,6 +802,231 @@
   100% {
     background-position: -200% 0;
   }
+}
+
+/* === LIGHT MODE TEXT & COLOR REMAPPING === */
+/* Remap white-based text/bg/border utilities for light mode */
+
+.light .text-white {
+  color: var(--text-primary);
+}
+
+/* Preserve white text on gradient/colored buttons */
+.light .bg-gradient-to-r .text-white,
+.light .bg-gradient-to-br .text-white,
+.light .bg-gradient-to-b .text-white,
+.light .bg-primary-cyan .text-white,
+.light .bg-primary-cyan > .text-white,
+.light [class*="bg-gradient"] .text-white,
+.light [class*="bg-gradient"] > span,
+.light .btn-primary .text-white {
+  color: #ffffff;
+}
+
+.light .text-white\/30 {
+  color: rgba(26, 32, 44, 0.45);
+}
+
+.light .text-white\/40 {
+  color: rgba(26, 32, 44, 0.55);
+}
+
+.light .text-white\/50 {
+  color: rgba(26, 32, 44, 0.6);
+}
+
+.light .text-white\/60 {
+  color: rgba(26, 32, 44, 0.65);
+}
+
+.light .text-white\/70 {
+  color: rgba(26, 32, 44, 0.75);
+}
+
+.light .text-white\/80 {
+  color: rgba(26, 32, 44, 0.85);
+}
+
+/* Background white-opacity overrides */
+.light .bg-white\/5,
+.light .bg-white\/\[0\.03\],
+.light .bg-white\/\[0\.02\] {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .bg-white\/15,
+.light .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Border white-opacity overrides */
+.light .border-white\/5,
+.light .border-white\/\[0\.06\] {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light .border-white\/16,
+.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Void backgrounds in light mode */
+.light .bg-void {
+  background-color: var(--void);
+}
+
+.light .bg-void\/60,
+.light .bg-void\/80,
+.light .bg-void\/95 {
+  background-color: rgba(239, 243, 250, 0.9);
+}
+
+.light .bg-void-surface\/90 {
+  background-color: rgba(248, 250, 255, 0.92);
+}
+
+/* Hero dashboard mock stays dark - it's a product screenshot */
+
+.light .bg-void\/50 {
+  background-color: rgba(232, 236, 245, 0.6);
+}
+
+/* Dark region — preserves dark styling inside light mode (e.g., product screenshots) */
+.light .dark-region,
+.light .dark-region * {
+  --text-primary: #F0F4FF;
+}
+
+.light .dark-region .text-white {
+  color: #F0F4FF;
+}
+.light .dark-region .text-white\/40 {
+  color: rgba(255, 255, 255, 0.4);
+}
+.light .dark-region .text-white\/50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+.light .dark-region .text-white\/60 {
+  color: rgba(255, 255, 255, 0.6);
+}
+.light .dark-region .text-white\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+.light .dark-region .text-white\/80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+.light .dark-region .bg-white\/5,
+.light .dark-region .bg-white\/\[0\.03\],
+.light .dark-region .bg-white\/\[0\.02\] {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.light .dark-region .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.light .dark-region .bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.light .dark-region .border-white\/5,
+.light .dark-region .border-white\/\[0\.06\] {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.light .dark-region .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.light .dark-region .border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.light .dark-region .bg-void\/50 {
+  background-color: rgba(5, 7, 15, 0.5);
+}
+.light .dark-region .bg-void\/60 {
+  background-color: rgba(5, 7, 15, 0.6);
+}
+.light .dark-region .bg-primary-cyan\/20 {
+  background-color: rgba(0, 229, 200, 0.2);
+}
+
+/* Hamburger menu bars */
+.light .bg-white.rounded-full {
+  background-color: var(--text-primary);
+}
+
+/* Hover state overrides */
+.light .hover\:text-white:hover {
+  color: var(--text-primary);
+}
+
+.light .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.light .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.light .hover\:border-white\/40:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .group-hover\:border-white\/40 {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.light .active\:bg-white\/10:active {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient text stays vivid in light mode */
+.light .from-primary-cyan {
+  --tw-gradient-from: #00C4AA;
+}
+
+/* Pricing toggle: active pill in light mode */
+.light .bg-white.text-void {
+  background-color: var(--text-primary);
+  color: #ffffff;
+}
+
+/* Keep white text utility - immune to light mode remapping */
+.light .keep-white {
+  color: #ffffff !important;
+}
+
+.light .keep-white * {
+  color: #ffffff !important;
+}
+
+/* === LIGHT MODE LOADING / SKELETON === */
+.light .skeleton {
+  background: linear-gradient(
+    90deg,
+    #DCE3F0 25%,
+    #E8ECF5 50%,
+    #DCE3F0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.light .orb-inner {
+  background: rgba(248, 250, 255, 0.6);
+}
+
+/* Chart light mode */
+.light .chart-grid-line {
+  stroke: rgba(0, 90, 130, 0.06);
+}
+
+.light .chart-label {
+  fill: var(--text-muted);
 }
 
 /* === RTL (Right-to-Left) SUPPORT FOR ARABIC === */

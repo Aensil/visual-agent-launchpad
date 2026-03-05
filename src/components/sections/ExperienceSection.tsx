@@ -7,7 +7,7 @@ interface ExperienceSectionProps {
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-black via-electric-cyan/5 to-black relative z-10" aria-label="Experience Section">
+    <section className="py-24 px-4 bg-gradient-to-b from-void via-electric-cyan/5 to-void relative z-10" aria-label="Experience Section">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -92,7 +92,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
               <div className="mb-8 relative">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-electric-cyan via-neural-indigo to-kinetic-magenta opacity-80 animate-gradient-cycle bg-[length:400%_400%]"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-black/60 flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-void/80 flex items-center justify-center">
                     <svg className="w-10 h-10 text-electric-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>

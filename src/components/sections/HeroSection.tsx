@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { domains } from '@/config/site';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useTheme } from '@/hooks/useTheme';
 
 interface HeroSectionProps {
   isLoaded: boolean;
@@ -15,6 +16,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (prefersReducedMotion) return;
@@ -40,11 +42,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `
-            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse 60% 40% at 70% 20%, rgba(75, 63, 227, 0.1) 0%, transparent 50%),
-            radial-gradient(ellipse 50% 30% at 30% 30%, rgba(255, 30, 140, 0.08) 0%, transparent 50%)
-          `,
+          background: theme === 'dark'
+            ? `
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 229, 200, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(124, 92, 250, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(217, 70, 239, 0.08) 0%, transparent 50%)
+            `
+            : `
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 196, 170, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(107, 79, 232, 0.07) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(192, 38, 211, 0.05) 0%, transparent 50%)
+            `,
           transform: prefersReducedMotion
             ? 'none'
             : `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
@@ -122,13 +130,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           <a
             href={domains.app}
             className="
-              group relative px-8 py-4 text-lg font-bold text-white uppercase tracking-wide
+              group relative px-8 py-4 text-lg font-bold text-white keep-white uppercase tracking-wide
               rounded-full overflow-hidden
               bg-gradient-to-r from-primary-cyan via-deep-indigo to-accent-magenta
               bg-[length:200%_100%] bg-left
               hover:bg-right
               transition-all duration-500 ease-out
-              hover:shadow-[0_0_50px_rgba(0,212,255,0.5)]
+              hover:shadow-[0_0_50px_rgba(0,229,200,0.5)]
               hover:scale-105
               active:scale-100
             "
@@ -205,7 +213,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             "
           >
             {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-void/60 border-b border-white/5">
+            <div className="dark-region flex items-center gap-2 px-4 py-3 bg-void/60 border-b border-white/5">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500/60" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
@@ -221,8 +229,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Dashboard layout */}
-            <div className="relative p-4 sm:p-6 min-h-[280px] sm:min-h-[380px] md:min-h-[450px] lg:min-h-[520px] bg-[#0a0c14]">
+            {/* Dashboard layout - always dark (product screenshot) */}
+            <div className="dark-region relative p-4 sm:p-6 min-h-[280px] sm:min-h-[380px] md:min-h-[450px] lg:min-h-[520px] bg-[#0a0c14]">
               {/* Sidebar - hidden on mobile */}
               <div className="hidden sm:flex absolute left-0 top-0 bottom-0 w-14 md:w-16 bg-void/50 border-r border-white/5 flex-col items-center py-4 gap-4">
                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary-cyan/20 flex items-center justify-center">

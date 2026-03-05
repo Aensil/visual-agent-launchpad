@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from '@/hooks/useLanguage';
+import { ThemeProvider } from '@/hooks/useTheme';
 
 // Eagerly load the main page for best initial load performance
 import Index from '@/pages/Index';
@@ -24,6 +25,7 @@ const PageLoader = () => (
 const App: React.FC = () => {
   return (
     <HelmetProvider>
+      <ThemeProvider>
       <LanguageProvider>
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>
@@ -73,6 +75,7 @@ const App: React.FC = () => {
           </Suspense>
         </BrowserRouter>
       </LanguageProvider>
+      </ThemeProvider>
     </HelmetProvider>
   );
 };
