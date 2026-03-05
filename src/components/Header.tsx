@@ -146,7 +146,7 @@ const Header: React.FC = () => {
               bg-[length:200%_100%] bg-left
               hover:bg-right
               transition-all duration-500 ease-out
-              hover:shadow-[0_0_30px_rgba(0,212,255,0.4)]
+              hover:shadow-[0_0_30px_rgba(0,229,200,0.4)]
               hover:scale-105
               active:scale-100
               group

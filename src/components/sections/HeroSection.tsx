@@ -44,14 +44,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         style={{
           background: theme === 'dark'
             ? `
-              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(75, 63, 227, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(255, 30, 140, 0.08) 0%, transparent 50%)
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 229, 200, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(124, 92, 250, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(217, 70, 239, 0.08) 0%, transparent 50%)
             `
             : `
-              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 180, 216, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(91, 79, 232, 0.07) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(240, 27, 150, 0.05) 0%, transparent 50%)
+              radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 196, 170, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 70% 20%, rgba(107, 79, 232, 0.07) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 30% at 30% 30%, rgba(192, 38, 211, 0.05) 0%, transparent 50%)
             `,
           transform: prefersReducedMotion
             ? 'none'
@@ -136,7 +136,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               bg-[length:200%_100%] bg-left
               hover:bg-right
               transition-all duration-500 ease-out
-              hover:shadow-[0_0_50px_rgba(0,212,255,0.5)]
+              hover:shadow-[0_0_50px_rgba(0,229,200,0.5)]
               hover:scale-105
               active:scale-100
             "

@@ -110,12 +110,12 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
         style={{
           background: theme === 'dark'
             ? `
-              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(75, 63, 227, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%)
+              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(124, 92, 250, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 229, 200, 0.05) 0%, transparent 50%)
             `
             : `
-              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(91, 79, 232, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 180, 216, 0.04) 0%, transparent 50%)
+              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(107, 79, 232, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 196, 170, 0.04) 0%, transparent 50%)
             `,
         }}
       />
@@ -168,7 +168,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
               className={`
                 relative rounded-2xl p-8 transition-all duration-500
                 ${plan.highlight
-                  ? 'bg-gradient-to-b from-white/[0.08] to-white/[0.02] border-2 border-primary-cyan/30 scale-[1.02] shadow-[0_0_60px_rgba(0,212,255,0.15)]'
+                  ? 'bg-gradient-to-b from-white/[0.08] to-white/[0.02] border-2 border-primary-cyan/30 scale-[1.02] shadow-[0_0_60px_rgba(0,229,200,0.15)]'
                   : 'bg-white/[0.02] border border-white/10 hover:border-white/20'
                 }
               `}
@@ -216,7 +216,7 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
                   block w-full py-3 px-6 rounded-full text-center font-semibold
                   transition-all duration-300
                   ${plan.highlight
-                    ? 'bg-gradient-to-r from-primary-cyan to-deep-indigo text-white keep-white hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] hover:scale-[1.02]'
+                    ? 'bg-gradient-to-r from-primary-cyan to-deep-indigo text-white keep-white hover:shadow-[0_0_30px_rgba(0,229,200,0.4)] hover:scale-[1.02]'
                     : 'bg-white/10 text-white hover:bg-white/20'
                   }
                 `}
