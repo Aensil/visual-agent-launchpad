@@ -23,7 +23,24 @@
     "headline2": "जवाब पाएं।",
     "subheadline": "CSV अपलोड करें या डेटाबेस कनेक्ट करें। हिंदी में पूछें। सेकंडों में विज़ुअलाइज़ेशन पाएं।",
     "cta": "मुफ्त आज़माएं — कार्ड नहीं चाहिए",
-    "scroll": "स्क्रॉल करें"
+    "scroll": "स्क्रॉल करें",
+    "demo": {
+      "voiceQuery": "Q3 राजस्व की क्षेत्रवार तुलना पिछले साल से करें",
+      "chartTitle": "क्षेत्र के अनुसार राजस्व",
+      "chartSubtitle": "Q3 2024 बनाम Q3 2023",
+      "regionNA": "NA",
+      "regionEU": "EU",
+      "regionAPAC": "APAC",
+      "regionLATAM": "LATAM",
+      "totalRevenue": "कुल राजस्व",
+      "totalRevenueValue": "$4.2M",
+      "totalRevenueChange": "+23% वार्षिक",
+      "topRegion": "शीर्ष क्षेत्र",
+      "topRegionValue": "APAC",
+      "topRegionChange": "+63% वृद्धि",
+      "aiInsight": "AI अंतर्दृष्टि",
+      "aiInsightText": "APAC का बेहतर प्रदर्शन एंटरप्राइज़ सौदों से प्रेरित है।"
+    }
   },
   "features": {
     "title": "अपने डेटा को समझने के लिए सब कुछ",

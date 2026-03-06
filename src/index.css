@@ -193,6 +193,27 @@
     -webkit-backdrop-filter: blur(20px);
   }
 
+  /* Glass panel without hover lift — for decorative/demo panels
+     that use inline transforms (avoids specificity conflict) */
+  .glass-panel-static {
+    @apply relative;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 0 20px rgba(0, 229, 200, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Demo bar chart current-year bar — uses CSS variable for light mode */
+  .demo-bar-current {
+    background: linear-gradient(to top, var(--primary-cyan-dim), var(--primary-cyan));
+  }
+
   /* Glass panel glow states */
   .glass-glow-cyan {
     box-shadow:
@@ -239,6 +260,18 @@
       0 8px 24px rgba(0, 40, 80, 0.05),
       0 0 20px rgba(0, 196, 170, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .light .glass-panel-static {
+    background: rgba(248, 250, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 90, 130, 0.08);
+    box-shadow:
+      0 1px 2px rgba(0, 40, 80, 0.04),
+      0 4px 16px rgba(0, 40, 80, 0.04),
+      0 0 1px rgba(0, 196, 170, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
   .light .glass-panel-elevated {
@@ -761,6 +794,29 @@
   50% {
     opacity: 0.7;
     transform: scale(1.05);
+  }
+}
+
+@keyframes waveform-bar {
+  0% {
+    transform: scaleY(0.5);
+  }
+  100% {
+    transform: scaleY(1.3);
+  }
+}
+
+@keyframes glow-burst {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
   }
 }
 

@@ -23,7 +23,24 @@
     "headline2": "Obtenez des réponses.",
     "subheadline": "Importez un CSV ou connectez votre base de données. Demandez en français. Obtenez des visualisations instantanées en secondes.",
     "cta": "Essai Gratuit — Sans Carte",
-    "scroll": "Défiler"
+    "scroll": "Défiler",
+    "demo": {
+      "voiceQuery": "Comparer le chiffre d'affaires Q3 par région avec l'an dernier",
+      "chartTitle": "Chiffre d'affaires par Région",
+      "chartSubtitle": "Q3 2024 vs Q3 2023",
+      "regionNA": "AN",
+      "regionEU": "UE",
+      "regionAPAC": "APAC",
+      "regionLATAM": "LATAM",
+      "totalRevenue": "CA Total",
+      "totalRevenueValue": "4,2M$",
+      "totalRevenueChange": "+23% sur un an",
+      "topRegion": "Région en tête",
+      "topRegionValue": "APAC",
+      "topRegionChange": "+63% croissance",
+      "aiInsight": "Analyse IA",
+      "aiInsightText": "La surperformance APAC portée par les contrats entreprises."
+    }
   },
   "features": {
     "title": "Tout ce dont vous avez besoin pour comprendre vos données",

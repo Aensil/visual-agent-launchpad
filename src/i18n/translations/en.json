@@ -23,7 +23,24 @@
     "headline2": "Get answers.",
     "subheadline": "Upload a CSV or connect your database. Ask in plain English. Get instant visualizations in seconds.",
     "cta": "Try Free — No Credit Card",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "demo": {
+      "voiceQuery": "Compare Q3 revenue by region with last year",
+      "chartTitle": "Revenue by Region",
+      "chartSubtitle": "Q3 2024 vs Q3 2023",
+      "regionNA": "NA",
+      "regionEU": "EU",
+      "regionAPAC": "APAC",
+      "regionLATAM": "LATAM",
+      "totalRevenue": "Total Revenue",
+      "totalRevenueValue": "$4.2M",
+      "totalRevenueChange": "+23% YoY",
+      "topRegion": "Top Region",
+      "topRegionValue": "APAC",
+      "topRegionChange": "+63% growth",
+      "aiInsight": "AI Insight",
+      "aiInsightText": "APAC outperformance driven by enterprise deals."
+    }
   },
   "features": {
     "title": "Everything you need to understand your data",

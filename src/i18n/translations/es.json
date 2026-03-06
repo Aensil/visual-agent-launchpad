@@ -23,7 +23,24 @@
     "headline2": "Obtén respuestas.",
     "subheadline": "Sube un CSV o conecta tu base de datos. Pregunta en español. Obtén visualizaciones instantáneas en segundos.",
     "cta": "Prueba Gratis — Sin Tarjeta",
-    "scroll": "Desplazar"
+    "scroll": "Desplazar",
+    "demo": {
+      "voiceQuery": "Comparar ingresos del Q3 por región con el año pasado",
+      "chartTitle": "Ingresos por Región",
+      "chartSubtitle": "Q3 2024 vs Q3 2023",
+      "regionNA": "NA",
+      "regionEU": "UE",
+      "regionAPAC": "APAC",
+      "regionLATAM": "LATAM",
+      "totalRevenue": "Ingresos Totales",
+      "totalRevenueValue": "$4.2M",
+      "totalRevenueChange": "+23% interanual",
+      "topRegion": "Región Principal",
+      "topRegionValue": "APAC",
+      "topRegionChange": "+63% crecimiento",
+      "aiInsight": "IA Insight",
+      "aiInsightText": "El rendimiento de APAC impulsado por acuerdos empresariales."
+    }
   },
   "features": {
     "title": "Todo lo que necesitas para entender tus datos",

@@ -174,10 +174,15 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
               className={`
                 relative rounded-2xl p-8 transition-all duration-500
                 ${plan.highlight
-                  ? 'bg-gradient-to-b from-white/[0.08] to-white/[0.02] border-2 border-primary-cyan/30 scale-[1.02] shadow-[0_0_60px_rgba(0,229,200,0.15)]'
+                  ? 'border-2 border-primary-cyan/30 scale-[1.02] shadow-[0_0_60px_rgba(0,229,200,0.15)]'
                   : 'bg-white/[0.02] border border-white/10 hover:border-white/20'
                 }
               `}
+              style={plan.highlight ? {
+                background: theme === 'dark'
+                  ? 'linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.02))'
+                  : 'linear-gradient(to bottom, rgba(0,0,0,0.03), rgba(0,0,0,0.01))',
+              } : undefined}
             >
               {/* Badge */}
               {plan.badge && (
