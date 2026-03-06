@@ -695,6 +695,18 @@
 }
 
 @layer utilities {
+  /* svh override for animation container — browsers with svh support get
+     the small viewport height which accounts for mobile address bars.
+     The inline style sets vh as fallback; this upgrades to svh when supported. */
+  @supports (min-height: 1svh) {
+    .animation-container-expanded {
+      min-height: min(420px, 55svh) !important;
+    }
+    .animation-container-collapsed {
+      min-height: min(320px, 45svh) !important;
+    }
+  }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -808,11 +820,12 @@
 
 @keyframes glow-burst {
   0% {
-    opacity: 0.9;
-    transform: scale(0.3);
+    opacity: 0.8;
+    transform: scale(0.15);
   }
-  50% {
-    opacity: 0.6;
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6);
   }
   100% {
     opacity: 0;

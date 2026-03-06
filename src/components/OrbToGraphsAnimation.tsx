@@ -12,8 +12,8 @@ type Phase = 'orb' | 'listening' | 'transition' | 'dashboard' | 'returning';
 const PHASE_DURATIONS: Record<Phase, number> = {
   orb: 2200,
   listening: 2800,
-  transition: 1000,
-  dashboard: 4500,
+  transition: 1200,
+  dashboard: 5000,
   returning: 1000,
 };
 
@@ -127,16 +127,14 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   const showOrb = phase === 'orb' || phase === 'listening';
   const showDashboard = isDashboardPhase || isTransitioning;
 
-  // FIX: Bars must grow AFTER the dashboard container is visible, not during
-  // the transition when the container is still fading in (which hides the animation).
-  // Delay bar growth until dashboard phase begins (container is already opaque by then).
+  // Bars must grow AFTER the dashboard container is fully opaque.
+  // Container transition: opacity 350ms ease-out with 100ms delay = ~450ms to fully opaque.
+  // Wait 500ms to guarantee container is opaque before bars start their growth animation.
   const [barsReady, setBarsReady] = useState(prefersReducedMotion);
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (isDashboardPhase && !barsReady) {
-      // Dashboard container became visible ~300ms ago (during transition phase).
-      // Start bars immediately now that the container is fully opaque.
-      const id = setTimeout(() => setBarsReady(true), 50);
+      const id = setTimeout(() => setBarsReady(true), 500);
       return () => clearTimeout(id);
     }
     if (!isDashboardPhase && !isTransitioning) {
@@ -150,9 +148,9 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   // REGRESSION 2 FIX: Don't render OrbCanvas when it's fully invisible
   const orbIsHidden = isDashboardPhase;
 
-  // Orb scale/opacity — fast shrink during transition for decisive exit
-  const orbScale = isDashboardPhase ? 0.1 : isTransitioning ? 0.2 : isReturning ? 0.85 : 1;
-  const orbOpacity = isDashboardPhase ? 0 : isTransitioning ? 0 : isReturning ? 0.7 : 1;
+  // Orb scale/opacity — fast decisive shrink during transition, smooth return to full
+  const orbScale = isDashboardPhase ? 0.05 : isTransitioning ? 0.15 : isReturning ? 1 : 1;
+  const orbOpacity = isDashboardPhase ? 0 : isTransitioning ? 0 : isReturning ? 1 : 1;
 
   // For reduced motion, show dashboard statically with voice bar
   const isReducedMotionStatic = prefersReducedMotion;
@@ -193,8 +191,10 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                   key={i}
                   className="w-[3px] rounded-full bg-primary-cyan/60"
                   style={{
-                    height: phase === 'listening' ? `${amp + 4}px` : '3px',
-                    transition: `height 0.3s ease ${i * 30}ms`,
+                    height: `${amp + 4}px`,
+                    transform: phase === 'listening' ? undefined : 'scaleY(0.15)',
+                    transformOrigin: 'bottom',
+                    transition: `transform 0.3s ease ${i * 30}ms`,
                     animation: phase === 'listening' ? `waveform-bar 0.8s ease-in-out ${i * 0.05}s infinite alternate` : 'none',
                   }}
                 />
@@ -216,11 +216,20 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
         </div>
       </div>
 
-      {/* Main animation container — BUG 3 FIX: dynamic height per phase */}
+      {/* Main animation container — dynamic height per phase.
+          Two min-height declarations: vh fallback first, svh override second.
+          Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className="relative transition-[min-height] duration-700 ease-out"
+        className={`relative transition-[min-height] duration-700 ease-out ${
+          (showDashboard || isReducedMotionStatic)
+            ? 'animation-container-expanded'
+            : 'animation-container-collapsed'
+        }`}
         style={{
-          minHeight: (showDashboard || isReducedMotionStatic) ? '420px' : '320px',
+          // vh fallback for older browsers; svh override via CSS @supports class
+          minHeight: (showDashboard || isReducedMotionStatic)
+            ? 'min(420px, 55vh)'
+            : 'min(320px, 45vh)',
         }}
       >
 
@@ -230,36 +239,33 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{ zIndex: 20 }}
           >
-            {/* Expanding teal ring — opacity controlled solely by glow-burst animation
-                (no transition on opacity to avoid animation/transition conflict) */}
+            {/* Expanding teal ring — use ONLY the animation, no conflicting transition.
+                key forces remount on each transition so the animation replays. */}
+            {isTransitioning && (
+              <div
+                key={`burst-${Date.now()}`}
+                className="absolute rounded-full"
+                style={{
+                  width: 'min(500px, 130vw)',
+                  height: 'min(500px, 130vw)',
+                  background: 'radial-gradient(circle, rgba(0, 229, 200, 0.3) 0%, rgba(0, 229, 200, 0.1) 40%, transparent 70%)',
+                  animation: 'glow-burst 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                }}
+              />
+            )}
+            {/* Core flash — bright initial burst */}
             <div
               className="absolute rounded-full"
               style={{
-                width: isTransitioning ? '500px' : '80px',
-                height: isTransitioning ? '500px' : '80px',
-                background: 'radial-gradient(circle, rgba(0, 229, 200, 0.25) 0%, rgba(0, 229, 200, 0.08) 40%, transparent 70%)',
-                opacity: isTransitioning ? undefined : 0,
-                transition: isTransitioning
-                  ? 'width 900ms cubic-bezier(0.16, 1, 0.3, 1), height 900ms cubic-bezier(0.16, 1, 0.3, 1)'
-                  : 'opacity 300ms ease-out',
-                animation: isTransitioning
-                  ? 'glow-burst 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards'
-                  : 'none',
-              }}
-            />
-            {/* Core flash */}
-            <div
-              className="absolute rounded-full"
-              style={{
-                width: '150px',
-                height: '150px',
-                background: 'radial-gradient(circle, rgba(0, 229, 200, 0.7) 0%, rgba(124, 92, 250, 0.35) 45%, transparent 75%)',
+                width: 'min(180px, 48vw)',
+                height: 'min(180px, 48vw)',
+                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 229, 200, 0.6) 25%, rgba(124, 92, 250, 0.3) 55%, transparent 80%)',
                 opacity: isTransitioning ? 1 : 0,
-                transform: isTransitioning ? 'scale(2)' : 'scale(0.3)',
-                filter: 'blur(25px)',
+                transform: isTransitioning ? 'scale(2.5)' : 'scale(0.2)',
+                filter: 'blur(30px)',
                 transition: isTransitioning
-                  ? 'opacity 200ms ease-out, transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
-                  : 'opacity 400ms ease-out, transform 400ms ease-in',
+                  ? 'opacity 150ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1)'
+                  : 'opacity 300ms ease-out, transform 300ms ease-in',
               }}
             />
           </div>
@@ -272,9 +278,12 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             style={{
               opacity: orbOpacity,
               transform: `scale(${orbScale})`,
-              transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+              transition: isTransitioning
+                ? 'opacity 400ms ease-in, transform 500ms cubic-bezier(0.4, 0, 1, 1)'
+                : 'opacity 600ms ease-out, transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
               zIndex: showOrb ? 10 : 1,
               pointerEvents: showOrb ? 'auto' : 'none',
+              willChange: 'opacity, transform',
             }}
           >
             <div className={`
@@ -298,12 +307,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           `}
           style={isReducedMotionStatic ? {} : {
             opacity: showDashboard ? 1 : 0,
-            transform: showDashboard ? 'scale(1)' : 'scale(0.8)',
+            transform: showDashboard ? 'scale(1)' : 'scale(0.95)',
             transition: showDashboard
-              ? 'opacity 500ms ease-out 200ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 150ms'
-              : 'opacity 400ms ease-in, transform 400ms ease-in',
+              ? 'opacity 350ms ease-out 100ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 80ms'
+              : 'opacity 300ms ease-in, transform 300ms ease-in',
             zIndex: showDashboard ? 10 : 1,
             pointerEvents: showDashboard ? 'auto' : 'none',
+            willChange: 'opacity, transform',
           }}
         >
           {/* GAP 3 FIX: ltr direction to prevent RTL flex-row reversal */}
@@ -364,7 +374,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 350ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 350ms',
+                  transition: 'opacity 500ms ease-out 150ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 150ms',
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.totalRevenue')}</p>
@@ -378,7 +388,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 500ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 500ms',
+                  transition: 'opacity 500ms ease-out 300ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 300ms',
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.topRegion')}</p>
@@ -392,7 +402,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? { background: 'rgba(0, 229, 200, 0.04)' } : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 650ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 650ms',
+                  transition: 'opacity 500ms ease-out 450ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 450ms',
                   background: 'rgba(0, 229, 200, 0.04)',
                 }}
               >

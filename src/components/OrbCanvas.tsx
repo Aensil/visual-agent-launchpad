@@ -37,27 +37,44 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.fill();
     }
 
-    // Outer ambient glow — large and soft
-    const outerGlow = ctx.createRadialGradient(cx, cy, baseRadius * 0.3, cx, cy, baseRadius * 1.6);
-    outerGlow.addColorStop(0, 'rgba(0, 229, 200, 0.10)');
-    outerGlow.addColorStop(0.4, 'rgba(0, 229, 200, 0.04)');
-    outerGlow.addColorStop(0.7, 'rgba(124, 92, 250, 0.02)');
+    // Outer ambient glow — visible and breathing
+    const glowBreath = Math.sin(t * 0.5) * 0.04 + 0.04;
+    const outerGlow = ctx.createRadialGradient(cx, cy, baseRadius * 0.3, cx, cy, baseRadius * 1.8);
+    outerGlow.addColorStop(0, `rgba(0, 229, 200, ${0.14 + glowBreath})`);
+    outerGlow.addColorStop(0.35, `rgba(0, 229, 200, ${0.07 + glowBreath * 0.5})`);
+    outerGlow.addColorStop(0.6, `rgba(124, 92, 250, ${0.04 + glowBreath * 0.3})`);
     outerGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = outerGlow;
     ctx.fillRect(0, 0, w, h);
 
-    // Filled luminous core — this is what makes it look like a GLOWING ORB, not a wireframe
-    const breathe = Math.sin(t * 0.8) * 0.03 + 1; // subtle breathing
+    // Breathing: visible 8% scale oscillation so it looks alive
+    const breathe = Math.sin(t * 0.6) * 0.08 + 1;
     const coreRadius = baseRadius * 0.92 * breathe;
+
+    // Pulsing inner glow intensity — cycles between dim and bright
+    const glowPulse = Math.sin(t * 0.9) * 0.5 + 0.5; // 0..1
+
+    // Bright luminous core with visible pulsing
     const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
-    coreGrad.addColorStop(0, 'rgba(0, 229, 200, 0.18)');
-    coreGrad.addColorStop(0.3, 'rgba(0, 229, 200, 0.10)');
-    coreGrad.addColorStop(0.6, 'rgba(124, 92, 250, 0.06)');
-    coreGrad.addColorStop(0.85, 'rgba(0, 229, 200, 0.03)');
+    coreGrad.addColorStop(0, `rgba(0, 229, 200, ${0.22 + glowPulse * 0.15})`);
+    coreGrad.addColorStop(0.2, `rgba(0, 229, 200, ${0.14 + glowPulse * 0.08})`);
+    coreGrad.addColorStop(0.45, `rgba(124, 92, 250, ${0.08 + glowPulse * 0.05})`);
+    coreGrad.addColorStop(0.7, `rgba(0, 229, 200, ${0.04 + glowPulse * 0.03})`);
     coreGrad.addColorStop(1, 'transparent');
     ctx.beginPath();
     ctx.arc(cx, cy, coreRadius, 0, Math.PI * 2);
     ctx.fillStyle = coreGrad;
+    ctx.fill();
+
+    // Central hot spot — small bright center that pulses
+    const hotSpotRadius = baseRadius * 0.15;
+    const hotGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, hotSpotRadius);
+    hotGrad.addColorStop(0, `rgba(255, 255, 255, ${0.12 + glowPulse * 0.1})`);
+    hotGrad.addColorStop(0.5, `rgba(0, 229, 200, ${0.08 + glowPulse * 0.06})`);
+    hotGrad.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(cx, cy, hotSpotRadius, 0, Math.PI * 2);
+    ctx.fillStyle = hotGrad;
     ctx.fill();
 
     // Draw multiple ring layers for the organic orb effect
@@ -102,10 +119,10 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
       ctx.closePath();
 
-      // Color shifts across rings: teal core, hints of violet at edges
-      const hue = 170 + ringProgress * 20;
-      const sat = 85 + ringProgress * 10;
-      const light = 55 + Math.sin(ringProgress * Math.PI) * 10;
+      // Color shifts across rings: teal core → violet edges (wider range)
+      const hue = 170 + ringProgress * 50;
+      const sat = 80 + ringProgress * 15;
+      const light = 50 + Math.sin(ringProgress * Math.PI) * 15;
 
       ctx.strokeStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
       ctx.lineWidth = 0.6 + Math.sin(ringProgress * Math.PI) * 0.4;
