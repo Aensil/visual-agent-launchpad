@@ -32,8 +32,15 @@ const pieData = [
   { labelKey: 'hero.demo.pieDirect', value: 40, color: 'var(--primary-cyan)' },
   { labelKey: 'hero.demo.pieOrganic', value: 30, color: 'var(--deep-indigo)' },
   { labelKey: 'hero.demo.piePaid', value: 20, color: 'var(--accent-magenta)' },
-  { labelKey: 'hero.demo.pieReferral', value: 10, color: 'rgba(255,255,255,0.2)' },
+  { labelKey: 'hero.demo.pieReferral', value: 10, color: 'var(--accent-violet)' },
 ];
+
+// Pre-compute cumulative angles for conic-gradient stops
+const pieAngles = pieData.reduce<number[]>((acc, slice) => {
+  const prev = acc.length > 0 ? acc[acc.length - 1] : 0;
+  acc.push(prev + slice.value * 3.6);
+  return acc;
+}, []);
 
 // Voice waveform bars (simulated amplitudes)
 const waveformBars = [3, 5, 8, 12, 7, 14, 9, 11, 6, 13, 10, 8, 15, 7, 11, 9, 5, 12, 8, 6];
@@ -415,21 +422,19 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-2 text-center">{t('hero.demo.pieTitle')}</p>
                 <div className="flex items-center justify-center gap-3">
-                  {/* Donut chart via conic-gradient */}
+                  {/* Donut chart via conic-gradient — opacity transition since gradients can't interpolate */}
                   <div
                     className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
                     style={{
-                      background: (barsGrow || isReducedMotionStatic)
-                        ? `conic-gradient(
-                            var(--primary-cyan) 0deg ${pieData[0].value * 3.6}deg,
-                            var(--deep-indigo) ${pieData[0].value * 3.6}deg ${(pieData[0].value + pieData[1].value) * 3.6}deg,
-                            var(--accent-magenta) ${(pieData[0].value + pieData[1].value) * 3.6}deg ${(pieData[0].value + pieData[1].value + pieData[2].value) * 3.6}deg,
-                            rgba(255,255,255,0.2) ${(pieData[0].value + pieData[1].value + pieData[2].value) * 3.6}deg 360deg
-                          )`
-                        : 'rgba(255,255,255,0.05)',
+                      background: `conic-gradient(
+                        ${pieData.map((slice, i) =>
+                          `${slice.color} ${i === 0 ? '0deg' : `${pieAngles[i - 1]}deg`} ${pieAngles[i]}deg`
+                        ).join(', ')}
+                      )`,
                       mask: 'radial-gradient(circle at center, transparent 40%, black 41%)',
                       WebkitMask: 'radial-gradient(circle at center, transparent 40%, black 41%)',
-                      transition: prefersReducedMotion ? 'none' : 'background 600ms ease-out 500ms',
+                      opacity: (barsGrow || isReducedMotionStatic) ? 1 : 0,
+                      transition: prefersReducedMotion ? 'none' : 'opacity 600ms ease-out 500ms',
                     }}
                   />
                   {/* Legend */}
