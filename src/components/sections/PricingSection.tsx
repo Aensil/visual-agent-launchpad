@@ -121,12 +121,18 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
       />
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
+        {/* Header — distinct typographic scale */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <p className="text-xs text-deep-indigo-bright font-semibold tracking-widest uppercase mb-4">
+            {t('nav.pricing')}
+          </p>
+          <h2
+            className="font-bold text-white mb-6 tracking-tight"
+            style={{ fontSize: 'clamp(1.75rem, 3vw + 0.5rem, 3rem)', lineHeight: '1.15' }}
+          >
             {t('pricing.title')}
           </h2>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10">
+          <p className="text-base sm:text-lg text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
             {t('pricing.subtitle')}
           </p>
 

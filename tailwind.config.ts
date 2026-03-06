@@ -80,13 +80,7 @@ export default {
         sans: ["Inter", "SF Pro Display", "system-ui", "sans-serif"],
       },
 
-      fontSize: {
-        // Tight tracking for headings
-        "display-lg": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
-        "display": ["3.5rem", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "700" }],
-        "heading-lg": ["2.5rem", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600" }],
-        "heading": ["1.875rem", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "600" }],
-      },
+      fontSize: {},
 
       boxShadow: {
         // Glass panel shadows

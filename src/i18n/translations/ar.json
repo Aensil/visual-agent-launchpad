@@ -54,9 +54,12 @@
     }
   },
   "socialProof": {
-    "queriesProcessed": "استعلامات تُعالج شهرياً",
-    "fasterDecisions": "قرارات أسرع",
-    "uptimeSLA": "اتفاقية وقت التشغيل"
+    "stat1Value": "<2 ثانية",
+    "stat1Label": "متوسط وقت استجابة الاستعلام",
+    "stat2Value": "+6",
+    "stat2Label": "أنواع رسوم بيانية يتم اختيارها تلقائياً",
+    "stat3Value": "14 يوماً",
+    "stat3Label": "تجربة مجانية، بدون بطاقة"
   },
   "testimonials": {
     "sectionLabel": "ماذا تقول الفرق",
@@ -196,6 +199,11 @@
     "company": "الشركة",
     "legal": "قانوني",
     "features": "الميزات",
+    "useCases": "حالات الاستخدام",
+    "realEstateDemo": "عرض العقارات",
+    "about": "عن الشركة",
+    "careers": "الوظائف",
+    "security": "الأمان",
     "contact": "تواصل معنا",
     "privacy": "الخصوصية",
     "terms": "الشروط",

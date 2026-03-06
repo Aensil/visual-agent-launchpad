@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === SERIOUS FUTURE: GLOBAL STYLES === */
-/* Deep, controlled, surgical. An AI control room for people who make big decisions. */
+/* === GLOBAL STYLES === */
 
 @layer base {
   :root {
@@ -161,7 +160,6 @@
 
 @layer components {
   /* === GLASS PANEL SYSTEM === */
-  /* "Liquid Glass in a Void" - Floating glass sheets, not solid boxes */
 
   .glass-panel {
     @apply relative;
@@ -281,7 +279,6 @@
   }
 
   /* === ORB SYSTEM === */
-  /* The orb is the sun - everything else respects its glow */
 
   .orb-container {
     @apply relative;
@@ -339,7 +336,6 @@
   }
 
   /* === BUTTON SYSTEM === */
-  /* Buttons should feel like hardware buttons on a premium device */
 
   .btn-primary {
     @apply relative px-6 py-3 font-semibold rounded-[10px] overflow-hidden;
@@ -431,7 +427,6 @@
   }
 
   /* === TYPOGRAPHY === */
-  /* Calm, confident, modern - executive brief, not marketing fluff */
 
   .heading-gradient {
     @apply font-bold;
@@ -623,7 +618,6 @@
   }
 
   /* === CHART STYLING === */
-  /* Sleek, minimal, glow-aware */
 
   .chart-container {
     @apply glass-panel p-6;
@@ -707,7 +701,6 @@
 }
 
 /* === KEYFRAME ANIMATIONS === */
-/* Only three things move noticeably: orb, charts, small state transitions */
 
 @keyframes orb-gradient {
   0%, 100% {
@@ -893,65 +886,8 @@
   background-color: rgba(248, 250, 255, 0.92);
 }
 
-/* Hero dashboard mock stays dark - it's a product screenshot */
-
 .light .bg-void\/50 {
   background-color: rgba(232, 236, 245, 0.6);
-}
-
-/* Dark region — preserves dark styling inside light mode (e.g., product screenshots) */
-.light .dark-region,
-.light .dark-region * {
-  --text-primary: #F0F4FF;
-}
-
-.light .dark-region .text-white {
-  color: #F0F4FF;
-}
-.light .dark-region .text-white\/40 {
-  color: rgba(255, 255, 255, 0.4);
-}
-.light .dark-region .text-white\/50 {
-  color: rgba(255, 255, 255, 0.5);
-}
-.light .dark-region .text-white\/60 {
-  color: rgba(255, 255, 255, 0.6);
-}
-.light .dark-region .text-white\/70 {
-  color: rgba(255, 255, 255, 0.7);
-}
-.light .dark-region .text-white\/80 {
-  color: rgba(255, 255, 255, 0.8);
-}
-.light .dark-region .bg-white\/5,
-.light .dark-region .bg-white\/\[0\.03\],
-.light .dark-region .bg-white\/\[0\.02\] {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-.light .dark-region .bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.light .dark-region .bg-white\/20 {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.light .dark-region .border-white\/5,
-.light .dark-region .border-white\/\[0\.06\] {
-  border-color: rgba(255, 255, 255, 0.06);
-}
-.light .dark-region .border-white\/10 {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.light .dark-region .border-white\/20 {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.light .dark-region .bg-void\/50 {
-  background-color: rgba(5, 7, 15, 0.5);
-}
-.light .dark-region .bg-void\/60 {
-  background-color: rgba(5, 7, 15, 0.6);
-}
-.light .dark-region .bg-primary-cyan\/20 {
-  background-color: rgba(0, 229, 200, 0.2);
 }
 
 /* Hamburger menu bars */
