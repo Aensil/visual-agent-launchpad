@@ -27,6 +27,14 @@ const barData = [
   { labelKey: 'hero.demo.regionLATAM', current: 45, previous: 40 },
 ];
 
+// Pie chart data — channel mix
+const pieData = [
+  { labelKey: 'hero.demo.pieDirect', value: 40, color: 'var(--primary-cyan)' },
+  { labelKey: 'hero.demo.pieOrganic', value: 30, color: 'var(--deep-indigo)' },
+  { labelKey: 'hero.demo.piePaid', value: 20, color: 'var(--accent-magenta)' },
+  { labelKey: 'hero.demo.pieReferral', value: 10, color: 'rgba(255,255,255,0.2)' },
+];
+
 // Voice waveform bars (simulated amplitudes)
 const waveformBars = [3, 5, 8, 12, 7, 14, 9, 11, 6, 13, 10, 8, 15, 7, 11, 9, 5, 12, 8, 6];
 
@@ -338,10 +346,10 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
 
               {/* Bar chart — bars start growing during transition, not just dashboard */}
-              <div className="flex items-end justify-around gap-2 sm:gap-4 h-[140px] sm:h-[170px]">
+              <div className="flex justify-around gap-2 sm:gap-4 h-[140px] sm:h-[170px]">
                 {barData.map((bar, i) => (
                   <div key={bar.labelKey} className="flex flex-col items-center gap-1 flex-1">
-                    <div className="flex items-end gap-1 h-full w-full justify-center">
+                    <div className="flex items-end gap-1 flex-1 w-full justify-center">
                       {/* Current year bar — GAP 4 FIX: uses CSS variable via class */}
                       <div
                         className="w-[18px] sm:w-[28px] rounded-t-sm demo-bar-current"
@@ -396,20 +404,49 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 <p className="text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.topRegionChange')}</p>
               </div>
 
-              {/* AI Insight */}
+              {/* Pie / Donut chart — Channel Mix */}
               <div
-                className="glass-panel-static flex-1 !rounded-2xl !border-primary-cyan/20 p-3 sm:p-4 text-center"
-                style={isReducedMotionStatic ? { background: 'rgba(0, 229, 200, 0.04)' } : {
+                className="glass-panel-static flex-1 !rounded-2xl p-3 sm:p-4"
+                style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
                   transition: 'opacity 500ms ease-out 450ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 450ms',
-                  background: 'rgba(0, 229, 200, 0.04)',
                 }}
               >
-                <p className="text-[10px] sm:text-xs text-primary-cyan/60 mb-1">{t('hero.demo.aiInsight')}</p>
-                <p className="text-xs sm:text-sm text-white/70 leading-snug">
-                  {t('hero.demo.aiInsightText')}
-                </p>
+                <p className="text-[10px] sm:text-xs text-white/40 mb-2 text-center">{t('hero.demo.pieTitle')}</p>
+                <div className="flex items-center justify-center gap-3">
+                  {/* Donut chart via conic-gradient */}
+                  <div
+                    className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
+                    style={{
+                      background: (barsGrow || isReducedMotionStatic)
+                        ? `conic-gradient(
+                            var(--primary-cyan) 0deg ${pieData[0].value * 3.6}deg,
+                            var(--deep-indigo) ${pieData[0].value * 3.6}deg ${(pieData[0].value + pieData[1].value) * 3.6}deg,
+                            var(--accent-magenta) ${(pieData[0].value + pieData[1].value) * 3.6}deg ${(pieData[0].value + pieData[1].value + pieData[2].value) * 3.6}deg,
+                            rgba(255,255,255,0.2) ${(pieData[0].value + pieData[1].value + pieData[2].value) * 3.6}deg 360deg
+                          )`
+                        : 'rgba(255,255,255,0.05)',
+                      mask: 'radial-gradient(circle at center, transparent 40%, black 41%)',
+                      WebkitMask: 'radial-gradient(circle at center, transparent 40%, black 41%)',
+                      transition: prefersReducedMotion ? 'none' : 'background 600ms ease-out 500ms',
+                    }}
+                  />
+                  {/* Legend */}
+                  <div className="flex flex-col gap-1">
+                    {pieData.map((slice) => (
+                      <div key={slice.labelKey} className="flex items-center gap-1.5">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ background: slice.color }}
+                        />
+                        <span className="text-[9px] sm:text-[10px] text-white/50 leading-none">
+                          {t(slice.labelKey)} {slice.value}%
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

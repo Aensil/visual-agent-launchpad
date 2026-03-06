@@ -39,7 +39,12 @@
       "topRegionValue": "APAC",
       "topRegionChange": "+63% croissance",
       "aiInsight": "Analyse IA",
-      "aiInsightText": "La surperformance APAC portée par les contrats entreprises."
+      "aiInsightText": "La surperformance APAC portée par les contrats entreprises.",
+      "pieTitle": "Mix des Canaux",
+      "pieDirect": "Direct",
+      "pieOrganic": "Organique",
+      "piePaid": "Payant",
+      "pieReferral": "Référence"
     }
   },
   "features": {

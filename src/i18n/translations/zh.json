@@ -39,7 +39,12 @@
       "topRegionValue": "亚太",
       "topRegionChange": "+63%增长",
       "aiInsight": "AI洞察",
-      "aiInsightText": "亚太地区表现突出，主要由企业级交易驱动。"
+      "aiInsightText": "亚太地区表现突出，主要由企业级交易驱动。",
+      "pieTitle": "渠道组合",
+      "pieDirect": "直接访问",
+      "pieOrganic": "自然流量",
+      "piePaid": "付费推广",
+      "pieReferral": "推荐引流"
     }
   },
   "features": {
