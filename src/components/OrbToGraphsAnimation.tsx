@@ -129,21 +129,23 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
   // FIX: Bars must grow AFTER the dashboard container is visible, not during
   // the transition when the container is still fading in (which hides the animation).
-  // Use a delayed flag so bars start animating once the dashboard is actually opaque.
+  // Delay bar growth until dashboard phase begins (container is already opaque by then).
   const [barsReady, setBarsReady] = useState(prefersReducedMotion);
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (isDashboardPhase && !barsReady) {
-      // Small delay so the dashboard container is fully visible before bars animate
-      const id = setTimeout(() => setBarsReady(true), 80);
+      // Dashboard container became visible ~300ms ago (during transition phase).
+      // Start bars immediately now that the container is fully opaque.
+      const id = setTimeout(() => setBarsReady(true), 50);
       return () => clearTimeout(id);
     }
     if (!isDashboardPhase && !isTransitioning) {
       setBarsReady(false);
     }
-  }, [isDashboardPhase, isTransitioning, barsReady, prefersReducedMotion]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDashboardPhase, isTransitioning, prefersReducedMotion]);
 
-  const barsGrow = barsReady || isDashboardPhase;
+  const barsGrow = barsReady;
 
   // REGRESSION 2 FIX: Don't render OrbCanvas when it's fully invisible
   const orbIsHidden = isDashboardPhase;
@@ -228,20 +230,21 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{ zIndex: 20 }}
           >
-            {/* Expanding teal ring — FIX: removed base opacity:0 that fought with animation */}
+            {/* Expanding teal ring — opacity controlled solely by glow-burst animation
+                (no transition on opacity to avoid animation/transition conflict) */}
             <div
               className="absolute rounded-full"
               style={{
                 width: isTransitioning ? '500px' : '80px',
                 height: isTransitioning ? '500px' : '80px',
                 background: 'radial-gradient(circle, rgba(0, 229, 200, 0.25) 0%, rgba(0, 229, 200, 0.08) 40%, transparent 70%)',
-                opacity: isTransitioning ? 1 : 0,
+                opacity: isTransitioning ? undefined : 0,
                 transition: isTransitioning
-                  ? 'width 900ms cubic-bezier(0.16, 1, 0.3, 1), height 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms ease-out'
+                  ? 'width 900ms cubic-bezier(0.16, 1, 0.3, 1), height 900ms cubic-bezier(0.16, 1, 0.3, 1)'
                   : 'opacity 300ms ease-out',
-                ...(isTransitioning && {
-                  animation: 'glow-burst 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                }),
+                animation: isTransitioning
+                  ? 'glow-burst 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards'
+                  : 'none',
               }}
             />
             {/* Core flash */}
