@@ -37,13 +37,28 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.fill();
     }
 
-    // Subtle outer glow
-    const glowGrad = ctx.createRadialGradient(cx, cy, baseRadius * 0.6, cx, cy, baseRadius * 1.5);
-    glowGrad.addColorStop(0, 'rgba(0, 229, 200, 0.06)');
-    glowGrad.addColorStop(0.5, 'rgba(0, 229, 200, 0.02)');
-    glowGrad.addColorStop(1, 'transparent');
-    ctx.fillStyle = glowGrad;
+    // Outer ambient glow — large and soft
+    const outerGlow = ctx.createRadialGradient(cx, cy, baseRadius * 0.3, cx, cy, baseRadius * 1.6);
+    outerGlow.addColorStop(0, 'rgba(0, 229, 200, 0.10)');
+    outerGlow.addColorStop(0.4, 'rgba(0, 229, 200, 0.04)');
+    outerGlow.addColorStop(0.7, 'rgba(124, 92, 250, 0.02)');
+    outerGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = outerGlow;
     ctx.fillRect(0, 0, w, h);
+
+    // Filled luminous core — this is what makes it look like a GLOWING ORB, not a wireframe
+    const breathe = Math.sin(t * 0.8) * 0.03 + 1; // subtle breathing
+    const coreRadius = baseRadius * 0.92 * breathe;
+    const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
+    coreGrad.addColorStop(0, 'rgba(0, 229, 200, 0.18)');
+    coreGrad.addColorStop(0.3, 'rgba(0, 229, 200, 0.10)');
+    coreGrad.addColorStop(0.6, 'rgba(124, 92, 250, 0.06)');
+    coreGrad.addColorStop(0.85, 'rgba(0, 229, 200, 0.03)');
+    coreGrad.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(cx, cy, coreRadius, 0, Math.PI * 2);
+    ctx.fillStyle = coreGrad;
+    ctx.fill();
 
     // Draw multiple ring layers for the organic orb effect
     // Reduce ring count on smaller canvases (mobile) for performance
