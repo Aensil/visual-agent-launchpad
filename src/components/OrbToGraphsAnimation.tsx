@@ -191,8 +191,10 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                   key={i}
                   className="w-[3px] rounded-full bg-primary-cyan/60"
                   style={{
-                    height: phase === 'listening' ? `${amp + 4}px` : '3px',
-                    transition: `height 0.3s ease ${i * 30}ms`,
+                    height: `${amp + 4}px`,
+                    transform: phase === 'listening' ? undefined : 'scaleY(0.15)',
+                    transformOrigin: 'bottom',
+                    transition: `transform 0.3s ease ${i * 30}ms`,
                     animation: phase === 'listening' ? `waveform-bar 0.8s ease-in-out ${i * 0.05}s infinite alternate` : 'none',
                   }}
                 />
@@ -214,11 +216,20 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
         </div>
       </div>
 
-      {/* Main animation container — BUG 3 FIX: dynamic height per phase */}
+      {/* Main animation container — dynamic height per phase.
+          Two min-height declarations: vh fallback first, svh override second.
+          Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className="relative transition-[min-height] duration-700 ease-out"
+        className={`relative transition-[min-height] duration-700 ease-out ${
+          (showDashboard || isReducedMotionStatic)
+            ? 'animation-container-expanded'
+            : 'animation-container-collapsed'
+        }`}
         style={{
-          minHeight: (showDashboard || isReducedMotionStatic) ? 'min(420px, 55svh)' : 'min(320px, 45svh)',
+          // vh fallback for older browsers; svh override via CSS @supports class
+          minHeight: (showDashboard || isReducedMotionStatic)
+            ? 'min(420px, 55vh)'
+            : 'min(320px, 45vh)',
         }}
       >
 
@@ -363,7 +374,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 350ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 350ms',
+                  transition: 'opacity 500ms ease-out 150ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 150ms',
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.totalRevenue')}</p>
@@ -377,7 +388,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 500ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 500ms',
+                  transition: 'opacity 500ms ease-out 300ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 300ms',
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.topRegion')}</p>
@@ -391,7 +402,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={isReducedMotionStatic ? { background: 'rgba(0, 229, 200, 0.04)' } : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
-                  transition: 'opacity 600ms ease-out 650ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 650ms',
+                  transition: 'opacity 500ms ease-out 450ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 450ms',
                   background: 'rgba(0, 229, 200, 0.04)',
                 }}
               >
