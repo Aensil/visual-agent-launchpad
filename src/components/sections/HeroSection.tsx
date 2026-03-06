@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { domains } from '@/config/site';
 import { useTranslation } from '@/hooks/useTranslation';
-import OrbCanvas from '@/components/OrbCanvas';
+import OrbToGraphsAnimation from '@/components/OrbToGraphsAnimation';
 
 interface HeroSectionProps {
   isLoaded: boolean;
@@ -72,7 +72,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </span>
         </div>
 
-        {/* The Orb — the product's signature visual, front and center */}
+        {/* The Orb → BI Graphs animation — demonstrates voice-to-dashboard */}
         <div
           className={`
             mx-auto mb-10 sm:mb-12
@@ -80,9 +80,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
           `}
         >
-          <OrbCanvas
+          <OrbToGraphsAnimation
             prefersReducedMotion={prefersReducedMotion}
-            className="mx-auto w-[240px] h-[240px] sm:w-[320px] sm:h-[320px]"
+            isLoaded={isLoaded}
           />
         </div>
 
