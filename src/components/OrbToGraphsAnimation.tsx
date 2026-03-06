@@ -11,9 +11,9 @@ type Phase = 'orb' | 'listening' | 'transition' | 'dashboard' | 'returning';
 const PHASE_DURATIONS: Record<Phase, number> = {
   orb: 2200,
   listening: 2800,
-  transition: 900,
+  transition: 1000,
   dashboard: 4500,
-  returning: 900,
+  returning: 1000,
 };
 
 const PHASE_ORDER: Phase[] = ['orb', 'listening', 'transition', 'dashboard', 'returning'];
@@ -105,12 +105,16 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   const isDashboardPhase = phase === 'dashboard';
   const isTransitioning = phase === 'transition';
   const isReturning = phase === 'returning';
-  const showOrb = phase === 'orb' || phase === 'listening' || phase === 'returning';
+  const showOrb = phase === 'orb' || phase === 'listening';
   const showDashboard = isDashboardPhase || isTransitioning;
+  // Bars should start growing as soon as the dashboard container is visible
+  const barsGrow = isTransitioning || isDashboardPhase;
+  // Show glow burst during transition
+  const showGlowBurst = isTransitioning;
 
-  // Orb scale/opacity
-  const orbScale = isDashboardPhase ? 0.3 : isTransitioning ? 0.5 : isReturning ? 0.9 : 1;
-  const orbOpacity = isDashboardPhase ? 0 : isTransitioning ? 0.3 : isReturning ? 0.8 : 1;
+  // Orb scale/opacity — smoother arc through transition
+  const orbScale = isDashboardPhase ? 0.15 : isTransitioning ? 0.4 : isReturning ? 0.85 : 1;
+  const orbOpacity = isDashboardPhase ? 0 : isTransitioning ? 0.15 : isReturning ? 0.7 : 1;
 
   return (
     <div ref={containerRef} className="relative w-full max-w-4xl mx-auto">
@@ -124,7 +128,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             : 'opacity-0 -translate-y-4 pointer-events-none'}
         `}
       >
-        <div className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm">
+        <div className="glass-panel flex items-center gap-3 px-4 py-3 !rounded-2xl">
           {/* Mic icon */}
           <div className={`
             flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center
@@ -158,7 +162,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           {/* Typed text */}
           <div className="flex-1 min-w-0">
             <span className="text-sm text-white/70 font-light truncate block">
-              {typedText}
+              {typedText || (isDashboardPhase || isTransitioning ? queryText : '')}
               {phase === 'listening' && (
                 <span className="inline-block w-[2px] h-4 bg-primary-cyan/80 ml-[1px] align-middle animate-pulse" />
               )}
@@ -169,12 +173,50 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
       {/* Main animation container */}
       <div className="relative" style={{ minHeight: '320px' }}>
+
+        {/* === Glow burst — the visual bridge between orb and dashboard === */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{ zIndex: 20 }}
+        >
+          {/* Expanding teal ring */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: showGlowBurst ? '500px' : '80px',
+              height: showGlowBurst ? '500px' : '80px',
+              background: 'radial-gradient(circle, rgba(0, 229, 200, 0.25) 0%, rgba(0, 229, 200, 0.08) 40%, transparent 70%)',
+              opacity: showGlowBurst ? 0 : isReturning ? 0 : 0,
+              transition: 'all 900ms cubic-bezier(0.16, 1, 0.3, 1)',
+              // Start visible at begin of transition, fade to 0 as it expands
+              ...(isTransitioning && {
+                opacity: 1,
+                animation: 'glow-burst 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              }),
+            }}
+          />
+          {/* Core flash */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: '120px',
+              height: '120px',
+              background: 'radial-gradient(circle, rgba(0, 229, 200, 0.6) 0%, rgba(124, 92, 250, 0.3) 50%, transparent 80%)',
+              opacity: isTransitioning ? 1 : 0,
+              transform: isTransitioning ? 'scale(1.5)' : 'scale(0.5)',
+              filter: 'blur(20px)',
+              transition: 'all 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          />
+        </div>
+
         {/* Orb layer */}
         <div
-          className="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-out"
+          className="absolute inset-0 flex items-center justify-center"
           style={{
             opacity: orbOpacity,
             transform: `scale(${orbScale})`,
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             zIndex: showOrb ? 10 : 1,
             pointerEvents: showOrb ? 'auto' : 'none',
           }}
@@ -192,16 +234,18 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
         {/* Dashboard layer */}
         <div
-          className={`
-            absolute inset-0 flex items-center justify-center
-            transition-all duration-700 ease-out
-            ${showDashboard ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
-          `}
-          style={{ zIndex: showDashboard ? 10 : 1 }}
+          className="absolute inset-0 flex items-center justify-center"
+          style={{
+            opacity: showDashboard ? 1 : 0,
+            transform: showDashboard ? 'scale(1)' : 'scale(0.9)',
+            transition: 'all 800ms cubic-bezier(0.16, 1, 0.3, 1)',
+            zIndex: showDashboard ? 10 : 1,
+            pointerEvents: showDashboard ? 'auto' : 'none',
+          }}
         >
           <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 px-2">
-            {/* Bar chart panel */}
-            <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-4 sm:p-5">
+            {/* Bar chart panel — uses glass-panel for proper depth */}
+            <div className="glass-panel flex-1 !rounded-2xl p-4 sm:p-5">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-sm font-semibold text-white/90">Revenue by Region</h3>
@@ -219,26 +263,26 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 </div>
               </div>
 
-              {/* Bar chart */}
+              {/* Bar chart — bars start growing during transition, not just dashboard */}
               <div className="flex items-end justify-around gap-2 sm:gap-4 h-[140px] sm:h-[170px]">
                 {barData.map((bar, i) => (
                   <div key={bar.label} className="flex flex-col items-center gap-1 flex-1">
                     <div className="flex items-end gap-1 h-full w-full justify-center">
                       {/* Current year bar */}
                       <div
-                        className="w-[18px] sm:w-[28px] rounded-t-sm bg-gradient-to-t from-primary-cyan/80 to-primary-cyan transition-all duration-700 ease-out"
+                        className="w-[18px] sm:w-[28px] rounded-t-sm bg-gradient-to-t from-primary-cyan/80 to-primary-cyan"
                         style={{
-                          height: isDashboardPhase ? `${bar.current}%` : '0%',
-                          transitionDelay: `${i * 120 + 200}ms`,
-                          boxShadow: isDashboardPhase ? '0 0 10px rgba(0, 229, 200, 0.3)' : 'none',
+                          height: barsGrow ? `${bar.current}%` : '0%',
+                          transition: `height 800ms cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 120 + 100}ms, box-shadow 600ms ease ${i * 120 + 400}ms`,
+                          boxShadow: isDashboardPhase ? '0 0 12px rgba(0, 229, 200, 0.35)' : 'none',
                         }}
                       />
                       {/* Previous year bar */}
                       <div
-                        className="w-[18px] sm:w-[28px] rounded-t-sm bg-white/15 transition-all duration-700 ease-out"
+                        className="w-[18px] sm:w-[28px] rounded-t-sm bg-white/15"
                         style={{
-                          height: isDashboardPhase ? `${bar.previous}%` : '0%',
-                          transitionDelay: `${i * 120 + 300}ms`,
+                          height: barsGrow ? `${bar.previous}%` : '0%',
+                          transition: `height 800ms cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 120 + 200}ms`,
                         }}
                       />
                     </div>
@@ -248,17 +292,16 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
             </div>
 
-            {/* KPI cards column */}
-            <div className="flex sm:flex-col gap-3 sm:w-[180px]">
+            {/* KPI cards column — stacks vertically on mobile too */}
+            <div className="flex flex-col gap-3 sm:w-[180px]">
               {/* Total Revenue */}
               <div
-                className={`
-                  flex-1 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm
-                  p-3 sm:p-4 text-center
-                  transition-all duration-600 ease-out
-                  ${isDashboardPhase ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-                `}
-                style={{ transitionDelay: '400ms' }}
+                className="glass-panel flex-1 !rounded-2xl p-3 sm:p-4 text-center"
+                style={{
+                  opacity: barsGrow ? 1 : 0,
+                  transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
+                  transition: 'opacity 600ms ease-out 350ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 350ms',
+                }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">Total Revenue</p>
                 <p className="text-xl sm:text-2xl font-bold text-white/90">$4.2M</p>
@@ -267,13 +310,12 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
               {/* Top Region */}
               <div
-                className={`
-                  flex-1 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm
-                  p-3 sm:p-4 text-center
-                  transition-all duration-600 ease-out
-                  ${isDashboardPhase ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-                `}
-                style={{ transitionDelay: '600ms' }}
+                className="glass-panel flex-1 !rounded-2xl p-3 sm:p-4 text-center"
+                style={{
+                  opacity: barsGrow ? 1 : 0,
+                  transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
+                  transition: 'opacity 600ms ease-out 500ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 500ms',
+                }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">Top Region</p>
                 <p className="text-lg sm:text-xl font-bold text-white/90">APAC</p>
@@ -282,13 +324,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
 
               {/* AI Insight */}
               <div
-                className={`
-                  flex-1 rounded-2xl border border-primary-cyan/20 bg-primary-cyan/[0.04] backdrop-blur-sm
-                  p-3 sm:p-4 text-center
-                  transition-all duration-600 ease-out
-                  ${isDashboardPhase ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-                `}
-                style={{ transitionDelay: '800ms' }}
+                className="glass-panel flex-1 !rounded-2xl !border-primary-cyan/20 p-3 sm:p-4 text-center"
+                style={{
+                  opacity: barsGrow ? 1 : 0,
+                  transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
+                  transition: 'opacity 600ms ease-out 650ms, transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 650ms',
+                  background: 'rgba(0, 229, 200, 0.04)',
+                }}
               >
                 <p className="text-[10px] sm:text-xs text-primary-cyan/60 mb-1">AI Insight</p>
                 <p className="text-xs sm:text-sm text-white/70 leading-snug">
