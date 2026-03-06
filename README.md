@@ -1,107 +1,125 @@
-# Vuen AI – Visual Data Agent Landing Page
+# Vuen AI – Visual Agent Launchpad
 
-The marketing website and landing page for [Vuen AI](https://vuen.ai), a voice-first Visual Data Agent that turns spoken questions into live charts, flows, and dashboards from your own data in seconds.
+The official website for [Vuen AI](https://vuen.ai) — a voice-first Visual Data Agent that replaces traditional dashboards with real-time, conversational data exploration.
 
-## What is Vuen AI?
+> **Talk to your data. Get answers in seconds. No dashboards. No waiting.**
 
-Vuen AI is a business intelligence product that replaces traditional dashboards with a conversational, voice-driven interface. Users speak to a 3D orb and receive real-time visual data responses — bar charts, flow diagrams, metrics cards, and AI-generated insights — drawn live from their connected data sources.
+## What is a Visual Agent?
 
-**Core product capabilities:**
+A **Visual Agent** is an AI system that bridges the gap between raw data and human understanding through conversation. Instead of building dashboards, writing queries, or waiting on analyst teams, users simply speak to the agent and receive live visualizations and spoken explanations in return.
 
-- **Voice-First Interface** — Ask questions by speaking; the AI agent listens, understands context, and responds visually
-- **Real-Time Visualization** — Charts, graphs, and dashboards are generated on the fly, not pre-built
-- **Smart Data Connection** — Connects to SQL databases, file uploads, and API integrations
-- **AI-Powered Insights** — Surfaces patterns, anomalies, and recommendations automatically
-- **Enterprise Security** — SSO/SAML, on-premise deployment options, SLA guarantees
+Here's how it works:
 
-**Target audience:** Founders/CEOs, Operations teams, Finance & BI analysts, and Real Estate professionals.
+1. **Listen** — The agent receives a spoken question in natural language (e.g., "Show me revenue by region for Q4")
+2. **Understand** — It interprets intent, identifies the relevant data sources, and plans the best visualization
+3. **Fetch** — It queries connected SQL databases, Excel files, Google Sheets, or APIs in real time
+4. **Visualize** — It generates the right chart type automatically — bar charts, line graphs, flow diagrams, maps, or metrics cards — rendered live while the user is still speaking
+5. **Explain** — It verbally narrates the key patterns, anomalies, and actionable recommendations from the data
 
-## Tech Stack
+This creates a fundamentally different BI experience: instead of static reports that go stale, users have a live conversation with their data through a signature 3D animated orb interface.
+
+## Why Visual Agents?
+
+Traditional business intelligence is broken for the people who need it most:
+
+- **Executives** wait days for analyst-prepared reports that answer yesterday's questions
+- **Operations teams** toggle between dozens of pre-built dashboards hoping one has the right view
+- **Finance teams** export data to spreadsheets just to slice it a different way
+
+Visual Agents solve this by making data exploration as natural as asking a question. No SQL knowledge required. No dashboard configuration. No waiting. The AI handles the entire pipeline from question to insight.
+
+## Who It's For
+
+| Role | Use Case |
+|------|----------|
+| **Founders & CEOs** | Instant decision intelligence — ask about revenue, growth, churn, or unit economics on the fly |
+| **Operations Teams** | Query-driven insights into logistics, fulfillment, inventory, and process bottlenecks |
+| **Finance & BI Analysts** | Real-time reporting and ad-hoc analysis without writing SQL or building new views |
+| **Real Estate Professionals** | Property performance, market comparisons, and portfolio analysis through conversation |
+
+## About This Repository
+
+This repository contains the marketing website and landing page that introduces the Visual Agent concept to the world. It is built as a high-performance, multilingual single-page application designed to communicate Vuen AI's vision and convert visitors into early adopters.
+
+### Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
 | Framework | React 18 + TypeScript |
 | Build Tool | Vite 5 (SWC plugin) |
-| Styling | Tailwind CSS 3 + custom design system |
+| Styling | Tailwind CSS 3 + custom "Serious Future" design system |
+| Animation | Custom Canvas-based 3D orb (lightweight alternative to Three.js) |
 | Routing | React Router v6 |
-| SEO | react-helmet-async |
+| i18n | Custom JSON-based translation system (6 languages) |
+| SEO | react-helmet-async with structured data |
 | Icons | Lucide React |
 | Font | Inter (Google Fonts) |
-| Deployment | GitHub Pages (GitHub Actions CI/CD) |
+| Deployment | GitHub Pages via GitHub Actions CI/CD |
 | Domain | [vuen.ai](https://vuen.ai) |
 
-## Project Structure
+### Project Structure
 
 ```
 src/
-├── App.tsx                     # Root component with routing
+├── App.tsx                     # Root component with lazy-loaded routing
 ├── main.tsx                    # Entry point
 ├── components/
-│   ├── Header.tsx              # Fixed navigation header
+│   ├── Header.tsx              # Fixed navigation with language switcher
 │   ├── CTAButton.tsx           # Reusable call-to-action button
-│   ├── CustomCursor.tsx        # Custom cursor effect
+│   ├── OrbCanvas.tsx           # Custom canvas-based 3D orb animation
+│   ├── OrbToGraphsAnimation.tsx # Hero demo: orb transforms into live charts
 │   ├── LanguageSwitcher.tsx    # Language selection dropdown
-│   ├── ParticleBackground.tsx  # Animated particle background
-│   ├── SEO.tsx                 # Per-page SEO meta tags
+│   ├── SEO.tsx                 # Per-page meta tags and structured data
 │   ├── WaitlistModal.tsx       # Waitlist signup modal
 │   └── sections/
-│       ├── HeroSection.tsx     # Hero with interactive dashboard mock
+│       ├── HeroSection.tsx     # Primary CTA with animated orb demo
+│       ├── ProblemSection.tsx  # Pain points of traditional BI
+│       ├── SolutionSection.tsx # Visual Agent value pillars
+│       ├── FeaturesSection.tsx # 6 core capabilities with demo video
 │       ├── SocialProofSection.tsx
-│       ├── FeaturesSection.tsx # Product features grid
 │       ├── TestimonialsSection.tsx
-│       ├── PricingSection.tsx  # Free / Pro / Enterprise plans
-│       ├── CTASection.tsx      # Final call-to-action
+│       ├── PricingSection.tsx  # Free / Pro / Enterprise tiers
+│       ├── FounderSection.tsx  # Founder story
+│       ├── UnderTheHoodSection.tsx # Backend tech credibility
+│       ├── CTASection.tsx      # Final conversion prompt
 │       ├── Footer.tsx
-│       └── ...                 # Additional sections
+│       └── ...                 # Additional narrative sections
 ├── pages/
-│   ├── Index.tsx               # Main landing page
-│   ├── ComingSoon.tsx          # Placeholder for unbuilt pages
+│   ├── Index.tsx               # Main landing page (composes all sections)
+│   ├── ComingSoon.tsx          # Placeholder for upcoming pages
 │   └── legal/
 │       ├── Privacy.tsx
 │       ├── Terms.tsx
 │       └── Security.tsx
 ├── config/
-│   └── site.ts                 # Centralized config: domains, SEO, navigation, social links
+│   └── site.ts                 # Centralized config: domains, SEO, nav, social links
 ├── hooks/
-│   ├── useLanguage.tsx         # Language context provider
-│   ├── useTranslation.ts      # Translation hook (i18n)
-│   └── useTheme.tsx            # Dark/light mode with system preference detection
+│   ├── useLanguage.tsx         # Language context with auto-detection
+│   ├── useTranslation.ts      # Translation hook
+│   └── useTheme.tsx            # Dark/light mode with system preference
 ├── i18n/
-│   ├── index.ts                # Translation loader with English fallback
-│   └── translations/
-│       ├── en.json             # English (default)
-│       ├── es.json             # Spanish
-│       ├── fr.json             # French
-│       ├── zh.json             # Mandarin Chinese
-│       ├── hi.json             # Hindi
-│       └── ar.json             # Arabic
+│   └── translations/          # en, es, fr, zh, hi, ar
 └── lib/
-    ├── languageDetection.ts    # Auto-detect language via IP geolocation
-    └── supabaseclient.ts       # Supabase client (legacy, login redirects to app.vuen.ai)
+    ├── languageDetection.ts    # IP geolocation + browser language detection
+    └── supabaseclient.ts       # Legacy auth (redirects to app.vuen.ai)
 ```
 
-## Design System
+### Design System: "Serious Future"
 
-The site uses a custom **"Serious Future"** design language built on Tailwind CSS:
+The site uses a custom design language built to feel premium, focused, and forward-looking:
 
-- **Color palette:** Deep blue-black void (`#05070F`) backgrounds with a teal (`#00E5C8`) + violet (`#D946EF`) + indigo (`#7C5CFA`) accent triad
-- **Glass morphism:** Frosted glass panels with subtle borders and backdrop blur
-- **Orb animations:** Breathing, listening, thinking, and speaking states for the product's signature 3D orb
-- **Glow effects:** Layered radial gradients and box shadows for depth
-- **Dark/Light mode:** Automatic system preference detection with manual override, FOUC prevention via inline script
+- **Void background** — Deep navy-black (`#05070F`) eliminates distraction and creates depth
+- **Accent triad** — Teal (`#00E5C8`) for action states, indigo (`#7C5CFA`) as a bridge, and violet (`#D946EF`) for active/speaking states
+- **Glass morphism** — Frosted panels with `backdrop-blur` and subtle borders
+- **Orb states** — The signature orb animates through breathing, listening, thinking, and speaking modes
+- **Glow effects** — Layered radial gradients for visual depth
+- **Dark/Light mode** — System preference detection with manual override and FOUC prevention
 
-## Internationalization
+### Internationalization
 
-The site supports 6 languages with automatic detection:
+6 languages with automatic detection via IP geolocation and browser preferences:
 
-1. **English** (default)
-2. **Spanish** — full LATAM + Spain coverage
-3. **French** — France, Canada, West/Central Africa
-4. **Mandarin Chinese** — China, Taiwan, Hong Kong, Singapore
-5. **Hindi** — India
-6. **Arabic** — MENA region
-
-Language is auto-detected via IP geolocation (ipapi.co) and browser preferences, with localStorage persistence.
+- English (default), Spanish, French, Mandarin Chinese, Hindi, Arabic (RTL supported)
 
 ## Getting Started
 
@@ -113,47 +131,57 @@ Language is auto-detected via IP geolocation (ipapi.co) and browser preferences,
 ### Development
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server (port 8082)
-npm run dev
-
-# Type-check
-npm run type-check
-
-# Lint
-npm run lint
-
-# Production build
-npm run build
-
-# Preview production build
-npm run preview
+npm install           # Install dependencies
+npm run dev           # Start dev server (port 8082)
+npm run type-check    # TypeScript validation
+npm run lint          # ESLint
+npm run build         # Production build
+npm run preview       # Preview production build
 ```
 
 ### Environment
 
-No environment variables are required for the landing page. The app redirects authentication to `app.vuen.ai`.
+No environment variables are required for the landing page. Authentication redirects to `app.vuen.ai`.
 
 ## Deployment
 
-The site deploys automatically to GitHub Pages on every push to `main` via the `.github/workflows/deploy.yml` workflow:
+Automated via GitHub Actions on push to `main`:
 
-1. Checks out code
-2. Installs dependencies (`npm ci`)
-3. Builds the project (`npm run build`)
-4. Copies `index.html` to `404.html` for SPA client-side routing
-5. Deploys the `dist/` directory to GitHub Pages
+1. Install dependencies (`npm ci`)
+2. Build (`npm run build`)
+3. Copy `index.html` → `404.html` for SPA routing
+4. Deploy `dist/` to GitHub Pages
 
-The custom domain `vuen.ai` is configured via the `CNAME` file.
+Custom domain `vuen.ai` configured via `CNAME`.
 
-## Build Optimizations
+## Product Details
 
-- **Code splitting:** Vendor chunks for `react`, `react-dom`, `react-router-dom`, and `react-helmet-async`
-- **Lazy loading:** Legal pages and placeholder pages are lazy-loaded with `React.lazy` + `Suspense`
-- **Minification:** Terser with console/debugger stripping in production
-- **SWC:** Uses `@vitejs/plugin-react-swc` for faster compilation than Babel
+### Pricing
+
+| | Free | Pro | Enterprise |
+|---|------|-----|-----------|
+| AI Interactions | 40/month | 600/month | Unlimited |
+| Storage | 1 GB | 50 GB | Unlimited |
+| Dashboards | 2 | Unlimited | Unlimited |
+| Data Sources | File upload | 5 SQL connections | Unlimited |
+| Voice Interface | — | Included | Included |
+| SSO/SAML | — | — | Included |
+| Price | Free | $200/month | Custom |
+
+### Backend Architecture (Product)
+
+The Visual Agent product (served at `app.vuen.ai`) is powered by:
+
+- **FastAPI** — Backend API for data processing and agent orchestration
+- **OpenAI Realtime API** — Live voice processing for sub-second response times
+- **Per-tenant isolation** — Secure, isolated data storage per customer
+- **SOC 2 compliance** — Enterprise-grade security with on-premise deployment options
+
+## Contact
+
+- General: hello@vuen.ai
+- Founder: enoc.silva@vuen.ai
+- Social: [@vuen.ai](https://instagram.com/vuen.ai) on Instagram, X, LinkedIn, Threads, and TikTok
 
 ## License
 
