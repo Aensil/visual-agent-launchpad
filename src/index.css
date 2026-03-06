@@ -816,16 +816,32 @@
   color: #ffffff;
 }
 
+.light .text-white\/25 {
+  color: rgba(26, 32, 44, 0.35);
+}
+
 .light .text-white\/30 {
   color: rgba(26, 32, 44, 0.45);
+}
+
+.light .text-white\/35 {
+  color: rgba(26, 32, 44, 0.5);
 }
 
 .light .text-white\/40 {
   color: rgba(26, 32, 44, 0.55);
 }
 
+.light .text-white\/45 {
+  color: rgba(26, 32, 44, 0.58);
+}
+
 .light .text-white\/50 {
   color: rgba(26, 32, 44, 0.6);
+}
+
+.light .text-white\/55 {
+  color: rgba(26, 32, 44, 0.63);
 }
 
 .light .text-white\/60 {
@@ -840,11 +856,23 @@
   color: rgba(26, 32, 44, 0.85);
 }
 
+.light .text-white\/90 {
+  color: rgba(26, 32, 44, 0.92);
+}
+
 /* Background white-opacity overrides */
 .light .bg-white\/5,
+.light .bg-white\/\[0\.01\],
+.light .bg-white\/\[0\.02\],
 .light .bg-white\/\[0\.03\],
-.light .bg-white\/\[0\.02\] {
+.light .bg-white\/\[0\.04\] {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.light .bg-white\/\[0\.05\],
+.light .bg-white\/\[0\.06\],
+.light .bg-white\/\[0\.08\] {
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .light .bg-white\/10 {
@@ -858,7 +886,8 @@
 
 /* Border white-opacity overrides */
 .light .border-white\/5,
-.light .border-white\/\[0\.06\] {
+.light .border-white\/\[0\.06\],
+.light .border-white\/\[0\.08\] {
   border-color: rgba(0, 0, 0, 0.06);
 }
 
@@ -866,6 +895,7 @@
   border-color: rgba(0, 0, 0, 0.08);
 }
 
+.light .border-white\/15,
 .light .border-white\/16,
 .light .border-white\/20 {
   border-color: rgba(0, 0, 0, 0.1);
@@ -900,12 +930,48 @@
   color: var(--text-primary);
 }
 
+.light .hover\:text-white\/60:hover {
+  color: rgba(26, 32, 44, 0.65);
+}
+
+.light .hover\:text-white\/70:hover {
+  color: rgba(26, 32, 44, 0.75);
+}
+
+.light .hover\:text-white\/80:hover {
+  color: rgba(26, 32, 44, 0.85);
+}
+
+.light .hover\:text-white\/90:hover {
+  color: rgba(26, 32, 44, 0.92);
+}
+
 .light .hover\:bg-white\/5:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
 .light .hover\:bg-white\/10:hover {
   background-color: rgba(0, 0, 0, 0.06);
+}
+
+.light .hover\:bg-white\/20:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.light .hover\:bg-white\/\[0\.05\]:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.light .hover\:bg-white\/\[0\.06\]:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.light .hover\:border-white\/15:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .hover\:border-white\/20:hover {
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .light .hover\:border-white\/40:hover {
