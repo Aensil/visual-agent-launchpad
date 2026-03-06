@@ -54,27 +54,14 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     // Pulsing inner glow intensity — cycles between dim and bright
     const glowPulse = Math.sin(t * 0.9) * 0.5 + 0.5; // 0..1
 
-    // Bright luminous core with visible pulsing
+    // Soft inner glow — diffuse fill so there's no visible inner ring
     const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
-    coreGrad.addColorStop(0, `rgba(0, 229, 200, ${0.22 + glowPulse * 0.15})`);
-    coreGrad.addColorStop(0.2, `rgba(0, 229, 200, ${0.14 + glowPulse * 0.08})`);
-    coreGrad.addColorStop(0.45, `rgba(124, 92, 250, ${0.08 + glowPulse * 0.05})`);
-    coreGrad.addColorStop(0.7, `rgba(0, 229, 200, ${0.04 + glowPulse * 0.03})`);
+    coreGrad.addColorStop(0, `rgba(0, 229, 200, ${0.10 + glowPulse * 0.06})`);
+    coreGrad.addColorStop(0.4, `rgba(124, 92, 250, ${0.04 + glowPulse * 0.03})`);
     coreGrad.addColorStop(1, 'transparent');
     ctx.beginPath();
     ctx.arc(cx, cy, coreRadius, 0, Math.PI * 2);
     ctx.fillStyle = coreGrad;
-    ctx.fill();
-
-    // Central hot spot — small bright center that pulses
-    const hotSpotRadius = baseRadius * 0.15;
-    const hotGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, hotSpotRadius);
-    hotGrad.addColorStop(0, `rgba(255, 255, 255, ${0.12 + glowPulse * 0.1})`);
-    hotGrad.addColorStop(0.5, `rgba(0, 229, 200, ${0.08 + glowPulse * 0.06})`);
-    hotGrad.addColorStop(1, 'transparent');
-    ctx.beginPath();
-    ctx.arc(cx, cy, hotSpotRadius, 0, Math.PI * 2);
-    ctx.fillStyle = hotGrad;
     ctx.fill();
 
     // Draw multiple ring layers for the organic orb effect
