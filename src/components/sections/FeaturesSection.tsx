@@ -120,6 +120,25 @@ const FeaturesSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Product demo embed — shows what the real UI looks like */}
+        <div className="mt-16 sm:mt-20 max-w-3xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02]">
+            <div className="aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/TS1T9m-HKk8"
+                title="Vuen AI Product Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <p className="text-center text-xs text-white/30 mt-4">
+            {t('common.watchDemo')} — {t('hero.subheadline')}
+          </p>
+        </div>
       </div>
     </section>
   );

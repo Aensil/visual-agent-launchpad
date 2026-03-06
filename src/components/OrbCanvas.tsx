@@ -46,7 +46,9 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     ctx.fillRect(0, 0, w, h);
 
     // Draw multiple ring layers for the organic orb effect
-    const ringCount = 50;
+    // Reduce ring count on smaller canvases (mobile) for performance
+    const ringCount = w < 280 ? 30 : 50;
+    const segmentCount = w < 280 ? 120 : 180;
     const mouseInfluence = prefersReducedMotion ? 0 : 0.15;
 
     for (let ring = 0; ring < ringCount; ring++) {
@@ -58,9 +60,8 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
       ctx.beginPath();
 
-      const segments = 180;
-      for (let i = 0; i <= segments; i++) {
-        const angle = (i / segments) * Math.PI * 2;
+      for (let i = 0; i <= segmentCount; i++) {
+        const angle = (i / segmentCount) * Math.PI * 2;
 
         // Organic noise-like distortion from multiple sine waves
         const noise =
@@ -97,15 +98,15 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     }
 
     // Inner bright ring (the most visible one)
+    const innerSegments = w < 280 ? 140 : 200;
     for (let pass = 0; pass < 3; pass++) {
       ctx.beginPath();
       const passAlpha = [0.25, 0.15, 0.08][pass];
       const passWidth = [1.2, 2.0, 3.5][pass];
       const passRadius = baseRadius + pass * 0.5;
 
-      const segments = 200;
-      for (let i = 0; i <= segments; i++) {
-        const angle = (i / segments) * Math.PI * 2;
+      for (let i = 0; i <= innerSegments; i++) {
+        const angle = (i / innerSegments) * Math.PI * 2;
         const noise =
           Math.sin(angle * 3 + t * 0.7) * 5 +
           Math.sin(angle * 5 - t * 0.5) * 3 +
