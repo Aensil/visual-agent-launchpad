@@ -54,9 +54,12 @@
     }
   },
   "socialProof": {
-    "queriesProcessed": "Requêtes traitées mensuellement",
-    "fasterDecisions": "Prise de décision plus rapide",
-    "uptimeSLA": "SLA de disponibilité"
+    "stat1Value": "<2s",
+    "stat1Label": "Temps de réponse moyen",
+    "stat2Value": "6+",
+    "stat2Label": "Types de graphiques auto-sélectionnés",
+    "stat3Value": "14 jours",
+    "stat3Label": "Essai gratuit, sans carte"
   },
   "testimonials": {
     "sectionLabel": "Ce que disent les équipes",
@@ -196,6 +199,11 @@
     "company": "Entreprise",
     "legal": "Légal",
     "features": "Fonctionnalités",
+    "useCases": "Cas d'usage",
+    "realEstateDemo": "Démo Immobilier",
+    "about": "À propos",
+    "careers": "Carrières",
+    "security": "Sécurité",
     "contact": "Contact",
     "privacy": "Confidentialité",
     "terms": "Conditions",

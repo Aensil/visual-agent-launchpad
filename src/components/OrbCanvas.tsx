@@ -1,20 +1,21 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 
 interface OrbCanvasProps {
-  size?: number;
   className?: string;
   prefersReducedMotion?: boolean;
 }
 
 const OrbCanvas: React.FC<OrbCanvasProps> = ({
-  size = 420,
   className = '',
   prefersReducedMotion = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>(0);
+  const animationRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
   const timeRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const rectCacheRef = useRef<DOMRect | null>(null);
+  const isVisibleRef = useRef(true);
 
   const draw = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number) => {
     const cx = w / 2;
@@ -86,7 +87,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       ctx.closePath();
 
       // Color shifts across rings: teal core, hints of violet at edges
-      const hue = 170 + ringProgress * 20; // teal to cyan range
+      const hue = 170 + ringProgress * 20;
       const sat = 85 + ringProgress * 10;
       const light = 55 + Math.sin(ringProgress * Math.PI) * 10;
 
@@ -131,6 +132,23 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     }
   }, [prefersReducedMotion]);
 
+  // Size the canvas buffer to match actual rendered size
+  const sizeCanvas = useCallback((canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    rectCacheRef.current = rect;
+    return { w, h };
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -138,52 +156,84 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const cssSize = size;
+    const { w, h } = sizeCanvas(canvas, ctx);
 
-    canvas.width = cssSize * dpr;
-    canvas.height = cssSize * dpr;
-    canvas.style.width = `${cssSize}px`;
-    canvas.style.height = `${cssSize}px`;
-    ctx.scale(dpr, dpr);
-
+    // Static frame for reduced motion
     if (prefersReducedMotion) {
       timeRef.current = 0;
-      draw(ctx, cssSize, cssSize);
+      draw(ctx, w, h);
       return;
     }
 
-    const animate = () => {
-      timeRef.current += 0.012;
-      draw(ctx, cssSize, cssSize);
+    // IntersectionObserver: pause when off-screen
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
+
+    // ResizeObserver: re-size canvas buffer on layout changes
+    const resizeObserver = new ResizeObserver(() => {
+      sizeCanvas(canvas, ctx);
+    });
+    resizeObserver.observe(canvas);
+
+    // Animation loop with delta timing
+    const animate = (timestamp: number) => {
+      if (startTimeRef.current === null) startTimeRef.current = timestamp;
+
+      if (isVisibleRef.current) {
+        // Delta time in seconds, capped at 50ms to avoid jumps after tab switch
+        const delta = Math.min((timestamp - (startTimeRef.current + timeRef.current * 1000)) / 1000, 0.05);
+        timeRef.current += delta;
+        startTimeRef.current = timestamp - timeRef.current * 1000;
+
+        const { w: cw, h: ch } = sizeCanvas(canvas, ctx);
+        draw(ctx, cw, ch);
+      }
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
-    const handleMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
+    // Mouse handler — uses cached rect
+    const handlePointer = (clientX: number, clientY: number) => {
+      const rect = rectCacheRef.current;
+      if (!rect) return;
       mouseRef.current = {
-        x: ((e.clientX - rect.left) / rect.width - 0.5) * 2,
-        y: ((e.clientY - rect.top) / rect.height - 0.5) * 2,
+        x: ((clientX - rect.left) / rect.width - 0.5) * 2,
+        y: ((clientY - rect.top) / rect.height - 0.5) * 2,
       };
     };
 
+    const handleMouse = (e: MouseEvent) => handlePointer(e.clientX, e.clientY);
+    const handleTouch = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        handlePointer(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouse);
+    canvas.addEventListener('touchmove', handleTouch, { passive: true });
 
     return () => {
-      cancelAnimationFrame(animationRef.current);
+      if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
       window.removeEventListener('mousemove', handleMouse);
+      canvas.removeEventListener('touchmove', handleTouch);
+      observer.disconnect();
+      resizeObserver.disconnect();
     };
-  }, [size, draw, prefersReducedMotion]);
+  }, [draw, sizeCanvas, prefersReducedMotion]);
 
   return (
     <canvas
       ref={canvasRef}
       className={className}
-      style={{ width: size, height: size }}
       aria-hidden="true"
-    />
+    >
+      Animated orb visualization
+    </canvas>
   );
 };
 

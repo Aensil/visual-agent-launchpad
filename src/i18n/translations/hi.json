@@ -54,9 +54,12 @@
     }
   },
   "socialProof": {
-    "queriesProcessed": "मासिक प्रोसेस की गई क्वेरीज़",
-    "fasterDecisions": "तेज़ निर्णय लेना",
-    "uptimeSLA": "अपटाइम SLA"
+    "stat1Value": "<2 सेकंड",
+    "stat1Label": "औसत क्वेरी प्रतिक्रिया समय",
+    "stat2Value": "6+",
+    "stat2Label": "ऑटो-चयनित चार्ट प्रकार",
+    "stat3Value": "14 दिन",
+    "stat3Label": "मुफ्त परीक्षण, कार्ड नहीं चाहिए"
   },
   "testimonials": {
     "sectionLabel": "टीमें क्या कह रही हैं",
@@ -196,6 +199,11 @@
     "company": "कंपनी",
     "legal": "कानूनी",
     "features": "फीचर्स",
+    "useCases": "उपयोग के मामले",
+    "realEstateDemo": "रियल एस्टेट डेमो",
+    "about": "हमारे बारे में",
+    "careers": "करियर",
+    "security": "सुरक्षा",
     "contact": "संपर्क करें",
     "privacy": "गोपनीयता",
     "terms": "शर्तें",

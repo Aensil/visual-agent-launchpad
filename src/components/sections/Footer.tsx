@@ -14,18 +14,18 @@ const Footer: React.FC = () => {
     product: [
       { label: t('footer.features'), href: '#product' },
       { label: t('nav.pricing'), href: '#pricing' },
-      { label: 'Use Cases', href: '/use-cases' },
-      { label: 'Real Estate Demo', href: 'https://real-estate.vuen.ai/', external: true },
+      { label: t('footer.useCases'), href: '/use-cases' },
+      { label: t('footer.realEstateDemo'), href: 'https://real-estate.vuen.ai/', external: true },
     ],
     company: [
-      { label: 'About', href: '/about' },
+      { label: t('footer.about'), href: '/about' },
       { label: t('footer.contact'), href: `mailto:${contact.generalEmail}` },
-      { label: 'Careers', href: '/careers' },
+      { label: t('footer.careers'), href: '/careers' },
     ],
     legal: [
       { label: t('footer.privacy'), href: '/legal/privacy' },
       { label: t('footer.terms'), href: '/legal/terms' },
-      { label: 'Security', href: '/legal/security' },
+      { label: t('footer.security'), href: '/legal/security' },
     ],
   };
 

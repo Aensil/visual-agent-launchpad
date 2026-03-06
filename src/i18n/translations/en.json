@@ -54,9 +54,12 @@
     }
   },
   "socialProof": {
-    "queriesProcessed": "Average query response",
-    "fasterDecisions": "Languages supported",
-    "uptimeSLA": "Credit card required to start"
+    "stat1Value": "<2s",
+    "stat1Label": "Average query response",
+    "stat2Value": "6+",
+    "stat2Label": "Chart types auto-selected",
+    "stat3Value": "14 days",
+    "stat3Label": "Free trial, no card needed"
   },
   "testimonials": {
     "sectionLabel": "What teams are saying",
@@ -196,6 +199,11 @@
     "company": "Company",
     "legal": "Legal",
     "features": "Features",
+    "useCases": "Use Cases",
+    "realEstateDemo": "Real Estate Demo",
+    "about": "About",
+    "careers": "Careers",
+    "security": "Security",
     "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms",

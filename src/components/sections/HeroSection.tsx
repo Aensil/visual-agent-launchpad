@@ -81,7 +81,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           `}
         >
           <OrbCanvas
-            size={320}
             prefersReducedMotion={prefersReducedMotion}
             className="mx-auto w-[240px] h-[240px] sm:w-[320px] sm:h-[320px]"
           />
