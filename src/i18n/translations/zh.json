@@ -23,7 +23,24 @@
     "headline2": "获得答案。",
     "subheadline": "上传CSV或连接数据库。用中文提问。几秒内获得即时可视化图表。",
     "cta": "免费试用 — 无需信用卡",
-    "scroll": "滚动"
+    "scroll": "滚动",
+    "demo": {
+      "voiceQuery": "比较各地区Q3收入与去年的差异",
+      "chartTitle": "各地区收入",
+      "chartSubtitle": "2024年Q3 vs 2023年Q3",
+      "regionNA": "北美",
+      "regionEU": "欧洲",
+      "regionAPAC": "亚太",
+      "regionLATAM": "拉美",
+      "totalRevenue": "总收入",
+      "totalRevenueValue": "$420万",
+      "totalRevenueChange": "同比+23%",
+      "topRegion": "领先地区",
+      "topRegionValue": "亚太",
+      "topRegionChange": "+63%增长",
+      "aiInsight": "AI洞察",
+      "aiInsightText": "亚太地区表现突出，主要由企业级交易驱动。"
+    }
   },
   "features": {
     "title": "理解数据所需的一切",
