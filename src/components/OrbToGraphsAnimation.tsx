@@ -12,8 +12,8 @@ type Phase = 'orb' | 'listening' | 'transition' | 'dashboard' | 'returning';
 const PHASE_DURATIONS: Record<Phase, number> = {
   orb: 2200,
   listening: 2800,
-  transition: 1000,
-  dashboard: 4500,
+  transition: 1200,
+  dashboard: 5000,
   returning: 1000,
 };
 
@@ -127,16 +127,15 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   const showOrb = phase === 'orb' || phase === 'listening';
   const showDashboard = isDashboardPhase || isTransitioning;
 
-  // FIX: Bars must grow AFTER the dashboard container is visible, not during
-  // the transition when the container is still fading in (which hides the animation).
-  // Delay bar growth until dashboard phase begins (container is already opaque by then).
+  // Bars must grow AFTER the dashboard container is fully opaque.
+  // The container transition is: opacity 500ms ease-out with 200ms delay = ~700ms total.
+  // We wait 750ms after showing the dashboard so bars animate when the user can SEE them.
   const [barsReady, setBarsReady] = useState(prefersReducedMotion);
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (isDashboardPhase && !barsReady) {
-      // Dashboard container became visible ~300ms ago (during transition phase).
-      // Start bars immediately now that the container is fully opaque.
-      const id = setTimeout(() => setBarsReady(true), 50);
+      // Wait for the dashboard container to become fully opaque before starting bar growth
+      const id = setTimeout(() => setBarsReady(true), 400);
       return () => clearTimeout(id);
     }
     if (!isDashboardPhase && !isTransitioning) {
@@ -150,8 +149,8 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   // REGRESSION 2 FIX: Don't render OrbCanvas when it's fully invisible
   const orbIsHidden = isDashboardPhase;
 
-  // Orb scale/opacity — fast shrink during transition for decisive exit
-  const orbScale = isDashboardPhase ? 0.1 : isTransitioning ? 0.2 : isReturning ? 0.85 : 1;
+  // Orb scale/opacity — fast decisive shrink during transition, smooth return
+  const orbScale = isDashboardPhase ? 0.05 : isTransitioning ? 0.15 : isReturning ? 0.85 : 1;
   const orbOpacity = isDashboardPhase ? 0 : isTransitioning ? 0 : isReturning ? 0.7 : 1;
 
   // For reduced motion, show dashboard statically with voice bar
@@ -230,36 +229,33 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{ zIndex: 20 }}
           >
-            {/* Expanding teal ring — opacity controlled solely by glow-burst animation
-                (no transition on opacity to avoid animation/transition conflict) */}
+            {/* Expanding teal ring — use ONLY the animation, no conflicting transition */}
             <div
               className="absolute rounded-full"
               style={{
-                width: isTransitioning ? '500px' : '80px',
-                height: isTransitioning ? '500px' : '80px',
-                background: 'radial-gradient(circle, rgba(0, 229, 200, 0.25) 0%, rgba(0, 229, 200, 0.08) 40%, transparent 70%)',
-                opacity: isTransitioning ? undefined : 0,
-                transition: isTransitioning
-                  ? 'width 900ms cubic-bezier(0.16, 1, 0.3, 1), height 900ms cubic-bezier(0.16, 1, 0.3, 1)'
-                  : 'opacity 300ms ease-out',
-                animation: isTransitioning
-                  ? 'glow-burst 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards'
-                  : 'none',
+                width: '500px',
+                height: '500px',
+                background: 'radial-gradient(circle, rgba(0, 229, 200, 0.3) 0%, rgba(0, 229, 200, 0.1) 40%, transparent 70%)',
+                opacity: 0,
+                transform: 'scale(0.15)',
+                ...(isTransitioning ? {
+                  animation: 'glow-burst 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                } : {}),
               }}
             />
-            {/* Core flash */}
+            {/* Core flash — bright initial burst */}
             <div
               className="absolute rounded-full"
               style={{
-                width: '150px',
-                height: '150px',
-                background: 'radial-gradient(circle, rgba(0, 229, 200, 0.7) 0%, rgba(124, 92, 250, 0.35) 45%, transparent 75%)',
+                width: '180px',
+                height: '180px',
+                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 229, 200, 0.6) 25%, rgba(124, 92, 250, 0.3) 55%, transparent 80%)',
                 opacity: isTransitioning ? 1 : 0,
-                transform: isTransitioning ? 'scale(2)' : 'scale(0.3)',
-                filter: 'blur(25px)',
+                transform: isTransitioning ? 'scale(2.5)' : 'scale(0.2)',
+                filter: 'blur(30px)',
                 transition: isTransitioning
-                  ? 'opacity 200ms ease-out, transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
-                  : 'opacity 400ms ease-out, transform 400ms ease-in',
+                  ? 'opacity 150ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1)'
+                  : 'opacity 300ms ease-out, transform 300ms ease-in',
               }}
             />
           </div>
@@ -272,7 +268,9 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             style={{
               opacity: orbOpacity,
               transform: `scale(${orbScale})`,
-              transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+              transition: isTransitioning
+                ? 'opacity 400ms ease-in, transform 500ms cubic-bezier(0.4, 0, 1, 1)'
+                : 'opacity 600ms ease-out, transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
               zIndex: showOrb ? 10 : 1,
               pointerEvents: showOrb ? 'auto' : 'none',
             }}
@@ -298,10 +296,10 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           `}
           style={isReducedMotionStatic ? {} : {
             opacity: showDashboard ? 1 : 0,
-            transform: showDashboard ? 'scale(1)' : 'scale(0.8)',
+            transform: showDashboard ? 'scale(1)' : 'scale(0.95)',
             transition: showDashboard
-              ? 'opacity 500ms ease-out 200ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 150ms'
-              : 'opacity 400ms ease-in, transform 400ms ease-in',
+              ? 'opacity 350ms ease-out 100ms, transform 500ms cubic-bezier(0.16, 1, 0.3, 1) 80ms'
+              : 'opacity 300ms ease-in, transform 300ms ease-in',
             zIndex: showDashboard ? 10 : 1,
             pointerEvents: showDashboard ? 'auto' : 'none',
           }}

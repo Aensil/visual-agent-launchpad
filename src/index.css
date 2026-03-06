@@ -808,11 +808,12 @@
 
 @keyframes glow-burst {
   0% {
-    opacity: 0.9;
-    transform: scale(0.3);
+    opacity: 0.8;
+    transform: scale(0.15);
   }
-  50% {
-    opacity: 0.6;
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6);
   }
   100% {
     opacity: 0;
