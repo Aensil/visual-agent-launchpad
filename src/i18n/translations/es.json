@@ -38,8 +38,11 @@
       "topRegion": "Región Principal",
       "topRegionValue": "APAC",
       "topRegionChange": "+63% crecimiento",
-      "aiInsight": "IA Insight",
-      "aiInsightText": "El rendimiento de APAC impulsado por acuerdos empresariales."
+      "pieTitle": "Mix de Canales",
+      "pieDirect": "Directo",
+      "pieOrganic": "Orgánico",
+      "piePaid": "Pagado",
+      "pieReferral": "Referencia"
     }
   },
   "features": {

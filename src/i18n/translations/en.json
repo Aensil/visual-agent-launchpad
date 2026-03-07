@@ -38,8 +38,11 @@
       "topRegion": "Top Region",
       "topRegionValue": "APAC",
       "topRegionChange": "+63% growth",
-      "aiInsight": "AI Insight",
-      "aiInsightText": "APAC outperformance driven by enterprise deals."
+      "pieTitle": "Channel Mix",
+      "pieDirect": "Direct",
+      "pieOrganic": "Organic",
+      "piePaid": "Paid",
+      "pieReferral": "Referral"
     }
   },
   "features": {

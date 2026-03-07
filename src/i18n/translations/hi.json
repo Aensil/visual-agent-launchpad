@@ -38,8 +38,11 @@
       "topRegion": "शीर्ष क्षेत्र",
       "topRegionValue": "APAC",
       "topRegionChange": "+63% वृद्धि",
-      "aiInsight": "AI अंतर्दृष्टि",
-      "aiInsightText": "APAC का बेहतर प्रदर्शन एंटरप्राइज़ सौदों से प्रेरित है।"
+      "pieTitle": "चैनल मिक्स",
+      "pieDirect": "प्रत्यक्ष",
+      "pieOrganic": "ऑर्गेनिक",
+      "piePaid": "सशुल्क",
+      "pieReferral": "रेफ़रल"
     }
   },
   "features": {
