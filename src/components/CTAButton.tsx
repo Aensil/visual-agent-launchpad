@@ -29,10 +29,10 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const variants = {
     primary: `
       px-6 py-3
-      bg-gradient-to-br from-[#00E5C8] to-[#D946EF]
+      bg-gradient-to-br from-[#00ffff] to-[#db00ff]
       text-white keep-white
-      shadow-[0_0_20px_rgba(0,229,200,0.15)]
-      hover:from-[#D946EF] hover:to-[#9B7EFF]
+      shadow-[0_0_20px_rgba(0,255,255,0.15)]
+      hover:from-[#db00ff] hover:to-[#9B7EFF]
       hover:-translate-y-0.5
       active:translate-y-0
     `,
@@ -41,7 +41,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
       bg-white/15 backdrop-blur-[20px]
       text-[#f0f4ff]
       border border-white/[0.16]
-      hover:bg-white/20 hover:border-[#00E5C8] hover:text-[#00E5C8]
+      hover:bg-white/20 hover:border-[#00ffff] hover:text-[#00ffff]
       hover:-translate-y-0.5
       active:translate-y-0
     `,

@@ -42,7 +42,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(ellipse 60% 40% at 50% 40%, rgba(0, 229, 200, 0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 40% at 50% 40%, rgba(0, 255, 255, 0.08) 0%, transparent 60%),
             radial-gradient(ellipse 40% 30% at 60% 35%, rgba(124, 92, 250, 0.05) 0%, transparent 50%)
           `,
           transform: prefersReducedMotion

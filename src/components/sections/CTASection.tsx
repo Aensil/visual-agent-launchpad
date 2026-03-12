@@ -11,7 +11,7 @@ const CTASection: React.FC = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 229, 200, 0.06) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 255, 255, 0.06) 0%, transparent 50%)',
         }}
       />
 
