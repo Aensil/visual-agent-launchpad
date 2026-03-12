@@ -66,11 +66,11 @@
     --void-elevated: #E8ECF5;
     --void-glass: rgba(248, 250, 255, 0.65);
 
-    /* Primary accent: Cyan — deeper for contrast on light backgrounds */
-    --primary-cyan: #00cccc;
-    --primary-cyan-dim: #00aaaa;
-    --primary-cyan-bright: #00e6e6;
-    --primary-cyan-glow: rgba(0, 204, 204, 0.2);
+    /* Primary accent: Cyan — darkened for WCAG AA contrast on light backgrounds */
+    --primary-cyan: #007A7A;
+    --primary-cyan-dim: #006666;
+    --primary-cyan-bright: #009595;
+    --primary-cyan-glow: rgba(0, 122, 122, 0.25);
 
     /* Secondary accent: Indigo bridge — vibrant */
     --secondary-blue: #6B4FE8;
@@ -99,7 +99,7 @@
 
     /* Glass effects — teal-tinted borders, not neutral black */
     --glass-border: rgba(0, 100, 90, 0.08);
-    --glass-border-hover: rgba(0, 204, 204, 0.35);
+    --glass-border-hover: rgba(0, 122, 122, 0.4);
   }
 
   * {
@@ -249,16 +249,16 @@
     box-shadow:
       0 1px 2px rgba(0, 40, 80, 0.04),
       0 4px 16px rgba(0, 40, 80, 0.04),
-      0 0 1px rgba(0, 204, 204, 0.1),
+      0 0 1px rgba(0, 122, 122, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
   .light .glass-panel:hover {
-    border-color: rgba(0, 204, 204, 0.25);
+    border-color: rgba(0, 122, 122, 0.3);
     box-shadow:
       0 2px 8px rgba(0, 40, 80, 0.06),
       0 8px 24px rgba(0, 40, 80, 0.05),
-      0 0 20px rgba(0, 204, 204, 0.08),
+      0 0 20px rgba(0, 122, 122, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
   }
 
@@ -270,7 +270,7 @@
     box-shadow:
       0 1px 2px rgba(0, 40, 80, 0.04),
       0 4px 16px rgba(0, 40, 80, 0.04),
-      0 0 1px rgba(0, 204, 204, 0.1),
+      0 0 1px rgba(0, 122, 122, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
@@ -280,17 +280,17 @@
     -webkit-backdrop-filter: blur(20px);
     box-shadow:
       0 2px 12px rgba(0, 40, 80, 0.06),
-      0 0 1px rgba(0, 204, 204, 0.08);
+      0 0 1px rgba(0, 122, 122, 0.12);
   }
 
   /* Glow cards — the brand's visual signature, preserved in light mode */
   .light .glass-glow-cyan {
     box-shadow:
       0 2px 16px rgba(0, 40, 80, 0.05),
-      0 0 24px rgba(0, 204, 204, 0.1),
-      0 0 48px rgba(0, 204, 204, 0.05),
+      0 0 24px rgba(0, 122, 122, 0.12),
+      0 0 48px rgba(0, 122, 122, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    border-color: rgba(0, 204, 204, 0.2);
+    border-color: rgba(0, 122, 122, 0.25);
   }
 
   .light .glass-glow-magenta {
@@ -441,10 +441,10 @@
   }
 
   .light .btn-secondary:hover {
-    background: rgba(0, 204, 204, 0.06);
+    background: rgba(0, 122, 122, 0.06);
     border-color: var(--primary-cyan);
     color: var(--primary-cyan);
-    box-shadow: 0 0 16px rgba(0, 204, 204, 0.06);
+    box-shadow: 0 0 16px rgba(0, 122, 122, 0.08);
   }
 
   .light .btn-danger {
@@ -495,7 +495,7 @@
   /* === LIGHT MODE TYPOGRAPHY === */
   /* Glow language preserved — whisper-subtle, not eliminated */
   .light .text-glow-cyan {
-    text-shadow: 0 0 24px rgba(0, 204, 204, 0.15);
+    text-shadow: 0 0 24px rgba(0, 122, 122, 0.2);
   }
 
   .light .text-glow-magenta {
@@ -531,7 +531,7 @@
 
   .light .input-glass:focus {
     border-color: var(--primary-cyan);
-    box-shadow: 0 0 0 3px rgba(0, 204, 204, 0.1), 0 0 16px rgba(0, 204, 204, 0.06);
+    box-shadow: 0 0 0 3px rgba(0, 122, 122, 0.12), 0 0 16px rgba(0, 122, 122, 0.08);
   }
 
   /* === NAVIGATION === */
@@ -620,7 +620,7 @@
     background: linear-gradient(
       180deg,
       var(--void) 0%,
-      rgba(0, 204, 204, 0.06) 50%,
+      rgba(0, 122, 122, 0.06) 50%,
       var(--void) 100%
     );
   }
@@ -1057,15 +1057,15 @@
 
 /* Gradient stops stay vivid in light mode */
 .light .from-primary-cyan {
-  --tw-gradient-from: #00cccc;
+  --tw-gradient-from: #007A7A;
 }
 
 .light .to-primary-cyan {
-  --tw-gradient-to: #00cccc;
+  --tw-gradient-to: #007A7A;
 }
 
 .light .via-primary-cyan {
-  --tw-gradient-via: #00cccc;
+  --tw-gradient-via: #007A7A;
 }
 
 .light .from-deep-indigo {
