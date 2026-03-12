@@ -11,7 +11,7 @@ const CTASection: React.FC = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 255, 255, 0.06) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 229, 200, 0.06) 0%, transparent 50%)',
         }}
       />
 
@@ -33,7 +33,7 @@ const CTASection: React.FC = () => {
           <a
             href={domains.app}
             className="
-              group px-8 py-4 text-base font-semibold text-void
+              group px-8 py-4 text-base font-semibold text-white keep-white
               rounded-full
               bg-primary-cyan
               hover:bg-primary-cyan-bright

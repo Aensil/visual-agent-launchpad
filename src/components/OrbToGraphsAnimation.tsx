@@ -263,7 +263,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 style={{
                   width: 'min(500px, 130vw)',
                   height: 'min(500px, 130vw)',
-                  background: 'radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0.1) 40%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(0, 229, 200, 0.3) 0%, rgba(0, 229, 200, 0.1) 40%, transparent 70%)',
                   animation: 'glow-burst 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 }}
               />
@@ -274,7 +274,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               style={{
                 width: 'min(180px, 48vw)',
                 height: 'min(180px, 48vw)',
-                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0.6) 25%, rgba(124, 92, 250, 0.3) 55%, transparent 80%)',
+                background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 229, 200, 0.6) 25%, rgba(124, 92, 250, 0.3) 55%, transparent 80%)',
                 opacity: isTransitioning ? 1 : 0,
                 transform: isTransitioning ? 'scale(2.5)' : 'scale(0.2)',
                 filter: 'blur(30px)',

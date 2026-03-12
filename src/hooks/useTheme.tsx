@@ -43,7 +43,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     // Update meta theme-color for browser chrome
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      meta.setAttribute('content', theme === 'dark' ? '#0f1726' : '#EFF3FA');
+      meta.setAttribute('content', theme === 'dark' ? '#05070F' : '#EFF3FA');
     }
   }, [theme]);
 
