@@ -372,16 +372,16 @@
 
   .btn-primary {
     @apply relative px-6 py-3 font-semibold rounded-[10px] overflow-hidden;
-    background: linear-gradient(135deg, #00ffff, #db00ff);
+    background: linear-gradient(135deg, var(--deep-indigo), var(--accent-magenta));
     color: #ffffff;
     border: none;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    box-shadow: 0 0 20px var(--deep-indigo-glow);
     transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     min-height: 44px;
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #db00ff, #9B7EFF);
+    background: linear-gradient(135deg, var(--accent-magenta), var(--deep-indigo-bright));
     transform: translateY(-2px);
   }
 
@@ -424,14 +424,14 @@
   /* Buttons carry the glow — they're alive, not flat */
   .light .btn-primary {
     box-shadow:
-      0 2px 8px rgba(0, 204, 204, 0.15),
-      0 0 20px rgba(0, 204, 204, 0.08);
+      0 2px 8px rgba(107, 79, 232, 0.2),
+      0 0 20px rgba(107, 79, 232, 0.1);
   }
 
   .light .btn-primary:hover {
     box-shadow:
-      0 4px 16px rgba(0, 204, 204, 0.25),
-      0 0 32px rgba(0, 204, 204, 0.12);
+      0 4px 16px rgba(107, 79, 232, 0.3),
+      0 0 32px rgba(192, 0, 224, 0.15);
   }
 
   .light .btn-secondary {
@@ -1055,9 +1055,49 @@
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Gradient text stays vivid in light mode */
+/* Gradient stops stay vivid in light mode */
 .light .from-primary-cyan {
   --tw-gradient-from: #00cccc;
+}
+
+.light .to-primary-cyan {
+  --tw-gradient-to: #00cccc;
+}
+
+.light .via-primary-cyan {
+  --tw-gradient-via: #00cccc;
+}
+
+.light .from-deep-indigo {
+  --tw-gradient-from: #6B4FE8;
+}
+
+.light .to-deep-indigo {
+  --tw-gradient-to: #6B4FE8;
+}
+
+.light .via-deep-indigo {
+  --tw-gradient-via: #6B4FE8;
+}
+
+.light .from-accent-magenta {
+  --tw-gradient-from: #c000e0;
+}
+
+.light .to-accent-magenta {
+  --tw-gradient-to: #c000e0;
+}
+
+.light .via-accent-magenta {
+  --tw-gradient-via: #c000e0;
+}
+
+.light .from-deep-indigo-bright {
+  --tw-gradient-from: #8B6EFF;
+}
+
+.light .to-deep-indigo-bright {
+  --tw-gradient-to: #8B6EFF;
 }
 
 /* Pricing toggle: active pill in light mode */

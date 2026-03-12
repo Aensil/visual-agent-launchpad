@@ -61,10 +61,10 @@ export default {
         "neural-indigo": "#7C5CFA",
         "kinetic-magenta": "#db00ff",
 
-        // Text colors
-        "text-primary": "#F0F4FF", // Off-white with slight blue
-        "text-secondary": "#A0AECF", // Light bluish gray
-        "text-muted": "#6B7A9E", // Muted for microcopy
+        // Text colors (synced with CSS variables in index.css)
+        "text-primary": "#f0f4ff", // Off-white with slight blue
+        "text-secondary": "#b8c4e0", // Light bluish gray
+        "text-muted": "#8892a8", // Muted for microcopy
 
         // Status colors (used sparingly)
         "status-success": "#10B981", // Success green
