@@ -1055,6 +1055,15 @@
   background-color: rgba(0, 0, 0, 0.08);
 }
 
+/* Override static Tailwind cyan utilities in light mode */
+.light .bg-primary-cyan {
+  background-color: var(--primary-cyan);
+}
+
+.light .hover\:bg-primary-cyan-bright:hover {
+  background-color: var(--primary-cyan-bright);
+}
+
 /* Gradient stops stay vivid in light mode */
 .light .from-primary-cyan {
   --tw-gradient-from: #007A7A;
