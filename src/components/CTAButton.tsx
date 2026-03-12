@@ -29,28 +29,28 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   const variants = {
     primary: `
       px-6 py-3
-      bg-gradient-to-br from-deep-indigo to-accent-magenta
+      bg-gradient-to-br from-[#00E5C8] to-[#D946EF]
       text-white keep-white
-      shadow-glow-indigo
-      hover:from-accent-magenta hover:to-deep-indigo-bright
+      shadow-[0_0_20px_rgba(0,229,200,0.15)]
+      hover:from-[#D946EF] hover:to-[#9B7EFF]
       hover:-translate-y-0.5
       active:translate-y-0
     `,
     secondary: `
       px-6 py-3
       bg-white/15 backdrop-blur-[20px]
-      text-text-primary
+      text-[#f0f4ff]
       border border-white/[0.16]
-      hover:bg-white/20 hover:border-primary-cyan hover:text-primary-cyan
+      hover:bg-white/20 hover:border-[#00E5C8] hover:text-[#00E5C8]
       hover:-translate-y-0.5
       active:translate-y-0
     `,
     danger: `
       px-6 py-3
-      bg-status-error/15
-      text-status-error
-      border border-status-error/15
-      hover:bg-status-error hover:text-white hover:keep-white
+      bg-[rgba(255,59,48,0.15)]
+      text-[#ff3b30]
+      border border-[rgba(255,59,48,0.15)]
+      hover:bg-[#ff3b30] hover:text-white hover:keep-white
     `,
   };
 

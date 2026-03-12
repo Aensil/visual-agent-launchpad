@@ -93,7 +93,7 @@ export const navigation = {
 export const seoConfig = {
   default: {
     siteName: 'Vuen AI',
-    themeColor: '#0f1726',
+    themeColor: '#05070F',
   },
   pages: {
     home: {

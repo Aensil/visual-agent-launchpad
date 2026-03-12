@@ -33,15 +33,15 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       const twinkle = Math.sin(t * 0.5 + i * 1.7) * 0.5 + 0.5;
       ctx.beginPath();
       ctx.arc(px, py, 0.8 + twinkle * 0.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 255, 255, ${0.1 + twinkle * 0.15})`;
+      ctx.fillStyle = `rgba(0, 229, 200, ${0.1 + twinkle * 0.15})`;
       ctx.fill();
     }
 
     // Outer ambient glow — visible and breathing
     const glowBreath = Math.sin(t * 0.5) * 0.04 + 0.04;
     const outerGlow = ctx.createRadialGradient(cx, cy, baseRadius * 0.3, cx, cy, baseRadius * 1.8);
-    outerGlow.addColorStop(0, `rgba(0, 255, 255, ${0.14 + glowBreath})`);
-    outerGlow.addColorStop(0.35, `rgba(0, 255, 255, ${0.07 + glowBreath * 0.5})`);
+    outerGlow.addColorStop(0, `rgba(0, 229, 200, ${0.14 + glowBreath})`);
+    outerGlow.addColorStop(0.35, `rgba(0, 229, 200, ${0.07 + glowBreath * 0.5})`);
     outerGlow.addColorStop(0.6, `rgba(124, 92, 250, ${0.04 + glowBreath * 0.3})`);
     outerGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = outerGlow;
@@ -56,7 +56,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
     // Soft inner glow — diffuse fill so there's no visible inner ring
     const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreRadius);
-    coreGrad.addColorStop(0, `rgba(0, 255, 255, ${0.10 + glowPulse * 0.06})`);
+    coreGrad.addColorStop(0, `rgba(0, 229, 200, ${0.10 + glowPulse * 0.06})`);
     coreGrad.addColorStop(0.4, `rgba(124, 92, 250, ${0.04 + glowPulse * 0.03})`);
     coreGrad.addColorStop(1, 'transparent');
     ctx.beginPath();
@@ -106,7 +106,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
       ctx.closePath();
 
-      // Color shifts across rings: cyan core → indigo edges (wider range)
+      // Color shifts across rings: teal core → violet edges (wider range)
       const hue = 170 + ringProgress * 50;
       const sat = 80 + ringProgress * 15;
       const light = 50 + Math.sin(ringProgress * Math.PI) * 15;
@@ -143,9 +143,9 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
       }
 
       ctx.closePath();
-      ctx.strokeStyle = `rgba(0, 255, 255, ${passAlpha})`;
+      ctx.strokeStyle = `rgba(0, 229, 200, ${passAlpha})`;
       ctx.lineWidth = passWidth;
-      ctx.shadowColor = 'rgba(0, 255, 255, 0.4)';
+      ctx.shadowColor = 'rgba(0, 229, 200, 0.4)';
       ctx.shadowBlur = pass === 2 ? 20 : 0;
       ctx.stroke();
       ctx.shadowBlur = 0;
