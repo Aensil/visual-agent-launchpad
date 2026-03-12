@@ -111,11 +111,11 @@ const PricingSection: React.FC<PricingSectionProps> = () => {
           background: theme === 'dark'
             ? `
               radial-gradient(ellipse 80% 50% at 50% 100%, rgba(124, 92, 250, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 229, 200, 0.05) 0%, transparent 50%)
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%)
             `
             : `
               radial-gradient(ellipse 80% 50% at 50% 100%, rgba(107, 79, 232, 0.05) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 196, 170, 0.04) 0%, transparent 50%)
+              radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0, 204, 204, 0.04) 0%, transparent 50%)
             `,
         }}
       />
