@@ -33,7 +33,7 @@ const CTASection: React.FC = () => {
           <a
             href={domains.app}
             className="
-              group px-8 py-4 text-base font-semibold text-white keep-white
+              group px-8 py-4 text-base font-semibold text-void
               rounded-full
               bg-primary-cyan
               hover:bg-primary-cyan-bright
