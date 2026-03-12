@@ -106,7 +106,7 @@ const OrbCanvas: React.FC<OrbCanvasProps> = ({
 
       ctx.closePath();
 
-      // Color shifts across rings: teal core → violet edges (wider range)
+      // Color shifts across rings: cyan core → indigo edges (wider range)
       const hue = 170 + ringProgress * 50;
       const sat = 80 + ringProgress * 15;
       const light = 50 + Math.sin(ringProgress * Math.PI) * 15;
