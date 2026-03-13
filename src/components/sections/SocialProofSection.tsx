@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useTheme } from '@/hooks/useTheme';
 import GoogleForStartupsLogo from '@/assets/badges/Google_for_Startups_logo.svg';
+import GoogleForStartupsLogoWhite from '@/assets/badges/Google_for_Startups_logo_white.svg';
 import NvidiaInceptionBadge from '@/assets/badges/nvidia-inception-program-badge-rgb-for-screen.svg';
 
 const SocialProofSection: React.FC = () => {
@@ -24,7 +25,7 @@ const SocialProofSection: React.FC = () => {
           </span>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
             <img
-              src={GoogleForStartupsLogo}
+              src={theme === 'dark' ? GoogleForStartupsLogoWhite : GoogleForStartupsLogo}
               alt="Google for Startups"
               className="h-8 sm:h-10 w-auto opacity-90"
             />
