@@ -235,7 +235,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           Two min-height declarations: vh fallback first, svh override second.
           Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className={`relative overflow-hidden transition-[min-height] duration-700 ease-out ${
+        className={`relative transition-[min-height] duration-700 ease-out ${
           (showDashboard || isReducedMotionStatic)
             ? 'animation-container-expanded'
             : 'animation-container-collapsed'
