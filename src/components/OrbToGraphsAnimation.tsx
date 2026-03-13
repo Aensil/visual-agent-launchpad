@@ -196,7 +196,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
       {/* Voice query bar — shown during listening phase (or always for reduced motion) */}
       <div
         className={`
-          mx-auto mb-4 sm:mb-6 max-w-xl px-4 sm:px-0
+          mx-auto mb-3 sm:mb-6 max-w-xl px-4 sm:px-0
           transition-all duration-700 ease-out
           ${isReducedMotionStatic || phase === 'listening' || isTransitioning || isDashboardPhase
             ? 'opacity-100 translate-y-0'
@@ -264,7 +264,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           Two min-height declarations: vh fallback first, svh override second.
           Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className={`relative transition-[min-height] duration-700 ease-out ${
+        className={`relative overflow-hidden transition-[min-height] duration-700 ease-out ${
           (showDashboard || isReducedMotionStatic)
             ? 'animation-container-expanded'
             : 'animation-container-collapsed'
@@ -272,7 +272,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
         style={{
           // vh fallback for older browsers; svh override via CSS @supports class
           minHeight: (showDashboard || isReducedMotionStatic)
-            ? 'min(420px, 55vh)'
+            ? 'min(380px, 50vh)'
             : 'min(320px, 45vh)',
         }}
       >
@@ -344,10 +344,12 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           </div>
         )}
 
-        {/* Dashboard layer */}
+        {/* Dashboard layer — switches to relative in dashboard phase so content
+            naturally sizes the parent (fixes overflow on small mobile viewports).
+            During transition phase it remains absolute to overlap the shrinking orb. */}
         <div
           className={`
-            ${isReducedMotionStatic ? 'relative' : 'absolute inset-0'} flex items-center justify-center
+            ${(isReducedMotionStatic || isDashboardPhase) ? 'relative' : 'absolute inset-0'} flex items-center justify-center
           `}
           style={isReducedMotionStatic ? {} : {
             opacity: showDashboard ? 1 : 0,
@@ -361,10 +363,10 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           }}
         >
           {/* GAP 3 FIX: ltr direction to prevent RTL flex-row reversal */}
-          <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-2" dir="ltr">
+          <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-4 px-4 sm:px-2" dir="ltr">
             {/* Bar chart panel — REGRESSION 1 FIX: glass-panel-static (no hover lift) */}
-            <div className="glass-panel-static flex-1 min-w-0 !rounded-2xl p-4 sm:p-5">
-              <div className="flex items-center justify-between mb-4">
+            <div className="glass-panel-static flex-1 min-w-0 !rounded-2xl p-3 sm:p-5">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div>
                   <h3 className="text-sm font-semibold text-white/90">{t('hero.demo.chartTitle')}</h3>
                   <p className="text-xs text-white/40 mt-0.5">{t('hero.demo.chartSubtitle')}</p>
@@ -382,7 +384,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
 
               {/* Bar chart — bars start growing during transition, not just dashboard */}
-              <div className="flex justify-around gap-2 sm:gap-4 h-[140px] sm:h-[170px]">
+              <div className="flex justify-around gap-2 sm:gap-4 h-[110px] sm:h-[170px]">
                 {barData.map((bar, i) => (
                   <div key={bar.labelKey} className="flex flex-col items-center gap-1 flex-1">
                     <div className="flex items-end gap-1 flex-1 w-full justify-center">
@@ -410,11 +412,11 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
             </div>
 
-            {/* KPI cards column — stacks vertically on all screens */}
-            <div className="flex flex-col gap-3 min-w-0 sm:w-[180px]">
+            {/* KPI cards — 1-col on very narrow (<360px), 2-col on mobile, stacked on desktop sidebar */}
+            <div className="grid grid-cols-1 min-[360px]:grid-cols-2 sm:flex sm:flex-col gap-2 sm:gap-3 min-w-0 sm:w-[180px]">
               {/* Total Revenue */}
               <div
-                className="glass-panel-static flex-1 !rounded-2xl p-3 sm:p-4 text-center"
+                className="glass-panel-static !rounded-2xl p-2.5 sm:p-4 text-center sm:flex-1"
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
@@ -422,13 +424,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.totalRevenue')}</p>
-                <p className="text-xl sm:text-2xl font-bold text-white/90">{t('hero.demo.totalRevenueValue')}</p>
+                <p className="text-lg sm:text-2xl font-bold text-white/90">{t('hero.demo.totalRevenueValue')}</p>
                 <p className="text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.totalRevenueChange')}</p>
               </div>
 
               {/* Top Region */}
               <div
-                className="glass-panel-static flex-1 !rounded-2xl p-3 sm:p-4 text-center"
+                className="glass-panel-static !rounded-2xl p-2.5 sm:p-4 text-center sm:flex-1"
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
@@ -436,13 +438,13 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 }}
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.topRegion')}</p>
-                <p className="text-lg sm:text-xl font-bold text-white/90">{t('hero.demo.topRegionValue')}</p>
+                <p className="text-base sm:text-xl font-bold text-white/90">{t('hero.demo.topRegionValue')}</p>
                 <p className="text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.topRegionChange')}</p>
               </div>
 
-              {/* Pie / Donut chart — Channel Mix */}
+              {/* Pie / Donut chart — Channel Mix — spans full width on mobile */}
               <div
-                className="glass-panel-static flex-1 !rounded-2xl p-3 sm:p-4"
+                className="glass-panel-static col-span-2 sm:col-span-1 !rounded-2xl p-2.5 sm:p-4 sm:flex-1"
                 style={isReducedMotionStatic ? {} : {
                   opacity: barsGrow ? 1 : 0,
                   transform: barsGrow ? 'translateY(0)' : 'translateY(16px)',
@@ -453,7 +455,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 <div className="flex items-center justify-center gap-3">
                   {/* Donut chart via conic-gradient — opacity transition since gradients can't interpolate */}
                   <div
-                    className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
+                    className="w-[54px] h-[54px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
                     style={{
                       background: `conic-gradient(
                         ${pieData.map((slice, i) =>
