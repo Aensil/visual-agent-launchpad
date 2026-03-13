@@ -79,7 +79,8 @@
     "stat2Value": "6+",
     "stat2Label": "Tipos de gráfico auto-seleccionados",
     "stat3Value": "14 días",
-    "stat3Label": "Prueba gratis, sin tarjeta"
+    "stat3Label": "Prueba gratis, sin tarjeta",
+    "backedBy": "Respaldado por"
   },
   "testimonials": {
     "sectionLabel": "Lo que dicen los equipos",

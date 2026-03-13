@@ -79,7 +79,8 @@
     "stat2Value": "+6",
     "stat2Label": "أنواع رسوم بيانية يتم اختيارها تلقائياً",
     "stat3Value": "14 يوماً",
-    "stat3Label": "تجربة مجانية، بدون بطاقة"
+    "stat3Label": "تجربة مجانية، بدون بطاقة",
+    "backedBy": "مدعوم من"
   },
   "testimonials": {
     "sectionLabel": "ماذا تقول الفرق",

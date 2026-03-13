@@ -79,7 +79,8 @@
     "stat2Value": "6+",
     "stat2Label": "ऑटो-चयनित चार्ट प्रकार",
     "stat3Value": "14 दिन",
-    "stat3Label": "मुफ्त परीक्षण, कार्ड नहीं चाहिए"
+    "stat3Label": "मुफ्त परीक्षण, कार्ड नहीं चाहिए",
+    "backedBy": "समर्थित"
   },
   "testimonials": {
     "sectionLabel": "टीमें क्या कह रही हैं",
