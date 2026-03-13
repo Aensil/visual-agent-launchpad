@@ -16,13 +16,13 @@
 
 "Free tier to get you hooked, $200/month Pro tier — that's real B2B pricing. Not $9/month indie-hacker pricing that signals you don't believe your own product. When you charge $200/month, you're saying: this replaces a BI analyst's afternoon. That's worth funding."
 
-### 4. The Landing Page is Doing Too Much
+### 4. The Landing Page Earned Its Complexity
 
-"Seventeen sections. Six languages. Custom cursor effects. Glass morphism. This is a classic YC mistake — spending months on the marketing site instead of talking to users. The best landing pages I've seen at YC had three sections: what it does, a demo, and a signup button. Ship the product, not the website."
+"Seventeen sections. Six languages. Glass morphism. Normally I'd say this is over-engineered. But Vuen is already generating revenue — so the landing page isn't a procrastination tool, it's a conversion machine. When you have paying customers, investing in the marketing site isn't vanity, it's leverage. The question now is: what's the conversion rate, and which of those 17 sections actually move the needle?"
 
-### 5. Enterprise Features Too Early is a Red Flag
+### 5. Enterprise Features Signal Ambition — Now Back Them Up
 
-"SSO/SAML, on-premise deployment, SLA guarantees — on a waitlist product? This tells me the founders are building what they *think* enterprises want instead of what the first 10 users actually need. At this stage, you should be embarrassed by how manual everything is. Do things that don't scale."
+"SSO/SAML, on-premise deployment, SLA guarantees — these used to worry me when I saw them on pre-revenue landing pages. But Vuen is already making money, which changes the calculus entirely. Now the question isn't 'is this premature?' — it's 'are enterprise customers actually asking for this, or are you guessing?' If even one paying customer demanded SSO, ship it. If nobody asked yet, kill the page and focus on what's working."
 
 ### 6. The Real Moat is Data Connections
 
@@ -36,9 +36,9 @@
 
 "Most B2B SaaS looks like it was designed by a committee. The 3D orb that breathes and listens — that's a brand. People will say 'ask the orb' the way they say 'Google it.' Never underestimate the power of a product that people *want* to show their friends."
 
-### 9. Internationalization is Premature
+### 9. Internationalization is a Growth Lever Now
 
-"Six languages before product-market fit. This is a classic 'building for scale before you have anyone to scale to' mistake. Find 100 users who love you in English first. Then translate."
+"Six languages used to look premature — but for a post-revenue product, it's a distribution play. The interesting thing about voice-first is that it's *inherently* multilingual. If your AI already understands Spanish and Mandarin, why wouldn't your landing page? The founders are making the funnel match the product. That's smart. Just make sure the support and onboarding can actually handle non-English users before you promise them the world."
 
 ### 10. The Biggest Risk is Obvious
 
@@ -48,6 +48,6 @@
 
 ## The Verdict
 
-"In summary: strong idea, strong timing, strong pricing. But the founders need to stop polishing the landing page and go find 10 users who would be genuinely angry if Vuen disappeared. That's when you know you've won."
+"In summary: strong idea, strong timing, strong pricing — and they're already making money, which puts them ahead of 90% of startups I see. The next question is whether they can go from revenue to *compounding* revenue. Find the users who'd be genuinely angry if Vuen disappeared, then figure out how to get a hundred more just like them. That's the game now."
 
 — Paul Graham, March 2026
