@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useTheme } from '@/hooks/useTheme';
+import GoogleForStartupsLogo from '@/assets/badges/Google_for_Startups_logo.svg';
+import NvidiaInceptionBadge from '@/assets/badges/nvidia-inception-program-badge-rgb-for-screen.svg';
 
 const SocialProofSection: React.FC = () => {
   const { t } = useTranslation();
@@ -17,17 +19,17 @@ const SocialProofSection: React.FC = () => {
       <div className="relative max-w-4xl mx-auto">
         {/* Backed by programs */}
         <div className="flex flex-col items-center gap-6 mb-14">
-          <span className="text-xs text-white/40 uppercase tracking-widest font-medium">
+          <span className={`text-xs uppercase tracking-widest font-medium ${theme === 'dark' ? 'text-white/40' : 'text-black/40'}`}>
             {t('socialProof.backedBy')}
           </span>
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
             <img
-              src="/assets/badges/Google_for_Startups_logo.svg"
+              src={GoogleForStartupsLogo}
               alt="Google for Startups"
-              className={`h-8 sm:h-10 w-auto ${theme === 'dark' ? 'brightness-0 invert opacity-80' : 'opacity-90'}`}
+              className="h-8 sm:h-10 w-auto opacity-90"
             />
             <img
-              src="/assets/badges/nvidia-inception-program-badge-rgb-for-screen.svg"
+              src={NvidiaInceptionBadge}
               alt="NVIDIA Inception Program"
               className="h-12 sm:h-14 w-auto"
             />
@@ -39,12 +41,12 @@ const SocialProofSection: React.FC = () => {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className={`text-center ${i < 2 ? 'sm:border-r sm:border-white/8 sm:pr-6 lg:pr-12' : ''}`}
+              className={`text-center ${i < 2 ? `sm:border-r ${theme === 'dark' ? 'sm:border-white/8' : 'sm:border-black/10'} sm:pr-6 lg:pr-12` : ''}`}
             >
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary-cyan to-deep-indigo bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-white/50">{stat.label}</div>
+              <div className={`text-sm ${theme === 'dark' ? 'text-white/50' : 'text-black/50'}`}>{stat.label}</div>
             </div>
           ))}
         </div>
