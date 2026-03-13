@@ -79,7 +79,8 @@
     "stat2Value": "6+",
     "stat2Label": "自动选择的图表类型",
     "stat3Value": "14天",
-    "stat3Label": "免费试用，无需信用卡"
+    "stat3Label": "免费试用，无需信用卡",
+    "backedBy": "获得支持"
   },
   "testimonials": {
     "sectionLabel": "团队评价",

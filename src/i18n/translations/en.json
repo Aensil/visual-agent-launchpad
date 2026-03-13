@@ -79,7 +79,8 @@
     "stat2Value": "6+",
     "stat2Label": "Chart types auto-selected",
     "stat3Value": "14 days",
-    "stat3Label": "Free trial, no card needed"
+    "stat3Label": "Free trial, no card needed",
+    "backedBy": "Backed by"
   },
   "testimonials": {
     "sectionLabel": "What teams are saying",

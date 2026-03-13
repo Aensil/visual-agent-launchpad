@@ -79,7 +79,8 @@
     "stat2Value": "6+",
     "stat2Label": "Types de graphiques auto-sélectionnés",
     "stat3Value": "14 jours",
-    "stat3Label": "Essai gratuit, sans carte"
+    "stat3Label": "Essai gratuit, sans carte",
+    "backedBy": "Soutenu par"
   },
   "testimonials": {
     "sectionLabel": "Ce que disent les équipes",
