@@ -42,8 +42,29 @@ const pieAngles = pieData.reduce<number[]>((acc, slice) => {
   return acc;
 }, []);
 
-// Voice waveform bars (simulated amplitudes)
-const waveformBars = [3, 5, 8, 12, 7, 14, 9, 11, 6, 13, 10, 8, 15, 7, 11, 9, 5, 12, 8, 6];
+// Voice waveform bars — center-weighted bell curve for realistic speech energy
+const waveformBars = [
+  { amp: 4,  dur: 0.7, kf: 1 },
+  { amp: 6,  dur: 0.55, kf: 3 },
+  { amp: 8,  dur: 0.45, kf: 2 },
+  { amp: 11, dur: 0.4,  kf: 4 },
+  { amp: 14, dur: 0.35, kf: 1 },
+  { amp: 17, dur: 0.3,  kf: 3 },
+  { amp: 19, dur: 0.28, kf: 2 },
+  { amp: 20, dur: 0.25, kf: 1 },
+  { amp: 19, dur: 0.27, kf: 4 },
+  { amp: 18, dur: 0.3,  kf: 3 },
+  { amp: 20, dur: 0.26, kf: 2 },
+  { amp: 19, dur: 0.28, kf: 1 },
+  { amp: 17, dur: 0.3,  kf: 4 },
+  { amp: 14, dur: 0.35, kf: 3 },
+  { amp: 11, dur: 0.38, kf: 2 },
+  { amp: 9,  dur: 0.45, kf: 1 },
+  { amp: 7,  dur: 0.5,  kf: 4 },
+  { amp: 5,  dur: 0.6,  kf: 3 },
+  { amp: 4,  dur: 0.65, kf: 2 },
+  { amp: 3,  dur: 0.7,  kf: 1 },
+];
 
 const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
   prefersReducedMotion,
@@ -201,19 +222,27 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               transition-opacity duration-500
               ${phase === 'listening' ? 'opacity-100' : 'opacity-0'}
             `}>
-              {waveformBars.map((amp, i) => (
-                <div
-                  key={i}
-                  className="w-[3px] rounded-full bg-primary-cyan/60"
-                  style={{
-                    height: `${amp + 4}px`,
-                    transform: phase === 'listening' ? undefined : 'scaleY(0.15)',
-                    transformOrigin: 'bottom',
-                    transition: `transform 0.3s ease ${i * 30}ms`,
-                    animation: phase === 'listening' ? `waveform-bar 0.8s ease-in-out ${i * 0.05}s infinite alternate` : 'none',
-                  }}
-                />
-              ))}
+              {waveformBars.map((bar, i) => {
+                const isListening = phase === 'listening';
+                // Opacity varies with amplitude: louder bars glow brighter
+                const opacity = isListening ? 0.4 + (bar.amp / 20) * 0.6 : 0.6;
+                return (
+                  <div
+                    key={i}
+                    className="w-[3px] rounded-full"
+                    style={{
+                      height: `${bar.amp + 4}px`,
+                      backgroundColor: `rgba(0, 229, 200, ${opacity})`,
+                      transform: isListening ? undefined : 'scaleY(0.15)',
+                      transformOrigin: 'center',
+                      transition: `transform 0.3s cubic-bezier(0.68, -0.3, 0.27, 1.3) ${i * 30}ms`,
+                      animation: isListening
+                        ? `waveform-bar-${bar.kf} ${bar.dur}s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.04}s infinite`
+                        : 'none',
+                    }}
+                  />
+                );
+              })}
             </div>
           )}
 
