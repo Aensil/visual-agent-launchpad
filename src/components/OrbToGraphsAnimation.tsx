@@ -264,7 +264,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           Two min-height declarations: vh fallback first, svh override second.
           Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className={`relative transition-[min-height] duration-700 ease-out ${
+        className={`relative overflow-hidden transition-[min-height] duration-700 ease-out ${
           (showDashboard || isReducedMotionStatic)
             ? 'animation-container-expanded'
             : 'animation-container-collapsed'
@@ -273,7 +273,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           // vh fallback for older browsers; svh override via CSS @supports class
           minHeight: (showDashboard || isReducedMotionStatic)
             ? 'min(380px, 50vh)'
-            : 'min(280px, 40vh)',
+            : 'min(320px, 45vh)',
         }}
       >
 
@@ -344,10 +344,12 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           </div>
         )}
 
-        {/* Dashboard layer */}
+        {/* Dashboard layer — switches to relative in dashboard phase so content
+            naturally sizes the parent (fixes overflow on small mobile viewports).
+            During transition phase it remains absolute to overlap the shrinking orb. */}
         <div
           className={`
-            ${isReducedMotionStatic ? 'relative' : 'absolute inset-0'} flex items-center justify-center
+            ${(isReducedMotionStatic || isDashboardPhase) ? 'relative' : 'absolute inset-0'} flex items-center justify-center
           `}
           style={isReducedMotionStatic ? {} : {
             opacity: showDashboard ? 1 : 0,
@@ -410,8 +412,8 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               </div>
             </div>
 
-            {/* KPI cards — 2-column grid on mobile, single column on desktop sidebar */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-col gap-2 sm:gap-3 min-w-0 sm:w-[180px]">
+            {/* KPI cards — 1-col on very narrow (<360px), 2-col on mobile, stacked on desktop sidebar */}
+            <div className="grid grid-cols-1 min-[360px]:grid-cols-2 sm:flex sm:flex-col gap-2 sm:gap-3 min-w-0 sm:w-[180px]">
               {/* Total Revenue */}
               <div
                 className="glass-panel-static !rounded-2xl p-2.5 sm:p-4 text-center sm:flex-1"
@@ -423,7 +425,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.totalRevenue')}</p>
                 <p className="text-lg sm:text-2xl font-bold text-white/90">{t('hero.demo.totalRevenueValue')}</p>
-                <p className="text-[10px] sm:text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.totalRevenueChange')}</p>
+                <p className="text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.totalRevenueChange')}</p>
               </div>
 
               {/* Top Region */}
@@ -437,7 +439,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
               >
                 <p className="text-[10px] sm:text-xs text-white/40 mb-1">{t('hero.demo.topRegion')}</p>
                 <p className="text-base sm:text-xl font-bold text-white/90">{t('hero.demo.topRegionValue')}</p>
-                <p className="text-[10px] sm:text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.topRegionChange')}</p>
+                <p className="text-xs text-primary-cyan font-medium mt-0.5">{t('hero.demo.topRegionChange')}</p>
               </div>
 
               {/* Pie / Donut chart — Channel Mix — spans full width on mobile */}
@@ -453,7 +455,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
                 <div className="flex items-center justify-center gap-3">
                   {/* Donut chart via conic-gradient — opacity transition since gradients can't interpolate */}
                   <div
-                    className="w-[48px] h-[48px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
+                    className="w-[54px] h-[54px] sm:w-[72px] sm:h-[72px] rounded-full flex-shrink-0"
                     style={{
                       background: `conic-gradient(
                         ${pieData.map((slice, i) =>
