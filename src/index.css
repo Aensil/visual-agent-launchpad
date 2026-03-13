@@ -700,10 +700,10 @@
      The inline style sets vh as fallback; this upgrades to svh when supported. */
   @supports (min-height: 1svh) {
     .animation-container-expanded {
-      min-height: min(420px, 55svh) !important;
+      min-height: min(380px, 50svh) !important;
     }
     .animation-container-collapsed {
-      min-height: min(320px, 45svh) !important;
+      min-height: min(280px, 40svh) !important;
     }
   }
 
