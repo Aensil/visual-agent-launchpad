@@ -175,7 +175,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
       {/* Voice query bar — shown during listening phase (or always for reduced motion) */}
       <div
         className={`
-          mx-auto mb-4 sm:mb-6 max-w-xl
+          mx-auto mb-4 sm:mb-6 max-w-xl px-4 sm:px-0
           transition-all duration-700 ease-out
           ${isReducedMotionStatic || phase === 'listening' || isTransitioning || isDashboardPhase
             ? 'opacity-100 translate-y-0'
@@ -235,7 +235,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           Two min-height declarations: vh fallback first, svh override second.
           Browsers without svh support ignore the second and keep the vh value. */}
       <div
-        className={`relative transition-[min-height] duration-700 ease-out ${
+        className={`relative overflow-hidden transition-[min-height] duration-700 ease-out ${
           (showDashboard || isReducedMotionStatic)
             ? 'animation-container-expanded'
             : 'animation-container-collapsed'
@@ -332,9 +332,9 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
           }}
         >
           {/* GAP 3 FIX: ltr direction to prevent RTL flex-row reversal */}
-          <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 px-2" dir="ltr">
+          <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-2" dir="ltr">
             {/* Bar chart panel — REGRESSION 1 FIX: glass-panel-static (no hover lift) */}
-            <div className="glass-panel-static flex-1 !rounded-2xl p-4 sm:p-5">
+            <div className="glass-panel-static flex-1 min-w-0 !rounded-2xl p-4 sm:p-5">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-sm font-semibold text-white/90">{t('hero.demo.chartTitle')}</h3>
@@ -382,7 +382,7 @@ const OrbToGraphsAnimation: React.FC<OrbToGraphsAnimationProps> = ({
             </div>
 
             {/* KPI cards column — stacks vertically on all screens */}
-            <div className="flex flex-col gap-3 sm:w-[180px]">
+            <div className="flex flex-col gap-3 min-w-0 sm:w-[180px]">
               {/* Total Revenue */}
               <div
                 className="glass-panel-static flex-1 !rounded-2xl p-3 sm:p-4 text-center"
