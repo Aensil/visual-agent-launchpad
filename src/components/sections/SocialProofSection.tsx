@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useTheme } from '@/hooks/useTheme';
 
 const SocialProofSection: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   const stats = [
     { value: t('socialProof.stat1Value'), label: t('socialProof.stat1Label') },
@@ -22,7 +24,7 @@ const SocialProofSection: React.FC = () => {
             <img
               src="/assets/badges/Google_for_Startups_logo.svg"
               alt="Google for Startups"
-              className="h-8 sm:h-10 w-auto brightness-0 invert opacity-80"
+              className={`h-8 sm:h-10 w-auto ${theme === 'dark' ? 'brightness-0 invert opacity-80' : 'opacity-90'}`}
             />
             <img
               src="/assets/badges/nvidia-inception-program-badge-rgb-for-screen.svg"
